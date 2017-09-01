@@ -1,0 +1,18 @@
+<list>
+	<item>
+	    <id>en</id>
+	    <ds>English</ds>
+	</item>
+	<item>
+	    <id>es</id>
+	    <ds>Español</ds>
+	</item>
+	<item>
+	    <id>fr</id>
+	    <ds>Française</ds>
+	</item>
+	<item>
+	    <id>pt</id>
+	    <ds>Português</ds>
+	</item>
+</list>

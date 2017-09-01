@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- 
+<lng>
+    <id>LABEL</id>
+    <vl>value</vl>
+    <ds>description</ds>
+    <sc>shortcut</sc>
+</lng>
+-->
+
+<list>
+<lng>
+    <id>MAIN_WINDOW_TITLE</id>
+    <vl>Finanx 12c</vl>
+    <ds></ds>
+    <sc></sc>
+</lng>
+<lng>
+    <id>FILE_MENU</id>
+    <vl>File</vl>
+    <ds></ds>
+    <sc>f</sc>
+</lng>
+<lng>
+    <id>FILE_IMPORT</id>
+    <vl>Import</vl>
+    <ds>Import memory from file.</ds>
+    <sc>i</sc>
+</lng>
+<lng>
+    <id>FILE_EXPORT</id>
+    <vl>Export</vl>
+    <ds>Export memory to file.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>FILE_QUIT</id>
+    <vl>Quit</vl>
+    <ds>Quit program.</ds>
+    <sc>q</sc>
+</lng>
+<lng>
+    <id>EDIT_MENU</id>
+    <vl>Edit</vl>
+    <ds></ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>EDIT_COPY</id>
+    <vl>Copy</vl>
+    <ds>Copy displayed value.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>EDIT_PASTE</id>
+    <vl>Paste</vl>
+    <ds>Paste valid value to display.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE</id>
+    <vl>Erase</vl>
+    <ds>Erase displayed value.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_DSP</id>
+    <vl>Display</vl>
+    <ds>Erase stack the value in the display.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_STK</id>
+    <vl>Stack Registers</vl>
+    <ds>Erase stack registers: RegX, RegY, RegZ, RegT and LastX.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_FIN</id>
+    <vl>Finance Registers</vl>
+    <ds>Erase finance registers: RegN, RegI, RegPV, RegPMT and RegFV.</ds>
+    <sc>f</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_STA</id>
+    <vl>Statistic Registers</vl>
+    <ds>Erase statistic registers: Mem0, Mem1, Mem2, Mem3, Mem4, Mem5 and Mem6.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_REG</id>
+    <vl>All Registers</vl>
+    <ds>Erase all registers above.</ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_PRG</id>
+    <vl>Program Steps</vl>
+    <ds>Erase program steps: from Step0 up to Step999.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>EDIT_RESET</id>
+    <vl>Reset</vl>
+    <ds>Reset all calculator's registers.</ds>
+    <sc>r</sc>
+</lng>
+<lng>
+    <id>VIEW_MENU</id>
+    <vl>View</vl>
+    <ds></ds>
+    <sc>v</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE</id>
+    <vl>Calculator size</vl>
+    <ds>Setup calculator's size.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_VERY_SMALL</id>
+    <vl>Very Small</vl>
+    <ds>Very Small calculator (50%).</ds>
+    <sc>v</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_SMALL</id>
+    <vl>Small</vl>
+    <ds>Small calculator (75%).</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_MEDIUM</id>
+    <vl>Medium</vl>
+    <ds>Medium calculator (100%).</ds>
+    <sc>m</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_LARGE</id>
+    <vl>Large</vl>
+    <ds>Large calculator (125%).</ds>
+    <sc>l</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_HUGE</id>
+    <vl>Very Large</vl>
+    <ds>Very large calculator (150%).</ds>
+    <sc>h</sc>
+</lng>
+<lng>
+    <id>VIEW_SKIN</id>
+    <vl>Calculator skin</vl>
+    <ds>Setup calculator's skin.</ds>
+    <sc>k</sc>
+</lng>
+<lng>
+    <id>VIEW_LANGUAGE</id>
+    <vl>Language</vl>
+    <ds>Setup calculator's language.</ds>
+    <sc>l</sc>
+</lng>
+<lng>
+    <id>OPTIONS_MENU</id>
+    <vl>Options</vl>
+    <ds></ds>
+    <sc>o</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT</id>
+    <vl>Number Format</vl>
+    <ds>Setup decimal separator: dot or comma.</ds>
+    <sc>n</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT_DOT</id>
+    <vl>Dot (0.00)</vl>
+    <ds>Display a DOT (0.00) as the decimal point.</ds>
+    <sc>d</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT_COMMA</id>
+    <vl>Comma (0,00)</vl>
+    <ds>Display a COMMA (0,00) as the decimal point.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT</id>
+    <vl>Date Format</vl>
+    <ds>Setup date format.</ds>
+    <sc>d</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT_MONTH</id>
+    <vl>MM.DDYYYY</vl>
+    <ds>Setup date to month-day-year format.</ds>
+    <sc>m</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT_DAY</id>
+    <vl>DD.MMYYYY</vl>
+    <ds>Setup date to day-month-year format.</ds>
+    <sc>d</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE</id>
+    <vl>Payment mode</vl>
+    <ds>Setup payment mode: begin or end.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE_BEGIN</id>
+    <vl>Begin</vl>
+    <ds>Setup payment mode to begin.</ds>
+    <sc>b</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE_END</id>
+    <vl>End</vl>
+    <ds>Setup payment mode to end.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>TOOLS_MENU</id>
+    <vl>Tools</vl>
+    <ds></ds>
+    <sc>t</sc>
+</lng>
+<lng>
+    <id>TOOLS_REGISTERS_VIEW</id>
+    <vl>Registers view</vl>
+    <ds>View all caculator's registers.</ds>
+    <sc>r</sc>
+</lng>
+<lng>
+    <id>TOOLS_HISTORY</id>
+    <vl>Instructions history</vl>
+    <ds>View instructions history.</ds>
+    <sc>h</sc>
+</lng>
+<lng>
+    <id>ABOUT_MENU</id>
+    <vl>About</vl>
+    <ds></ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>ABOUT_AUTHOR</id>
+    <vl>Author</vl>
+    <ds>View author's information.</ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>ABOUT_CONTRIBUTORS</id>
+    <vl>Contributors</vl>
+    <ds>View contributor's information.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>ABOUT_SOFTWARE</id>
+    <vl>This Software</vl>
+    <ds>View information about this software.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>DIALOG_QUIT</id>
+    <vl>
+Do you want to exit de calculator?
+
+Yes: exit calculator;
+No: press ON button;
+Cancel: nothing.
+	</vl>
+</lng>
+<lng>
+    <id>META_NAME</id>
+    <vl>Finanx 12c Calculator</vl>
+</lng>
+<lng>
+	<id>META_LICENCE</id>
+	<vl>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses.
+    </vl>
+</lng>
+</list>

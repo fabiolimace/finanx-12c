@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- 
+<lng>
+    <id>LABEL</id>
+    <vl>value</vl>
+    <ds>description</ds>
+    <sc>shortcut</sc>
+</lng>
+-->
+
+<list>
+<lng>
+    <id>MAIN_WINDOW_TITLE</id>
+    <vl>Finanx 12c</vl>
+    <ds></ds>
+    <sc></sc>
+</lng>
+<lng>
+    <id>FILE_MENU</id>
+    <vl>Archivo</vl>
+    <ds></ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>FILE_IMPORT</id>
+    <vl>Importar</vl>
+    <ds>Importar memoria de un arcuivo.</ds>
+    <sc>i</sc>
+</lng>
+<lng>
+    <id>FILE_EXPORT</id>
+    <vl>Exportar</vl>
+    <ds>Exportar memoria para un arcuivo.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>FILE_QUIT</id>
+    <vl>Salir</vl>
+    <ds>Cerrar el programa.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>EDIT_MENU</id>
+    <vl>Editar</vl>
+    <ds></ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>EDIT_COPY</id>
+    <vl>Copiar</vl>
+    <ds>Copiar el valor de la pantalla.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>EDIT_PASTE</id>
+    <vl>Pegar</vl>
+    <ds>Pegar un valor válido en la pantalla.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE</id>
+    <vl>Borrar</vl>
+    <ds>Borrar valores.</ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_DSP</id>
+    <vl>Pantalla</vl>
+    <ds>Borrar el valor en la pantalla.</ds>
+    <sc>m</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_STK</id>
+    <vl>Pila</vl>
+    <ds>Borrar los valores de la pila de registradores: RegX, RegY, RegZ, RegT y ÚltX.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_FIN</id>
+    <vl>Registradores Financieros</vl>
+    <ds>Borrar los registradores financieros: RegN, RegI, RegPV, RegPMT y RegFV.</ds>
+    <sc>f</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_STA</id>
+    <vl>Registradores Estadístico</vl>
+    <ds>Borrar los registradores estadísticos: Mem0, Mem1, Mem2, Mem3, Mem4, Mem5 e Mem6.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_REG</id>
+    <vl>Todos los Registradores</vl>
+    <ds>Borrar todos los registradores ariba.</ds>
+    <sc>t</sc>
+</lng>
+<lng>
+    <id>EDIT_ERASE_PRG</id>
+    <vl>Pasos de Programación</vl>
+    <ds>Borrar todos los pasos de programación: Paso0 hacia el Paso999.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>EDIT_RESET</id>
+    <vl>Reempezar</vl>
+    <ds>Reempezar todos los registradores de la calculadora.</ds>
+    <sc>r</sc>
+</lng>
+<lng>
+    <id>VIEW_MENU</id>
+    <vl>Vista</vl>
+    <ds></ds>
+    <sc>v</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE</id>
+    <vl>Tamaño</vl>
+    <ds>Configurar el tamaño de la calculadora.</ds>
+    <sc>t</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_VERY_SMALL</id>
+    <vl>Muy Pequeño</vl>
+    <ds>Calculadora de tamaño muy pequeño (50%).</ds>
+    <sc>q</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_SMALL</id>
+    <vl>Pequeno</vl>
+    <ds>Calculadora de tamaño pequeño (75%).</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_MEDIUM</id>
+    <vl>Normal</vl>
+    <ds>Calculadora de tamaño normal (100%).</ds>
+    <sc>m</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_LARGE</id>
+    <vl>Grande</vl>
+    <ds>Calculadora tamaño grande (125%).</ds>
+    <sc>g</sc>
+</lng>
+<lng>
+    <id>VIEW_SIZE_HUGE</id>
+    <vl>Muy Grande</vl>
+    <ds>Calculadora de tamaño muy grande (150%).</ds>
+    <sc>h</sc>
+</lng>
+<lng>
+    <id>VIEW_SKIN</id>
+    <vl>Aparencia</vl>
+    <ds>Ajustar la aparencia de la calculadora.</ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>VIEW_LANGUAGE</id>
+    <vl>Idioma</vl>
+    <ds>Ajustar o idioma da calculadora.</ds>
+    <sc>i</sc>
+</lng>
+<lng>
+    <id>OPTIONS_MENU</id>
+    <vl>Opciones</vl>
+    <ds></ds>
+    <sc>o</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT</id>
+    <vl>Formato Numérico</vl>
+    <ds>Configurar el separador decimal: punto o coma.</ds>
+    <sc>n</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT_DOT</id>
+    <vl>Punto (0.00)</vl>
+    <ds>Exibir un PUNTO (0.00) como separador decimal.</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>OPTIONS_NUMBER_FORMAT_COMMA</id>
+    <vl>Vírgula (0,00)</vl>
+    <ds>Exibir na COMA (0,00) como separadora decimal.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT</id>
+    <vl>Formato de Fecha</vl>
+    <ds>Configurar el formato de fecha.</ds>
+    <sc>f</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT_MONTH</id>
+    <vl>MM.DDAAAA</vl>
+    <ds>Configurar la fecha para el formato mes-dia-año.</ds>
+    <sc>m</sc>
+</lng>
+<lng>
+    <id>OPTIONS_DATE_FORMAT_DAY</id>
+    <vl>DD.MMAAAA</vl>
+    <ds>Configurar la fecha para el formato dia-mes-año.</ds>
+    <sc>d</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE</id>
+    <vl>Modo de Pago</vl>
+    <ds>Configurar el modo de Pago: empiezo (begin) o fin (end).</ds>
+    <sc>p</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE_BEGIN</id>
+    <vl>Empiezo (begin)</vl>
+    <ds>Configurar el modo de pago para el empiezo.</ds>
+    <sc>e</sc>
+</lng>
+<lng>
+    <id>OPTIONS_PAYMENT_MODE_END</id>
+    <vl>Fin (end)</vl>
+    <ds>Configurar el modo de pago para el fin.</ds>
+    <sc>f</sc>
+</lng>
+<lng>
+    <id>TOOLS_MENU</id>
+    <vl>Heramientas</vl>
+    <ds></ds>
+    <sc>h</sc>
+</lng>
+<lng>
+    <id>TOOLS_REGISTERS_VIEW</id>
+    <vl>Vista de Registradores</vl>
+    <ds>Ver todos los registradores de la calculadora.</ds>
+    <sc>r</sc>
+</lng>
+<lng>
+    <id>TOOLS_HISTORY</id>
+    <vl>Histórico de Instruciones</vl>
+    <ds>Ver el histórico de instruciones.</ds>
+    <sc>h</sc>
+</lng>
+<lng>
+    <id>ABOUT_MENU</id>
+    <vl>Sobre</vl>
+    <ds></ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>ABOUT_AUTHOR</id>
+    <vl>Autor</vl>
+    <ds>Ver las informaciones del autor.</ds>
+    <sc>a</sc>
+</lng>
+<lng>
+    <id>ABOUT_CONTRIBUTORS</id>
+    <vl>Colaboradores</vl>
+    <ds>Ver las informaciones de los colaboradores.</ds>
+    <sc>c</sc>
+</lng>
+<lng>
+    <id>ABOUT_SOFTWARE</id>
+    <vl>Este Software</vl>
+    <ds>Ver las informaciones sobre este software.</ds>
+    <sc>s</sc>
+</lng>
+<lng>
+    <id>DIALOG_QUIT</id>
+    <vl>
+Quieres salir de la calculadora?
+
+Sí: salir de la calculadora;
+No: presionar el botón ON;
+Cancelar: nada.
+
+</vl>
+    <ds></ds>
+    <sc></sc>
+</lng>
+<lng>
+    <id>META_NAME</id>
+    <vl>Finanx 12c Calculator</vl>
+</lng>
+<lng>
+	<id>META_LICENCE</id>
+	<vl>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses.
+    </vl>
+</lng>
+</list>

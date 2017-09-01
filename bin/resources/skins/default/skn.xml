@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<skn>
+<name>default</name>
+<description>Finanx FX-12C default style</description>
+<bg-color>#333333</bg-color>
+<face-color>#EEEEEE</face-color>
+<display-bg-color>#AAAAAA</display-bg-color>
+<display-font-size />
+<display-face-color>#445555</display-face-color>
+<button-bg-color>#333333</button-bg-color>
+<button-face-color>#DDDDDD</button-face-color>
+</skn>
+
+

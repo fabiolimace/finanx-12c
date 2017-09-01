@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cfg>
+<version>ALL</version> 
+<size>0.75</size>
+<xpos>0</xpos>
+<ypos>0</ypos>
+<skin>default</skin>
+<lang>en</lang>
+<stksize>4</stksize>
+<memsize>20</memsize>
+<prgsize>100</prgsize>
+<c>0</c>
+<dmy>0</dmy>
+<com>0</com>
+<alg>0</alg>
+<beg>0</beg>
+<fix>9</fix>
+<mode>0</mode>
+<key code="0" char="0" />
+<key code="1" char="1" />
+<key code="2" char="2" />
+<key code="3" char="3" />
+<key code="4" char="4" />
+<key code="5" char="5" />
+<key code="6" char="6" />
+<key code="7" char="7" />
+<key code="8" char="8" />
+<key code="9" char="9" />
+<key code="10" char="/" />
+<key code="11" char="n" />
+<key code="12" char="i" />
+<key code="13" char="p" />
+<key code="14" char="m" />
+<key code="15" char="v" />
+<key code="16" char="h" />
+<key code="20" char="*" />
+<key code="21" char="!" />
+<key code="22" char="\\" />
+<key code="23" char="#" />
+<key code="24" char="$" />
+<key code="25" char="%" />
+<key code="26" char="e" />
+<key code="30" char="-" />
+<key code="31" char="[" />
+<key code="32" char="]" />
+<key code="33" char="d" />
+<key code="34" char="y" />
+<key code="35" char="c" />
+<key code="36" char="\n" />
+<key code="40" char="+" />
+<key code="41" char="o" />
+<key code="42" char="f" />
+<key code="43" char="g" />
+<key code="44" char="s" />
+<key code="45" char="r" />
+<key code="48" char="." />
+<key code="49" char="w" />
+</cfg>
