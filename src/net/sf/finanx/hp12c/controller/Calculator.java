@@ -1766,7 +1766,6 @@ public class Calculator {
 			stk.addDaysToDate();
 			
 			// Calculate week day and show it.
-			Calendar cal = Stack.numberToDate(stk.top(), (flg.getDmy() == 1? true : false));
 			dsp.setValue(stk.top());
 			stp.setStep(Step.STP_G_CHS);
 			dsp.setStatus(Display.STATUS_READY);

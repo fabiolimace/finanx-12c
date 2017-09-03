@@ -65,7 +65,8 @@ public class Configuration {
 		new KeyMapItem(48, '.'), // KEY_DOT, .
 		new KeyMapItem(49, 'w')};// EY_TOT, w
 	
-	public static final Object VERSION = "0.2.0";
+	public static final Object VERSION = "0.2.1";
+	public static final String DEFAULT_SKIN = "aurum";
 
 	public static class KeyMapItem {
 		private char ch;
@@ -100,7 +101,7 @@ public class Configuration {
 	public void setDefaults() {
 		this.setSize(0.75);
 		this.setFix(9);
-		this.setSkin("default");
+		this.setSkin(DEFAULT_SKIN);
 		this.setLanguage("en");
 		this.setStackSize(4);
 		this.setMemorySize(20);

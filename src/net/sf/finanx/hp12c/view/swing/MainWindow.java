@@ -360,7 +360,7 @@ public class MainWindow {
 		if (cfg.getSkin() != "") {
 			this.skinPath = "skins/" + cfg.getSkin() + "/";
 		} else {
-			this.skinPath = "skins/default/";
+			this.skinPath = "skins/" + Configuration.DEFAULT_SKIN + "/";
 		}
 		
 		this.skinFontPath = this.skinPath + "font.ttf";
