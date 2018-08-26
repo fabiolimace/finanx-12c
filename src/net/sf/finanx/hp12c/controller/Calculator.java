@@ -604,6 +604,7 @@ public class Calculator {
 
 			// Debug
 			
+			// TODO: replace this lines with better logging
 			System.out.println("--------------------\n");
 			System.out.println(stp);
 			System.out.println(fin);
@@ -841,31 +842,31 @@ public class Calculator {
 		return false;
 	}
 
-	protected void executeOddPeriodTasks() {
-		try {
-			// With odd period using simple interest
-			if (flg.getC() == 0) {
-				fin.setPv(fin.simpleFutureValue());
-			}
-			// With odd period using compound interest
-			else {
-				fin.setPv(fin.futureValue());
-			}
-
-			// Fixing PV sign
-			fin.setPv(fin.getPv().negate());
-
-			// Truncating the odd period
-			fin.setN(fin.getN().integralPart());
-
-		} // End Try
-		catch (CalculatorException e) {
-			showError(e);
-			// e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	protected void executeOddPeriodTasks() {
+//		try {
+//			// With odd period using simple interest
+//			if (flg.getC() == 0) {
+//				fin.setPv(fin.simpleFutureValue());
+//			}
+//			// With odd period using compound interest
+//			else {
+//				fin.setPv(fin.futureValue());
+//			}
+//
+//			// Fixing PV sign
+//			fin.setPv(fin.getPv().negate());
+//
+//			// Truncating the odd period
+//			fin.setN(fin.getN().integralPart());
+//
+//		} // End Try
+//		catch (CalculatorException e) {
+//			showError(e);
+//			// e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+////		}
+//	}
 
 	public void showError(CalculatorException e) {
 		// show erros on display, except magnitude errors
@@ -1560,10 +1561,7 @@ public class Calculator {
 					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				stk.set(0, fin.period());
-
-				// Here odd period check have to be done AFTER the calculus
-				// if(checkOddPeriod()) executeOddPeriodTasks();
-
+				
 				fin.setN(stk.top());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 
@@ -1612,8 +1610,8 @@ public class Calculator {
 				stk.set(0, fin.rate());
 
 				// Here odd period check have to be done AFTER the calculus
-				if (checkOddPeriod())
-					executeOddPeriodTasks();
+//				if (checkOddPeriod())
+//					executeOddPeriodTasks();
 
 				fin.setI(stk.top());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
@@ -1695,9 +1693,9 @@ public class Calculator {
 			if ((dsp.getStatus() == Display.STATUS_READY)
 					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
-				// Here odd period check should be done BEFORE the calculus
-				if (checkOddPeriod())
-					executeOddPeriodTasks();
+//				// Here odd period check should be done BEFORE the calculus
+//				if (checkOddPeriod())
+//					executeOddPeriodTasks();
 
 				stk.set(0, fin.pricePayment());
 
@@ -1740,8 +1738,8 @@ public class Calculator {
 					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				// Here odd period check should be done BEFORE the calculus
-				if (checkOddPeriod())
-					executeOddPeriodTasks();
+//				if (checkOddPeriod())
+//					executeOddPeriodTasks();
 
 				stk.set(0, fin.futureValue());
 

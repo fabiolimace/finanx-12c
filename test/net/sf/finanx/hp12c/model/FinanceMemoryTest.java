@@ -68,6 +68,7 @@ public class FinanceMemoryTest {
 		fin.setI(n(1.5)); // annual interest rate
 		fin.setPv(n(-18000)); // principal amount
 		assertEquals(n(20160), fin.simpleFutureValue().round(2));
+		
 	}
 	
 	@Test
@@ -81,8 +82,19 @@ public class FinanceMemoryTest {
 		fin.setPv(n(-6000));
 		fin.setPmt(n(0));
 		fin.setFv(n(10000));
-		Number i = n(1.61);
+		Number i = n(1.61); // 1.60913949
 		assertEquals(i, fin.rate().round(2));
+		
+		// Microsoft Excel 
+		fin.clear();
+		fin.setBegin(false);
+		fin.setC(false);
+		fin.setN(n(4).multiply(n(12)));
+		fin.setPv(n(8000));
+		fin.setPmt(n(-200));
+		fin.setFv(n(0));
+		i = n(0.77014725);
+		assertEquals(i, fin.rate().round(8));
 	}
 	
 	@Test
@@ -107,7 +119,7 @@ public class FinanceMemoryTest {
 		fin.setFv(n(4000));
 		assertEquals(n(58), fin.period());
 		
-		// SF Bugs#3
+		// SF [bugs:#3]
 		// [150] [CHS] [PV] [50000] [FV] [2] [i] [n]
 		fin.clear();
 		fin.setBegin(false);
@@ -139,6 +151,7 @@ public class FinanceMemoryTest {
 		fin.setPmt(n(17500));
 		fin.setFv(n(540000));
 		assertEquals(n(-369494.09), fin.presentValue().round(2));
+		
 	}
 	
 	@Test
@@ -161,6 +174,18 @@ public class FinanceMemoryTest {
 		fin.setPv(n(-3200));
 		fin.setFv(n(60000));
 		assertEquals(n(-717.44), fin.pricePayment().round(2));
+		
+		// HP12C Manual (from rate section)
+		// HP12C Manual
+		fin.clear();
+		fin.setBegin(false);
+		fin.setC(false);
+		fin.setN(n(8).multiply(n(4)));
+		fin.setPv(n(-6000));
+		fin.setFv(n(10000));
+		fin.setI(n(1.60913949));
+		Number i = n(0.0);
+		assertEquals(i, fin.pricePayment().round(2));
 	}
 	
 	
@@ -184,6 +209,24 @@ public class FinanceMemoryTest {
 		fin.setI(n(6.25).divide(TWELVE));
 		fin.setPmt(n(-50));
 		assertEquals(n(1281.34), fin.futureValue().round(2));
+		
+		// SF [bugs:#5] (C flag off)
+		fin.clear();
+		fin.setBegin(true);
+		fin.setC(false);
+		fin.setN(n(5.5)); // number of days
+		fin.setI(n(3)); // annual interest rate
+		fin.setPv(n(-10000)); // principal amount
+		assertEquals(n(11766.63185), fin.futureValue().round(5));
+		
+		// SF [bugs:#5] (C flag on)
+		fin.clear();
+		fin.setBegin(true);
+		fin.setC(true);
+		fin.setN(n(5.5)); // number of days
+		fin.setI(n(3)); // annual interest rate
+		fin.setPv(n(-10000)); // principal amount
+		assertEquals(n(11765.34687), fin.futureValue().round(5));
 	}
 	
 	@Test

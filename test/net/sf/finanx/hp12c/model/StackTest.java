@@ -3,6 +3,13 @@ package net.sf.finanx.hp12c.model;
 import static net.sf.finanx.math.Number.*;
 import static org.junit.Assert.*;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -225,6 +232,41 @@ public class StackTest {
 		assertEquals(n(498), stk.pop());
 		assertEquals(n(491), stk.pop());
 		assertEquals(n(0), stk.top());
+	}
+	
+	@Test
+	public void diffOfDaysBetweenDatesTest_YearOf365Days() throws Exception {
+		
+		LocalDateTime today = LocalDateTime.ofInstant(Instant.now().truncatedTo(ChronoUnit.DAYS), ZoneId.systemDefault());
+		LocalDateTime then = null;
+		
+		int max = 1000;
+		for(int i = -max; i < max; i++) {
+			
+			then = today.plusDays(i);
+			
+			String d1 = "";
+			String d2 = "";
+			
+			d1 += String.format("%02d", today.get(ChronoField.MONTH_OF_YEAR));
+			d1 += ".";
+			d1 += String.format("%02d", today.get(ChronoField.DAY_OF_MONTH));
+			d1 += String.format("%04d", today.get(ChronoField.YEAR));
+			
+			d2 += String.format("%02d", then.get(ChronoField.MONTH_OF_YEAR));
+			d2 += ".";
+			d2 += String.format("%02d", then.get(ChronoField.DAY_OF_MONTH));
+			d2 += String.format("%04d", then.get(ChronoField.YEAR));
+			
+			stk.setDmy(false);
+			stk.put(n(d1));
+			stk.put(n(d2));
+			stk.diffOfDaysBetweenDates(); 
+
+			long diff365 = today.until(then, ChronoUnit.DAYS);
+			
+			assertEquals(n(diff365), stk.pop());
+		}
 	}
 	
 	@Test

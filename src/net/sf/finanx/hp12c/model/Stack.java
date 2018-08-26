@@ -622,8 +622,11 @@ public class Stack {
 	 * @throws CalculatorException
 	 */
 	private static Number diffDates365(Calendar begDate, Calendar endDate) throws CalculatorException {
-		long diff = (endDate.getTimeInMillis() - begDate.getTimeInMillis()) / (1000 * 60 * 60 * 24);
-		return n(diff);
+		long millisPerDay = 1000 * 60 * 60 * 24;
+		long endDays = endDate.getTimeInMillis() / millisPerDay;
+		long begDays = begDate.getTimeInMillis() / millisPerDay;
+		long diffDays = endDays - begDays;
+		return n(diffDays);
 	}
 	
 	/**
@@ -650,7 +653,7 @@ public class Stack {
 		
 		// HP12C Manual
 		if(dd1==31){
-			z1=30; 
+			z1=30;
 		} else {
 			z1 = dd1;
 		}
@@ -666,7 +669,7 @@ public class Stack {
 		
 		long date1 = yyyy1 * 360 + mm1 * 30 + z1;
 		long date2 = yyyy2 * 360 + mm2 * 30 + z2;
-		
+				
 		return n(date2 - date1);
 	}
 	

@@ -2,8 +2,6 @@ package net.sf.finanx.hp12c.model;
 
 import static net.sf.finanx.math.Number.*;
 
-import java.util.Calendar;
-
 import net.sf.finanx.hp12c.controller.CalculatorException;
 import net.sf.finanx.hp12c.controller.Error;
 import net.sf.finanx.math.Number;
@@ -209,33 +207,30 @@ public class FinanceMemory {
 		
 		// Without odd period
 		if(fracPart(n) == 0.0){
+			
 			tmp[0] = ( 1 + i * (beg));
 			tmp[1] = ( 1 - Math.pow( 1 + i, 0 - n )) / i;
 			tmp[2] = Math.pow( 1 + i, 0 - n );
 			
 			fv = -((pv + tmp[0] * pmt * tmp[1]) / tmp[2]) ;
-			
 		}
 		// With odd period
 		else{
-			// With odd period using simple interest
+			
+			// Using simple interest
 			if(c==0){
-				
 				tmp[0] = ( 1 + ( i * fracPart(n) ) );
-				tmp[1] = ( 1 + i * (beg));
-				tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
-				tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
 			}
-			// With odd period using compound interest
+			// Using compound interest
 			else{
 				tmp[0] = Math.pow(1 + i, fracPart(n));
-				tmp[1] = ( 1 + i * (beg));
-				tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
-				tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
 			}
-						
-			fv = -( (pv * tmp[0] + tmp[1] * pmt * tmp[2]) / tmp[3]) ;
 			
+			tmp[1] = ( 1 + i * (beg));
+			tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
+			tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
+			
+			fv = -( (pv * tmp[0] + tmp[1] * pmt * tmp[2]) / tmp[3]) ;
 		}
 		
 		return ( fv );
@@ -358,31 +353,26 @@ public class FinanceMemory {
 			tmp[2] = Math.pow( 1 +i, 0 - n );
 			
 			pv = -(tmp[0] * pmt * tmp[1] + fv * tmp[2]);
-
 		}
 		// With odd period
 		else{
-			// With odd period using simple interest
+			// Using simple interest
 			if(c==0){
-				
 				tmp[0] = ( 1 + ( i * fracPart(n) ) );
-				tmp[1] = ( 1 + i * (begin));
-				tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
-				tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
 			}
-			// With odd period using compound interest
+			// Using compound interest
 			else{
 				tmp[0] = Math.pow(1 + i, fracPart(n));
-				tmp[1] = ( 1 + i * (begin));
-				tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
-				tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
 			}
 			
-			pv = -( ( tmp[1] * pmt * tmp[2] + fv * tmp[3] ) / tmp[0] );			
+			tmp[1] = ( 1 + i * (begin));
+			tmp[2] = ( 1 - Math.pow( 1 + i, 0 - intPart(n) )) / i;
+			tmp[3] =  Math.pow( 1 + i, 0 - intPart(n) );
+			
+			pv = -( ( tmp[1] * pmt * tmp[2] + fv * tmp[3] ) / tmp[0] );
 		}
 		
 		return ( pv );
-		
 	}
 	
 	/**
@@ -405,7 +395,7 @@ public class FinanceMemory {
 		
 		return n(pricePayment(_n, _i, _pv, _fv, _begin, _c));
 	}
-	
+
 	// TODO: Refactor
 	private static double pricePayment(double _n, double _i, double _pv, double _fv, double _begin, double _c) throws CalculatorException{
 		
@@ -434,7 +424,6 @@ public class FinanceMemory {
 			tmp[2] = Math.pow( 1 + _i, 0 - _n );
 			
 			pmt =  -( (_pv + _fv * tmp[2]) / (tmp[0] * tmp[1]) );
-			
 		}
 		// With odd period
 		else{
@@ -442,20 +431,17 @@ public class FinanceMemory {
 			if(_c==0){
 				
 				tmp[0] = ( 1 + ( _i * nFrac ) );
-				tmp[1] = ( 1 + _i * (_begin));
-				tmp[2] = ( 1 - Math.pow( 1 + _i, 0 - nFrac )) / _i;
-				tmp[3] =  Math.pow( 1 + _i, 0 - nFrac );
 			}
 			// With odd period using compound interest
 			else{
 				tmp[0] = Math.pow(1 + _i, nFrac);
-				tmp[1] = ( 1 + _i * (_begin));
-				tmp[2] = ( 1 - Math.pow( 1 + _i, 0 - nFrac )) / _i;
-				tmp[3] =  Math.pow( 1 + _i, 0 - nFrac );
 			}
 			
-			pmt =  -( (_pv * tmp[0] + _fv * tmp[3]) / (tmp[1] * tmp[2]) );
+			tmp[1] = ( 1 + _i * (_begin));
+			tmp[2] = ( 1 - Math.pow( 1 + _i, 0 - nFrac )) / _i;
+			tmp[3] =  Math.pow( 1 + _i, 0 - nFrac );
 			
+			pmt =  -( (_pv * tmp[0] + _fv * tmp[3]) / (tmp[1] * tmp[2]) );
 		}
 		
 		return (pmt);
@@ -526,7 +512,7 @@ public class FinanceMemory {
 				found = true;
 				break;
 			}
-			if (cnt > 5000) {
+			if (cnt > 10000) {
 				break;
 			}
 			cnt++;
