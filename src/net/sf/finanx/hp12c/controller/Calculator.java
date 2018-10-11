@@ -1587,7 +1587,7 @@ public class Calculator {
 			dsp.setStatus(Display.STATUS_OUTPUT);
 
 		} else if (flg.getG() == 1) {
-			stk.put(TWELVE.divide(stk.pop()));
+			stk.put(stk.pop().divide(TWELVE));
 			fin.setI(stk.top());
 			stp.setStep(Step.STP_G_I);
 			dsp.setStatus(Display.STATUS_OUTPUT);
