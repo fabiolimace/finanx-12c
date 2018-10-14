@@ -421,6 +421,8 @@ public class Calculator {
 				return;
 			}
 
+			stp.setStep(Step.STP_NULL);
+					
 			switch (k) {
 			case KEY_0: {
 				this.doKey00();
@@ -633,6 +635,7 @@ public class Calculator {
 				&& flg.getSto() == 0
 				&& flg.getRcl() == 0) {
 			System.out.println("--------------------\n");
+			System.out.println(stp);
 			System.out.println(stk);
 			System.out.println(fin);
 		}
@@ -706,6 +709,7 @@ public class Calculator {
 					mem.set((int) (i(tmp[0]) * 100 + i(tmp[1]) * 10 + i(tmp[2])), stk.top());
 				}
 				dsp.setStatus(Display.STATUS_OUTPUT);
+				stp.setStep(Step.STP_STO);
 			}
 		}
 	}
@@ -766,6 +770,7 @@ public class Calculator {
 			if (dsp.getMode() == Display.MODE_NORMAL) {
 				setX(mem.get((int) (i(tmp[0]) * 100 + i(tmp[1]) * 10 + i(tmp[2]))));
 				dsp.setStatus(Display.STATUS_OUTPUT);
+				stp.setStep(Step.STP_RCL);
 			}
 		}
 	}
@@ -2196,9 +2201,11 @@ public class Calculator {
 
 		if (flg.getF() > 0) {
 			this.clearFgsr();
+			stp.setStep(Step.STP_F_F);
 		} else {
 			this.clearFgsr();
 			flg.toggleF();
+			stp.setStep(Step.STP_F);
 		}
 	}
 
@@ -2206,20 +2213,23 @@ public class Calculator {
 
 		if (flg.getG() > 0) {
 			this.clearFgsr();
+			stp.setStep(Step.STP_G_G);
 		} else {
 			this.clearFgsr();
 			flg.toggleG();
+			stp.setStep(Step.STP_G);
 		}
-
 	}
 
 	protected void doKey44() throws CalculatorException {
 
 		if (flg.getSto() > 0) {
 			this.clearFgsr();
+			stp.setStep(Step.STP_STO_STO);
 		} else {
 			this.clearFgsr();
 			flg.toggleSto();
+			stp.setStep(Step.STP_STO);
 		}
 	}
 
@@ -2227,9 +2237,11 @@ public class Calculator {
 
 		if (flg.getRcl() > 0) {
 			this.clearFgsr();
+			stp.setStep(Step.STP_RCL_RCL);
 		} else {
 			this.clearFgsr();
 			flg.toggleRcl();
+			stp.setStep(Step.STP_RCL);
 		}
 	}
 

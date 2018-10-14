@@ -1,7 +1,9 @@
 package net.sf.finanx.hp12c.model;
 
-public class Step {
+import net.sf.finanx.hp12c.controller.Key;
 
+public class Step {
+	
 	// Commands without modifiers
 	public static final Step STP_0 = new Step(-1, 0, -1);
 	public static final Step STP_1 = new Step(-1, 1, -1);
@@ -226,7 +228,8 @@ public class Step {
 	public static final Step STP_RCL_RCL = new Step(45, 45, -1);
 	public static final Step STP_RCL_DOT = new Step(45, 48, -1);
 	public static final Step STP_RCL_TOT = new Step(45, 49, -1);
-
+	
+	public static final Step STP_NULL = new Step(-1, -1, -1);
 
 	private int mod, key, cpm;
 
@@ -327,10 +330,10 @@ public class Step {
 	public String toString() {
 
 		String rtn = "==[STEP]============\n";
-		rtn += " - Stp: ";
-		rtn += this.mod + ", ";
-		rtn += this.key + ", ";
-		rtn += this.cpm + "\n";
+	
+		rtn += "Modifier: [" + Key.getName(this.mod) + "]\n";
+		
+		rtn += "Function: [" + Key.getName(this.key) + "]\n";
 
 		return rtn;
 	}

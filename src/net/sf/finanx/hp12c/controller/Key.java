@@ -1,5 +1,8 @@
 package net.sf.finanx.hp12c.controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum Key {
 	
 	KEY_NULL(-1),
@@ -78,6 +81,16 @@ public enum Key {
 		System.out.println(this);
 	}
 
+	public static String getName(int code) {
+		List<Key> keyList = Arrays.asList(Key.values());
+		for(Key k : keyList) {
+			if (k.code == code && code != -1) {
+				return k.name();
+			}
+		}
+		return "";
+	}
+	
 	public String toString() {
 		String r = "==[KEY]=============\n";
 		
