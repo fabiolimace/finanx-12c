@@ -597,14 +597,7 @@ public class Calculator {
 			} // End Switch
 
 			this.updateDisplay();
-
-			// Debug
-			
-			// TODO: replace this lines with better logging
-			System.out.println("--------------------\n");
-			System.out.println(stp);
-			System.out.println(fin);
-			System.out.println(stk);
+			this.printRegisters();
 
 		} // End Try
 		catch (CalculatorException e) {
@@ -633,6 +626,14 @@ public class Calculator {
 		}
 	}
 
+	public void printRegisters() {
+		if ((dsp.getStatus() != Display.STATUS_INPUT)) {
+			System.out.println("--------------------\n");
+			System.out.println(stk);
+			System.out.println(fin);
+		}
+	}
+	
 	/*
 	 * Processes STO operations. It Receives integers to form the memory index.
 	 * It uses the memory index to store the X value into a memory register.
