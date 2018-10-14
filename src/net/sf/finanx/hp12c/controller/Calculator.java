@@ -420,8 +420,6 @@ public class Calculator {
 				programInput(k);
 				return;
 			}
-
-			stp.setStep(Step.STP_NULL);
 					
 			switch (k) {
 			case KEY_0: {
