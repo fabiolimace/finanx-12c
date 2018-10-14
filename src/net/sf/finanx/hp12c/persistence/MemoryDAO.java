@@ -139,7 +139,7 @@ public class MemoryDAO extends DataAccessObject{
 			for(int i=0; i<this.prg.getSize(); i++){
 				nl = e.getElementsByTagName("prg"+i);
 				
-				stp = cfg.createStep();
+				stp = Configuration.createStep();
 				
 				if((nl.getLength()>0) && (nl!=null)){
 					tag = (Element)nl.item(0);

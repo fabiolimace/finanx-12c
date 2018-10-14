@@ -4,7 +4,6 @@ import static net.sf.finanx.math.Number.*;
 import static org.junit.Assert.*;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoField;
@@ -15,10 +14,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.categories.Categories.ExcludeCategory;
-
-import net.sf.finanx.hp12c.controller.CalculatorException;
-import net.sf.finanx.hp12c.controller.Error;
 import net.sf.finanx.hp12c.model.Stack;
 
 /*
@@ -188,7 +183,7 @@ public class StackTest {
 		stk.put(n(14));
 		stk.percent();
 		assertEquals(n(42), stk.pop());
-		assertEquals(n(0), stk.top());
+		assertEquals(n(300), stk.top());
 	}
 	
 	@Test
@@ -198,7 +193,7 @@ public class StackTest {
 		stk.put(n(53.25));
 		stk.percentDifference();
 		assertEquals(n(-8.97), stk.pop().round(2));
-		assertEquals(n(0), stk.top());
+		assertEquals(n(58.50), stk.top());
 	}
 	
 	@Test
@@ -208,7 +203,7 @@ public class StackTest {
 		stk.put(n(2.36));
 		stk.percentOfTotal();
 		assertEquals(n(29.69), stk.pop().round(2));
-		assertEquals(n(0), stk.top());
+		assertEquals(n(7.95), stk.top());
 	}
 	
 	@Test

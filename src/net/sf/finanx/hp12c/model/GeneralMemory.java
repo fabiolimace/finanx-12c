@@ -259,26 +259,6 @@ public class GeneralMemory {
 	}
 	
 	/**
-	 * Sum of many values
-	 * 
-	 * Calculates the sum of many values (values in an array)
-	 * 
-	 * @param values
-	 * @return
-	 * @throws CalculatorException
-	 */
-	private static Number sum(Number[] values) throws CalculatorException{
-		
-		Number sum = ZERO;
-		
-		for(int i=0; i<values.length; i++){
-			sum = sum.add(values[i]);
-		}
-		
-		return sum;
-	}
-	
-	/**
 	 * Standard deviation (HP12C formula)
 	 * 
 	 * Calculates the standard deviation of the x-values (sx) and of the y-values (sy)

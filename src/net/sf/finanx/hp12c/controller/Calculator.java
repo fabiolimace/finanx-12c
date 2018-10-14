@@ -2,8 +2,6 @@ package net.sf.finanx.hp12c.controller;
 
 import static net.sf.finanx.math.Number.*;
 
-import java.util.Calendar;
-
 import javax.swing.JOptionPane;
 
 import net.sf.finanx.hp12c.model.Display;
@@ -15,7 +13,6 @@ import net.sf.finanx.hp12c.model.ProgramMemory;
 import net.sf.finanx.hp12c.model.Stack;
 import net.sf.finanx.hp12c.model.Step;
 import net.sf.finanx.math.Number;
-import net.sf.finanx.utils.Date;
 import net.sf.finanx.utils.Timer;
 
 /*
@@ -38,7 +35,6 @@ public class Calculator {
 	private Key k;
 	private Step stp;
 	private Number tmp[];
-	private Date dt[];
 
 	private Controller controller;
 
@@ -828,19 +824,19 @@ public class Calculator {
 		}
 	}
 
-	private boolean checkOddPeriod() {
-		try {
-			if(!fin.getN().fractionalPart().isZero())
-				return true;
-			else
-				return false;
-		} catch (CalculatorException e) {
-			showError(e);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
+//	private boolean checkOddPeriod() {
+//		try {
+//			if(!fin.getN().fractionalPart().isZero())
+//				return true;
+//			else
+//				return false;
+//		} catch (CalculatorException e) {
+//			showError(e);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return false;
+//	}
 
 //	protected void executeOddPeriodTasks() {
 //		try {
@@ -1759,7 +1755,6 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			
 			tmp = new Number[2];
-			dt = new Date[2];
 			
 			stk.addDaysToDate();
 			
@@ -1810,7 +1805,6 @@ public class Calculator {
 		if (flg.getF() == 1) {
 
 			tmp = new Number[2];
-			dt = new Date[2];
 
 			tmp = fin.bondPrice(null, null);
 
