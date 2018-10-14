@@ -627,7 +627,11 @@ public class Calculator {
 	}
 
 	public void printRegisters() {
-		if ((dsp.getStatus() != Display.STATUS_INPUT)) {
+		if ((dsp.getStatus() != Display.STATUS_INPUT) 
+				&& flg.getF() == 0 
+				&& flg.getG() == 0 
+				&& flg.getSto() == 0
+				&& flg.getRcl() == 0) {
 			System.out.println("--------------------\n");
 			System.out.println(stk);
 			System.out.println(fin);
