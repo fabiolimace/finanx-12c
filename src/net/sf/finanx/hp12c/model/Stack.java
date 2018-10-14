@@ -495,7 +495,8 @@ public class Stack {
 		
 		Number ans = ( base.multiply(rate) ).divide(HUNDRED);
 		
-		set(0, ans);
+		put(base);
+		put(ans);
 		setLastTop(rate);
 	}
 	
@@ -511,7 +512,8 @@ public class Stack {
 		
 		Number ans = HUNDRED.multiply( ( ( other.subtract(base) ).divide(base) ) );
 		
-		set(0, ans);
+		put(base);
+		put(ans);
 		setLastTop(other);
 	}
 	
@@ -527,7 +529,8 @@ public class Stack {
 		
 		Number ans = HUNDRED.multiply( other.divide(total) );
 		
-		set(0, ans);
+		put(total);
+		put(ans);
 		setLastTop(other);
 	}
 	
