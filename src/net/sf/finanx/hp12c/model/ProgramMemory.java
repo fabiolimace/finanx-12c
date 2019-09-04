@@ -8,10 +8,6 @@ public class ProgramMemory {
 	
 	public ProgramMemory(int size){
 
-		// This line only reserves an array 
-		// for the Step implementations
-		// It's recommended to use the init() method
-		// to initialize every single step in this array.
 		this.prg = new Step[size];
 		
 		this.idx=0;

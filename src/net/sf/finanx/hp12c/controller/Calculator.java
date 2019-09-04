@@ -1226,7 +1226,7 @@ public class Calculator {
 	}
 
 	public void putStep(Step stp) {
-		System.out.println("putStep: " + stp);
+		System.out.println(stp);
 		this.prg.put(new Step(stp));
 	}
 

@@ -5,7 +5,6 @@ import net.sf.finanx.hp12c.model.FinanceMemory;
 import net.sf.finanx.hp12c.model.GeneralMemory;
 import net.sf.finanx.hp12c.model.ProgramMemory;
 import net.sf.finanx.hp12c.model.Stack;
-import net.sf.finanx.hp12c.model.Step;
 import net.sf.finanx.math.Number;
 
 import org.w3c.dom.Element;
@@ -14,12 +13,10 @@ import org.w3c.dom.NodeList;
 
 public class MemoryDAO extends DataAccessObject{
 	
-	private Configuration cfg;
 	private Stack stk;
 	private FinanceMemory fin;
 	private GeneralMemory mem;
 	private ProgramMemory prg;
-	private Step stp;
 	
 	private Element de;
 	
@@ -29,7 +26,6 @@ public class MemoryDAO extends DataAccessObject{
 		super.path = "data/" + eName + ".xml";
 		super.dom = manager.getDOM(path, false);
 
-		this.cfg = cfg;
 		this.stk = Configuration.createStack(cfg.getStackSize());
 		this.fin = Configuration.createFinanceMemory();
 		this.mem = Configuration.createGeneralMemory(cfg.getMemorySize());
@@ -139,8 +135,6 @@ public class MemoryDAO extends DataAccessObject{
 			for(int i=0; i<this.prg.getSize(); i++){
 				nl = e.getElementsByTagName("prg"+i);
 				
-				stp = Configuration.createStep();
-				
 				if((nl.getLength()>0) && (nl!=null)){
 					tag = (Element)nl.item(0);
 					
@@ -154,10 +148,8 @@ public class MemoryDAO extends DataAccessObject{
 					}
 					if((tag.getAttribute("p2")!=null)&&(tag!=null)){
 						p2 = tag.getAttribute("p2");
-						prg.setKey(i, Integer.parseInt(p2));
+						prg.setComplement(i, Integer.parseInt(p2));
 					}
-					
-					prg.set(i, stp);
 				}
 			}
 		}

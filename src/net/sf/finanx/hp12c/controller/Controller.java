@@ -121,18 +121,14 @@ public class Controller {
 	public void loadMemory() {
 
 		this.memd = new MemoryDAO(this.cfg);
-
 	}
 
 	public void saveMemory() {
 
 		this.memd.setStack((Stack) this.executor.getStack());
-		this.memd.setFinanceMemory((FinanceMemory) this.executor
-				.getFinanceMemory());
-		this.memd.setGegeralMemory((GeneralMemory) this.executor
-				.getGeneralMemory());
-		this.memd.setProgramMemory((ProgramMemory) this.executor
-				.getProgramMemory());
+		this.memd.setFinanceMemory((FinanceMemory) this.executor.getFinanceMemory());
+		this.memd.setGegeralMemory((GeneralMemory) this.executor.getGeneralMemory());
+		this.memd.setProgramMemory((ProgramMemory) this.executor.getProgramMemory());
 
 		this.memd.save();
 
