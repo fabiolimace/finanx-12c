@@ -66,7 +66,7 @@ public class Configuration {
 		new KeyMapItem(49, 'w')};// EY_TOT, w
 	
 	public static final Object VERSION = "0.2.5";
-	public static final String DEFAULT_SKIN = "aurum";
+	public static final String DEFAULT_SKIN = "nigrum";
 
 	public static class KeyMapItem {
 		private char ch;

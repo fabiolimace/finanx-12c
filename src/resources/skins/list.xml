@@ -1,14 +1,14 @@
 <list>
     <item>
         <id>aurum</id>
-        <ds>Aurum (gold)</ds>
+        <ds>Gold</ds>
     </item>
     <item>
         <id>argentum</id>
-        <ds>Argentum (silver)</ds>
+        <ds>Silver</ds>
     </item>
     <item>
         <id>nigrum</id>
-        <ds>Nigrum (black)</ds>
+        <ds>Black</ds>
     </item>
 </list>
