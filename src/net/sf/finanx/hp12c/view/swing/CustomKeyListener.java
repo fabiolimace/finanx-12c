@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 import net.sf.finanx.hp12c.controller.Controller;
 
-public class CustomKeyListener implements KeyListener{
+public class CustomKeyListener implements KeyListener {
 
 	private Controller controller;
 	
@@ -18,6 +18,16 @@ public class CustomKeyListener implements KeyListener{
     }
     
     public void keyReleased(KeyEvent e){
+    	
+    	int mod = e.getModifiers();
+    	int key = e.getKeyCode();
+    	
+    	// ALT + F4 -> Quit
+		if ((mod == KeyEvent.ALT_MASK || mod == KeyEvent.ALT_DOWN_MASK) && key == KeyEvent.VK_F4) {
+			controller.quit();
+			return;
+		}
+    	
     	this.controller.keyReleased(e.getKeyChar());
     }
     
