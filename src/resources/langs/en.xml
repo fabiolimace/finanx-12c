@@ -263,16 +263,6 @@
     <sc>s</sc>
 </lng>
 <lng>
-    <id>DIALOG_QUIT</id>
-    <vl>
-Do you want to exit de calculator?
-
-Yes: exit calculator;
-No: press ON button;
-Cancel: nothing.
-	</vl>
-</lng>
-<lng>
     <id>META_NAME</id>
     <vl>Finanx 12c Calculator</vl>
 </lng>

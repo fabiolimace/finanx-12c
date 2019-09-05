@@ -552,19 +552,7 @@ public class Calculator {
 				break;
 			}
 			case KEY_ON: {
-
-				int r;
-				String msg = controller.getWindow().getLanguageStringList()
-						.getValue("DIALOG_QUIT");
-
-				r = JOptionPane.showConfirmDialog(null, msg);
-
-				if (r == JOptionPane.YES_OPTION) {
-					controller.quit();
-				} else if (r == JOptionPane.NO_OPTION) {
-					this.doKey41();
-				}
-
+				this.doKey41();
 				break;
 			}
 			case KEY_F: {

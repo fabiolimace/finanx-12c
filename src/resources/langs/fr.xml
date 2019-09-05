@@ -303,19 +303,6 @@
     <sc>l</sc>
 </lng>
 <lng>
-    <id>DIALOG_QUIT</id>
-    <vl>
-Voulez-vous quitter la calculatrice?
-
-Oui: quitter la calculatrice;
-Non: appuyer sur le bouton ON;
-Annuler: rien.
-
-</vl>
-    <ds></ds>
-    <sc></sc>
-</lng>
-<lng>
     <id>META_NAME</id>
     <vl>Finanx 12c Calculator</vl>
 </lng>
