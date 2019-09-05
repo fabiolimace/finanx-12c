@@ -2,8 +2,6 @@ package net.sf.finanx.hp12c.controller;
 
 import static net.sf.finanx.math.Number.*;
 
-import javax.swing.JOptionPane;
-
 import net.sf.finanx.hp12c.model.Display;
 import net.sf.finanx.hp12c.model.FinanceMemory;
 import net.sf.finanx.hp12c.model.Flags;
@@ -500,7 +498,9 @@ public class Calculator {
 				break;
 			}
 			case KEY_CHS: {
-				// TODO: When [DATE] is executed as an instruction in a running program, the calculator pauses for about 1 second to display the result, then resumes program execution.
+				// TODO: When [DATE] is executed as an instruction in a running
+				// program, the calculator pauses for about 1 second to display
+				// the result, then resumes program execution.
 				this.doKey16();
 				break;
 			}
@@ -553,7 +553,8 @@ public class Calculator {
 				break;
 			}
 			case KEY_ON: {
-				this.doKey41();
+				// this.doKey41();
+				controller.quit();
 				break;
 			}
 			case KEY_F: {
