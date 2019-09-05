@@ -65,7 +65,7 @@ public class Configuration {
 		new KeyMapItem(48, '.'), // KEY_DOT, .
 		new KeyMapItem(49, 'w')};// EY_TOT, w
 	
-	public static final Object VERSION = "0.2.6";
+	public static final Object VERSION = "0.2.7";
 	public static final String DEFAULT_SKIN = "nigrum";
 
 	public static class KeyMapItem {

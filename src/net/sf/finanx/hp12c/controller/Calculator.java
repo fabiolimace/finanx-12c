@@ -63,9 +63,10 @@ public class Calculator {
 			while (calculator.getFlags().getRun() == 1) {
 				calculator.executeSingleStep();
 				try {
-					sleep(100);
+					sleep(10);
 				} catch (InterruptedException e) {
 					calculator.getFlags().setRun(0);
+					Thread.currentThread().interrupt();
 				}
 			}
 		}
@@ -1166,9 +1167,6 @@ public class Calculator {
 
 	public void executeSingleStep() {
 
-		// Erases old content in display
-		// and shows the message "running"
-		showDisplayMessage("");
 		showDisplayMessage("running");
 		getDisplay().setLock(false);
 
@@ -2016,8 +2014,8 @@ public class Calculator {
 				controller.getWindow().updateDisplay();
 				try {
 					Thread.sleep(1500);
-				} catch (Exception e) {
-					// TODO: handle exception
+				} catch (InterruptedException e) {
+					Thread.currentThread().interrupt();
 				}
 			}
 
