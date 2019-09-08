@@ -44,6 +44,8 @@ public class Controller {
 	protected String tmp[];
 	protected String cmd, prm;
 
+	JTextField clipboard = new JTextField();
+
 	public Controller() {
 		this.init();
 	}
@@ -97,7 +99,7 @@ public class Controller {
 		Point point = window.getWindowLocation();
 		this.cfg.setXPos(point.x);
 		this.cfg.setYPos(point.y);
-		
+
 		// Flags and display
 		this.cfg.setAlg(executor.getFlags().getAlg());
 		this.cfg.setBeg(executor.getFlags().getBegin());
@@ -106,7 +108,7 @@ public class Controller {
 		this.cfg.setDmy(executor.getFlags().getDmy());
 		this.cfg.setFix(executor.getDisplay().getPrecision());
 		this.cfg.setMode(executor.getDisplay().getMode());
-		
+
 		this.cfgd.save(cfg);
 	}
 
@@ -152,7 +154,7 @@ public class Controller {
 	}
 
 	private Key getKey(char chr) {
-		
+
 		if (this.cfg.getCode(chr) == Key.KEY_0.getCode())
 			return Key.KEY_0;
 		else if (this.cfg.getCode(chr) == Key.KEY_1.getCode())
@@ -292,7 +294,7 @@ public class Controller {
 	public void setUpWindowListeners() {
 		this.window.setWindowListener(new CustomWindowListener(this));
 	}
-	
+
 	public void doMenuCommand(String command, String param) {
 
 		if (command == null)
@@ -422,43 +424,51 @@ public class Controller {
 	}
 
 	public void copyFromDisplayValue() {
-		JTextField tmp = new JTextField();
-		tmp.setText("" + executor.getStack().get(0));
-		tmp.selectAll();
-		tmp.copy();
+
+		String str = executor.getStack().get(0) + "";
+
+		if (executor.getDisplay().getComma()) {
+			str = str.replace(".", ",");
+		}
+
+		clipboard.setText(str);
+		clipboard.selectAll();
+		clipboard.copy();
 	}
 
 	public void pasteToDisplayValue() {
-		JTextField tmp = new JTextField();
+
 		String str = "";
 		Number val = Number.ZERO;
 
-		tmp.selectAll();
-		tmp.paste();
-
 		try {
 
+			clipboard.selectAll();
+			clipboard.paste();
+
 			if (executor.getDisplay().getComma()) {
-				str = tmp.getText().replace('.', ',');
+				str = clipboard.getText().replace(".", "").replace(",", ".");
 			} else {
-				str = tmp.getText();
+				str = clipboard.getText().replace(",", "");
 			}
 
 			val = Number.getInstance(Double.parseDouble(str));
 
+//			executor.clearX();
+//			executor.getDisplay().clear();
+			executor.setX(val);
 			executor.getDisplay().setValue(val);
-			executor.getStack().set(0, val);
+			executor.updateDisplay();
 			window.updateDisplay();
-		} catch (Exception e) { /* TODO: handle exception */
+
+		} catch (Exception e) {
 		}
 	}
 
 	private void welcomeMessage() {
 		System.out.println("");
-		System.out.println(this.window.getLanguageStringList().getValue(
-				"META_NAME") + " v" + Configuration.VERSION);
-		System.out.println(this.window.getLanguageStringList().getValue(
-				"META_LICENCE"));
+		System.out.println(this.window.getLanguageStringList().getValue("META_NAME") + " v" + Configuration.VERSION);
+		System.out.println(this.window.getLanguageStringList().getValue("META_LICENCE"));
 	}
 
 	public void save() {

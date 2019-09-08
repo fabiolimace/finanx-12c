@@ -9,8 +9,6 @@ public class Display {
 
 	public static final double MIN_VALUE = 1e-10;
 	public static final double MAX_VALUE = 1e10;
-	
-	public static final int STATUS_OUTPUT2 = 3;
 
 	private static String ZEROFILL = "0000000000";
 
@@ -19,6 +17,7 @@ public class Display {
 	public static final int STATUS_READY = 0;
 	public static final int STATUS_INPUT = 1;
 	public static final int STATUS_OUTPUT = 2;
+	public static final int STATUS_OUTPUT2 = 3;
 
 	public static final int MODE_NORMAL = 0;
 	public static final int MODE_EXPONENTIAL = 1;

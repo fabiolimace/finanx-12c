@@ -252,9 +252,8 @@ public class MainWindow {
 		this.buildMenuBar(); // Commented to disable the Menu Bar
 		this.fixWindowLocation();
 
-		String windowTitle= getLanguageStringList().getValue("MAIN_WINDOW_TITLE") +
-				" - v" + Configuration.VERSION;
-		
+		String windowTitle = getLanguageStringList().getValue("MAIN_WINDOW_TITLE") + " - v" + Configuration.VERSION;
+
 		JFrame.setDefaultLookAndFeelDecorated(false);
 		frame = new JFrame(windowTitle);
 		this.setIcon();
@@ -265,7 +264,7 @@ public class MainWindow {
 		frame.setLocation(cfg.getXPos(), cfg.getYPos());
 		frame.pack();
 		frame.setVisible(true);
-		
+
 	}
 	
 	public void destruct() {
@@ -369,10 +368,7 @@ public class MainWindow {
 	private void buildImageMaps() {
 
 		// Setting up background image
-		bgImage = this.createImageIcon(wmainpan, hmainpan,
-				skinPath + "background.png").getImage();
-		
-		
+		bgImage = this.createImageIcon(wmainpan, hmainpan, skinPath + "background.png").getImage();
 		
 		// Setting up button icons
 		I00 = this.createImageIcon(wbot, hbot, skinPath + "buttons/b00.png");
@@ -1334,8 +1330,9 @@ public class MainWindow {
 
 	public void keyReleased(Key key) {
 
-		if (key == null)
+		if (key == null) {
 			return;
+		}
 
 		ImageButton bt = (ImageButton) bot.get(key.getName());
 		ImageIcon rls = (ImageIcon) imageMap.get(key.getName());
@@ -1453,7 +1450,7 @@ public class MainWindow {
 				itCopy = CreateMenuItem(
 						ITEM_PLAIN,
 						strList.getValue(CMD_EDIT_COPY),
-						"EDIT_COPY",
+						CMD_EDIT_COPY,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/copy.png"),
 						strList.getShortcut(CMD_EDIT_COPY).charAt(0),
@@ -1464,7 +1461,7 @@ public class MainWindow {
 				itPaste = CreateMenuItem(
 						ITEM_PLAIN,
 						strList.getValue(CMD_EDIT_PASTE),
-						"EDIT_PASTE",
+						CMD_EDIT_PASTE,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/paste.png"),
 						strList.getShortcut(CMD_EDIT_PASTE).charAt(0),
@@ -1545,7 +1542,7 @@ public class MainWindow {
 				itSizeVerySmall = CreateMenuItem(
 						ITEM_RADIO,
 						strList.getValue(CMD_VIEW_SIZE_VERY_SMALL),
-						"VIEW_SIZE_VERY_SMALL",
+						CMD_VIEW_SIZE_VERY_SMALL,
 						null,
 						strList.getShortcut(CMD_VIEW_SIZE_VERY_SMALL).charAt(0),
 						strList.getDescription(CMD_VIEW_SIZE_VERY_SMALL));
@@ -1553,7 +1550,7 @@ public class MainWindow {
 			if (itSizeSmall == null) {
 				itSizeSmall = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_VIEW_SIZE_SMALL),
-						"VIEW_SIZE_SMALL", null,
+						CMD_VIEW_SIZE_SMALL, null,
 						strList.getShortcut(CMD_VIEW_SIZE_SMALL).charAt(0),
 						strList.getDescription(CMD_VIEW_SIZE_SMALL));
 			}
@@ -1561,7 +1558,7 @@ public class MainWindow {
 			if (itSizeMedium == null) {
 				itSizeMedium = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_VIEW_SIZE_MEDIUM),
-						"VIEW_SIZE_MEDIUM", null,
+						CMD_VIEW_SIZE_MEDIUM, null,
 						strList.getShortcut(CMD_VIEW_SIZE_MEDIUM).charAt(0),
 						strList.getDescription(CMD_VIEW_SIZE_MEDIUM));
 			}
@@ -1569,13 +1566,13 @@ public class MainWindow {
 			if (itSizeLarge == null) {
 				itSizeLarge = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_VIEW_SIZE_LARGE),
-						"VIEW_SIZE_LARGE", null,
+						CMD_VIEW_SIZE_LARGE, null,
 						strList.getShortcut(CMD_VIEW_SIZE_LARGE).charAt(0),
 						strList.getDescription(CMD_VIEW_SIZE_LARGE));
 			}
 			if (itSizeHuge == null) {
 				itSizeHuge = CreateMenuItem(ITEM_RADIO,
-						strList.getValue(CMD_VIEW_SIZE_HUGE), "VIEW_SIZE_HUGE",
+						strList.getValue(CMD_VIEW_SIZE_HUGE), CMD_VIEW_SIZE_HUGE,
 						null,
 						strList.getShortcut(CMD_VIEW_SIZE_HUGE).charAt(0),
 						strList.getDescription(CMD_VIEW_SIZE_HUGE));
@@ -1667,7 +1664,7 @@ public class MainWindow {
 			if (itDotNumFormat == null) {
 				itDotNumFormat = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_NUMBER_FORMAT_DOT),
-						"OPTIONS_NUMBER_FORMAT_DOT", null,
+						CMD_OPTIONS_NUMBER_FORMAT_DOT, null,
 						strList.getShortcut(CMD_OPTIONS_NUMBER_FORMAT_DOT)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_NUMBER_FORMAT_DOT));
@@ -1675,7 +1672,7 @@ public class MainWindow {
 			if (itCommaNumFormat == null) {
 				itCommaNumFormat = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_NUMBER_FORMAT_COMMA),
-						"OPTIONS_NUMBER_FORMAT_COMMA", null, strList
+						CMD_OPTIONS_NUMBER_FORMAT_COMMA, null, strList
 								.getShortcut(CMD_OPTIONS_NUMBER_FORMAT_COMMA)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_NUMBER_FORMAT_COMMA));
@@ -1706,7 +1703,7 @@ public class MainWindow {
 			if (itMDYDateFormat == null) {
 				itMDYDateFormat = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_DATE_FORMAT_MONTH),
-						"OPTIONS_DATE_FORMAT_MONTH", null,
+						CMD_OPTIONS_DATE_FORMAT_MONTH, null,
 						strList.getShortcut(CMD_OPTIONS_DATE_FORMAT_MONTH)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_DATE_FORMAT_MONTH));
@@ -1715,7 +1712,7 @@ public class MainWindow {
 			if (itDMYDateFormat == null) {
 				itDMYDateFormat = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_DATE_FORMAT_DAY),
-						"OPTIONS_DATE_FORMAT_DAY", null,
+						CMD_OPTIONS_DATE_FORMAT_DAY, null,
 						strList.getShortcut(CMD_OPTIONS_DATE_FORMAT_DAY)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_DATE_FORMAT_DAY));
@@ -1745,7 +1742,7 @@ public class MainWindow {
 			if (itBegPayment == null) {
 				itBegPayment = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_PAYMENT_MODE_BEGIN),
-						"OPTIONS_PAYMENT_MODE_BEGIN", null, strList
+						CMD_OPTIONS_PAYMENT_MODE_BEGIN, null, strList
 								.getShortcut(CMD_OPTIONS_PAYMENT_MODE_BEGIN)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_PAYMENT_MODE_BEGIN));
@@ -1753,7 +1750,7 @@ public class MainWindow {
 			if (itEndPayment == null) {
 				itEndPayment = CreateMenuItem(ITEM_RADIO,
 						strList.getValue(CMD_OPTIONS_PAYMENT_MODE_END),
-						"OPTIONS_PAYMENT_MODE_END", null,
+						CMD_OPTIONS_PAYMENT_MODE_END, null,
 						strList.getShortcut(CMD_OPTIONS_PAYMENT_MODE_END)
 								.charAt(0),
 						strList.getDescription(CMD_OPTIONS_PAYMENT_MODE_END));
@@ -1785,7 +1782,7 @@ public class MainWindow {
 				itRegistersView = CreateMenuItem(
 						ITEM_CHECK,
 						strList.getValue(CMD_TOOLS_REGISTERS_VIEW),
-						"TOOLS_REGISTERS_VIEW",
+						CMD_TOOLS_REGISTERS_VIEW,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/regview.png"),
 						strList.getShortcut(CMD_TOOLS_REGISTERS_VIEW).charAt(0),
@@ -1796,7 +1793,7 @@ public class MainWindow {
 				itInstructionsHistory = CreateMenuItem(
 						ITEM_CHECK,
 						strList.getValue(CMD_TOOLS_HISTORY),
-						"TOOLS_HISTORY",
+						CMD_TOOLS_HISTORY,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/history.png"),
 						strList.getShortcut(CMD_TOOLS_HISTORY).charAt(0),
@@ -1808,7 +1805,7 @@ public class MainWindow {
 				itAuthor = CreateMenuItem(
 						ITEM_PLAIN,
 						strList.getValue(CMD_ABOUT_AUTHOR),
-						"ABOUT_AUTHOR",
+						CMD_ABOUT_AUTHOR,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/author.png"),
 						strList.getShortcut(CMD_ABOUT_AUTHOR).charAt(0),
@@ -1818,7 +1815,7 @@ public class MainWindow {
 			if (itContributors == null) {
 				itContributors = CreateMenuItem(ITEM_PLAIN,
 						strList.getValue(CMD_ABOUT_CONTRIBUTORS),
-						"ABOUT_CONTRIBUTORS", this.createImageIcon(16, 16,
+						CMD_ABOUT_CONTRIBUTORS, this.createImageIcon(16, 16,
 								this.skinPath + "icons/contributor.png"),
 						strList.getShortcut(CMD_ABOUT_CONTRIBUTORS).charAt(0),
 						strList.getDescription(CMD_ABOUT_CONTRIBUTORS));
@@ -1828,7 +1825,7 @@ public class MainWindow {
 				itSoftware = CreateMenuItem(
 						ITEM_PLAIN,
 						strList.getValue(CMD_ABOUT_SOFTWARE),
-						"ABOUT_SOFTWARE",
+						CMD_ABOUT_SOFTWARE,
 						this.createImageIcon(16, 16, this.skinPath
 								+ "icons/software.png"),
 						strList.getShortcut(CMD_ABOUT_SOFTWARE).charAt(0),
@@ -1848,8 +1845,8 @@ public class MainWindow {
 				mnEdit = CreateMenu(strList.getValue(CMD_EDIT_MENU), null,
 						strList.getShortcut(CMD_EDIT_MENU).charAt(0), null,
 						null);
-				// mnEdit.add(itCopy);
-				// mnEdit.add(itPaste);
+				mnEdit.add(itCopy);
+				mnEdit.add(itPaste);
 				mnEdit.add(mnErase);
 			}
 
@@ -1943,54 +1940,6 @@ public class MainWindow {
 		// / Font size
 		this.fontSize = 29;
 	}
-	
-	/*
-	private void setDefaultSize() {
-
-		// Button size
-		this.hbot = 40;
-		this.wbot = 45;
-
-		// Enter button size
-		this.hebot = 106;
-		this.webot = 45;
-
-		// Main panel size
-		this.hmainpan = 400;
-		this.wmainpan = 640;
-
-		// Display panel size
-		this.hdispan = 110;
-		this.wdispan = 340;
-
-		// Button insets
-		this.xpad = 6;
-		this.ypad = 11;
-
-		// Display size
-		this.hdis = 40;
-		this.wdis = 335;
-
-		// Display flag space size
-		this.hfdis = 15;
-		this.wfdis = 335;
-
-		// Display insets
-		this.tdis = 0;
-		this.ldis = 0;
-		this.bdis = 0;
-		this.rdis = 60;
-
-		// Flag display space insets
-		this.tfdis = 0;
-		this.lfdis = 0;
-		this.bfdis = 30;
-		this.rfdis = 60;
-
-		// / Font size
-		this.fontSize = 28;
-	}
-	*/
 
 	public void setSize(double size) {
 
@@ -2038,7 +1987,6 @@ public class MainWindow {
 
 		// / Font size
 		this.fontSize = (int) (fontSize * size);
-
 	}
 
 	/**
