@@ -70,7 +70,6 @@ public class Calculator {
 		}
 	}
 
-	
 	public Calculator() {
 		this.init();
 	}
@@ -96,7 +95,7 @@ public class Calculator {
 		// that executes steps sequentially.
 		this.worker = new Worker(this);
 	}
-	
+
 	public Controller getController() {
 		return this.controller;
 	}
@@ -204,22 +203,21 @@ public class Calculator {
 	}
 
 	public void shiftUpIfOutputStatus() {
-		if ((dsp.getStatus() == Display.STATUS_OUTPUT)
-				|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
+		if ((dsp.getStatus() == Display.STATUS_OUTPUT) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 			stk.shiftDown();
 		}
 	}
-	
+
 	private void updateOneWayBindedFlags() {
-		stk.setDmy(flg.getDmy() == 1 ? true: false);
-		fin.setBegin(flg.getBegin() == 1 ? true: false);
-		fin.setC(flg.getC() == 1 ? true: false);
+		stk.setDmy(flg.getDmy() == 1 ? true : false);
+		fin.setBegin(flg.getBegin() == 1 ? true : false);
+		fin.setC(flg.getC() == 1 ? true : false);
 	}
 
 	public void keyPressed(Key key) {
-		
+
 		updateOneWayBindedFlags();
-		
+
 		if (key == null)
 			return;
 
@@ -267,8 +265,7 @@ public class Calculator {
 
 				tmp += "P" + Display.zeroPad(prg.getUsedSteps(), 3);
 				tmp += " ";
-				tmp += "r"
-						+ Display.zeroPad(mem.getAvailableRegisters(), 3);
+				tmp += "r" + Display.zeroPad(mem.getAvailableRegisters(), 3);
 
 				dsp.setMessage(tmp);
 				dsp.setPause(true);
@@ -340,8 +337,7 @@ public class Calculator {
 						prg.next();
 				}
 
-				dsp.inputProgramStep(prg.getCurrentIndex(),
-						(Step) prg.get());
+				dsp.inputProgramStep(prg.getCurrentIndex(), (Step) prg.get());
 				dsp.setMode(Display.MODE_PROGRAM);
 				controller.getWindow().updateDisplay();
 				dsp.setMode(Display.MODE_NORMAL);
@@ -419,7 +415,7 @@ public class Calculator {
 				programInput(k);
 				return;
 			}
-					
+
 			switch (k) {
 			case KEY_0: {
 				this.doKey00();
@@ -598,7 +594,7 @@ public class Calculator {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// Updates the display and the X values so that
 	// both have the same value.
 	public void updateDisplay() {
@@ -628,7 +624,7 @@ public class Calculator {
 			System.out.println(fin);
 		}
 	}
-	
+
 	/*
 	 * Processes STO operations. It Receives integers to form the memory index.
 	 * It uses the memory index to store the X value into a memory register.
@@ -822,45 +818,45 @@ public class Calculator {
 		}
 	}
 
-//	private boolean checkOddPeriod() {
-//		try {
-//			if(!fin.getN().fractionalPart().isZero())
-//				return true;
-//			else
-//				return false;
-//		} catch (CalculatorException e) {
-//			showError(e);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return false;
-//	}
+	// private boolean checkOddPeriod() {
+	// try {
+	// if(!fin.getN().fractionalPart().isZero())
+	// return true;
+	// else
+	// return false;
+	// } catch (CalculatorException e) {
+	// showError(e);
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// return false;
+	// }
 
-//	protected void executeOddPeriodTasks() {
-//		try {
-//			// With odd period using simple interest
-//			if (flg.getC() == 0) {
-//				fin.setPv(fin.simpleFutureValue());
-//			}
-//			// With odd period using compound interest
-//			else {
-//				fin.setPv(fin.futureValue());
-//			}
-//
-//			// Fixing PV sign
-//			fin.setPv(fin.getPv().negate());
-//
-//			// Truncating the odd period
-//			fin.setN(fin.getN().integralPart());
-//
-//		} // End Try
-//		catch (CalculatorException e) {
-//			showError(e);
-//			// e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-////		}
-//	}
+	// protected void executeOddPeriodTasks() {
+	// try {
+	// // With odd period using simple interest
+	// if (flg.getC() == 0) {
+	// fin.setPv(fin.simpleFutureValue());
+	// }
+	// // With odd period using compound interest
+	// else {
+	// fin.setPv(fin.futureValue());
+	// }
+	//
+	// // Fixing PV sign
+	// fin.setPv(fin.getPv().negate());
+	//
+	// // Truncating the odd period
+	// fin.setN(fin.getN().integralPart());
+	//
+	// } // End Try
+	// catch (CalculatorException e) {
+	// showError(e);
+	// // e.printStackTrace();
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	//// }
+	// }
 
 	public void showError(CalculatorException e) {
 		// show erros on display, except magnitude errors
@@ -869,7 +865,7 @@ public class Calculator {
 		}
 		e.print();
 	}
-	
+
 	public void showDisplayMessage(String msg) {
 		dsp.setMessage(msg);
 		dsp.setLock(true);
@@ -1114,19 +1110,16 @@ public class Calculator {
 			this.stopProgram();
 		}
 		// goes to line number ZERO and stops execution.
-		else if (stp.getModifier() == Key.KEY_G.getCode()
-				&& stp.getKey() == Key.KEY_ROLL.getCode()
+		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_ROLL.getCode()
 				&& stp.getComplement() == Key.KEY_0.getCode()) {
 
 			this.stopProgram();
 		}
 		// goes to line number specified by the instruction [g][gto]xxx.
-		else if (stp.getModifier() == Key.KEY_G.getCode()
-				&& stp.getKey() == Key.KEY_ROLL.getCode()) {
+		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_ROLL.getCode()) {
 
 			prg.setCurrentIndex(stp.getComplement());
-		} else if (stp.getModifier() == Key.KEY_G.getCode()
-				&& stp.getKey() == Key.KEY_XY.getCode()) {
+		} else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_XY.getCode()) {
 
 			if (stk.get(0).lessThanOrEqualTo(stk.get(1))) {
 				this.prg.next();
@@ -1134,8 +1127,7 @@ public class Calculator {
 				this.prg.next();
 				this.prg.next();
 			}
-		} else if (stp.getModifier() == Key.KEY_G.getCode()
-				&& stp.getKey() == Key.KEY_CLX.getCode()) {
+		} else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_CLX.getCode()) {
 
 			if (stk.get(0).isZero()) {
 				this.prg.next();
@@ -1548,11 +1540,10 @@ public class Calculator {
 			stp.setStep(Step.STP_RCL_N);
 			dsp.setStatus(Display.STATUS_READY);
 		} else {
-			if ((dsp.getStatus() == Display.STATUS_READY)
-					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
+			if ((dsp.getStatus() == Display.STATUS_READY) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				stk.set(0, fin.period());
-				
+
 				fin.setN(stk.top());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 
@@ -1594,15 +1585,13 @@ public class Calculator {
 			stp.setStep(Step.STP_RCL_I);
 			dsp.setStatus(Display.STATUS_READY);
 		} else {
-			if ((dsp.getStatus() == Display.STATUS_READY)
-					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
-
+			if ((dsp.getStatus() == Display.STATUS_READY) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				stk.set(0, fin.rate());
 
 				// Here odd period check have to be done AFTER the calculus
-//				if (checkOddPeriod())
-//					executeOddPeriodTasks();
+				// if (checkOddPeriod())
+				// executeOddPeriodTasks();
 
 				fin.setI(stk.top());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
@@ -1640,8 +1629,7 @@ public class Calculator {
 			stp.setStep(Step.STP_RCL_PV);
 			dsp.setStatus(Display.STATUS_READY);
 		} else {
-			if ((dsp.getStatus() == Display.STATUS_READY)
-					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
+			if ((dsp.getStatus() == Display.STATUS_READY) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				// Here odd period check should not be done
 				// if(checkOddPeriod()) executeOddPeriodTasks();
@@ -1681,12 +1669,11 @@ public class Calculator {
 			stp.setStep(Step.STP_RCL_PMT);
 			dsp.setStatus(Display.STATUS_READY);
 		} else {
-			if ((dsp.getStatus() == Display.STATUS_READY)
-					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
+			if ((dsp.getStatus() == Display.STATUS_READY) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
-//				// Here odd period check should be done BEFORE the calculus
-//				if (checkOddPeriod())
-//					executeOddPeriodTasks();
+				// // Here odd period check should be done BEFORE the calculus
+				// if (checkOddPeriod())
+				// executeOddPeriodTasks();
 
 				stk.set(0, fin.pricePayment());
 
@@ -1725,12 +1712,11 @@ public class Calculator {
 			stp.setStep(Step.STP_RCL_FV);
 			dsp.setStatus(Display.STATUS_READY);
 		} else {
-			if ((dsp.getStatus() == Display.STATUS_READY)
-					|| (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
+			if ((dsp.getStatus() == Display.STATUS_READY) || (dsp.getStatus() == Display.STATUS_OUTPUT2)) {
 
 				// Here odd period check should be done BEFORE the calculus
-//				if (checkOddPeriod())
-//					executeOddPeriodTasks();
+				// if (checkOddPeriod())
+				// executeOddPeriodTasks();
 
 				stk.set(0, fin.futureValue());
 
@@ -1748,11 +1734,11 @@ public class Calculator {
 		if (flg.getF() == 1) {
 			flg.toggleF();
 		} else if (flg.getG() == 1) {
-			
+
 			tmp = new Number[2];
-			
+
 			stk.addDaysToDate();
-			
+
 			// Calculate week day and show it.
 			dsp.setValue(stk.top());
 			stp.setStep(Step.STP_G_CHS);
@@ -1841,9 +1827,8 @@ public class Calculator {
 			/*
 			 * dt = new Date[2];
 			 * 
-			 * HP12CbondYield(fin.getPv(), fin.getPmt(), dt[1],
-			 * dt[0]); stk.put(HP12CbondYield(fin.getPv(),
-			 * fin.getPmt(), dt[1], dt[0]));
+			 * HP12CbondYield(fin.getPv(), fin.getPmt(), dt[1], dt[0]);
+			 * stk.put(HP12CbondYield(fin.getPv(), fin.getPmt(), dt[1], dt[0]));
 			 * 
 			 * flg.toggleF(); stp.setStep(Step.STP_F_RECIPROCAL);
 			 * dsp.setStatus(Display.STATUS_OUTPUT);
@@ -1895,7 +1880,7 @@ public class Calculator {
 
 	protected void doKey24() throws CalculatorException {
 		if (flg.getF() == 1) {
-			
+
 			tmp = new Number[2];
 			tmp = fin.soydDepreciation(stk.top());
 			stk.put(tmp[1]);
@@ -1923,7 +1908,7 @@ public class Calculator {
 
 	protected void doKey25() throws CalculatorException {
 		if (flg.getF() == 1) {
-			
+
 			tmp = new Number[2];
 			tmp = fin.dbDepreciation(stk.top());
 			stk.put(tmp[1]);
@@ -1965,12 +1950,15 @@ public class Calculator {
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
-			if (!dsp.getValue().isZero()) {
-				if ((dsp.getStatus() != Display.STATUS_INPUT)) {
-					dsp.inputChar('1');
+
+			if ((dsp.getStatus() != Display.STATUS_INPUT)) {
+				if ((dsp.getStatus() != Display.STATUS_READY)) {
+					stk.shiftDown();
 				}
-				this.dsp.setMode(Display.MODE_EXPONENTIAL);
+				dsp.inputChar('1');
 			}
+
+			this.dsp.setMode(Display.MODE_EXPONENTIAL);
 			stp.setStep(Step.STP_EEX);
 		}
 	}
@@ -1996,8 +1984,7 @@ public class Calculator {
 			flg.togglePrgm();
 
 			if (flg.getPrgm() == 1) {
-				dsp.inputProgramStep(prg.getCurrentIndex(),
-						(Step) prg.get());
+				dsp.inputProgramStep(prg.getCurrentIndex(), (Step) prg.get());
 				dsp.setMode(Display.MODE_PROGRAM);
 			} else {
 				prg.setCurrentIndex(0);
