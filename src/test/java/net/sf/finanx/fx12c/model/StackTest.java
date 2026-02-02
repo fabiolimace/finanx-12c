@@ -114,10 +114,29 @@ public class StackTest {
 	
 	@Test
 	public void integralPartTest() throws Exception {
+
+		/**
+		 * 6.78 ENTER
+		 * X = 6
+		 * Y = 0
+		 */
 		stk.put(n(6.78));
 		stk.integralPart();
 		assertEquals(n(6), stk.pop());
 		assertEquals(n(0), stk.top());
+
+		/**
+		 * 1.23 ENTER
+		 * 4.56 INTG
+		 * X = 4
+		 * Y = 1.23
+		 */
+		stk.clear();
+		stk.put(n(1.23));
+		stk.put(n(4.56));
+		stk.integralPart();
+		assertEquals(n(4), stk.pop());
+		assertEquals(n(1.23), stk.top());
 	}
 	
 	@Test

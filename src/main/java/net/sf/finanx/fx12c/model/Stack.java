@@ -388,7 +388,7 @@ public class Stack {
 	 * @throws CalculatorException
 	 */
 	public void integralPart() throws CalculatorException {
-		Number x = pop(); // FIXME: TOP
+		Number x = top();
 		set(0, x.integralPart());
 		setLastTop(x);
 	}
