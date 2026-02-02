@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 public class HistoryWindow {
 	// TODO

@@ -1,6 +1,6 @@
-package net.sf.finanx.hp12c.model;
+package net.sf.finanx.fx12c.model;
 
-import net.sf.finanx.hp12c.controller.Key;
+import net.sf.finanx.fx12c.controller.Key;
 
 public class Step {
 	

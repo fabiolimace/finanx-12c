@@ -1,5 +1,5 @@
 
-package net.sf.finanx.utils;
+package net.sf.finanx.fx12c.utils;
 
 public class OSDetector {
  

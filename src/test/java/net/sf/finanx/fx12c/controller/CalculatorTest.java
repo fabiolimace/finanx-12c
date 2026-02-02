@@ -1,6 +1,6 @@
-package net.sf.finanx.hp12c.controller;
+package net.sf.finanx.fx12c.controller;
 
-import static net.sf.finanx.math.Number.*;
+import static net.sf.finanx.fx12c.math.Number.*;
 import static org.junit.Assert.*;
 
 import org.junit.After;

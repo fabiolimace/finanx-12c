@@ -1,9 +1,9 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import net.sf.finanx.hp12c.controller.Controller;
+import net.sf.finanx.fx12c.controller.Controller;
 
 public class CustomWindowListener implements WindowListener {
 

@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import javax.swing.JMenuItem;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import net.sf.finanx.hp12c.controller.Controller;
+import net.sf.finanx.fx12c.controller.Controller;
 
 
 public class CustomMenuListener implements MenuListener, ActionListener, ItemListener {

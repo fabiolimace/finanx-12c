@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,15 +30,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 
-import net.sf.finanx.hp12c.controller.Configuration;
-import net.sf.finanx.hp12c.controller.Controller;
-import net.sf.finanx.hp12c.controller.Key;
-import net.sf.finanx.hp12c.persistence.Item;
-import net.sf.finanx.hp12c.persistence.ItemList;
-import net.sf.finanx.hp12c.persistence.Skin;
-import net.sf.finanx.hp12c.persistence.SkinDAO;
-import net.sf.finanx.hp12c.persistence.StringList;
-import net.sf.finanx.utils.HexColor;
+import net.sf.finanx.fx12c.controller.Configuration;
+import net.sf.finanx.fx12c.controller.Controller;
+import net.sf.finanx.fx12c.controller.Key;
+import net.sf.finanx.fx12c.persistence.Item;
+import net.sf.finanx.fx12c.persistence.ItemList;
+import net.sf.finanx.fx12c.persistence.Skin;
+import net.sf.finanx.fx12c.persistence.SkinDAO;
+import net.sf.finanx.fx12c.persistence.StringList;
+import net.sf.finanx.fx12c.utils.HexColor;
 
 public class MainWindow {
 
@@ -337,7 +337,7 @@ public class MainWindow {
 				e.printStackTrace();
 			}
 		} else {
-			return this.getClass().getResourceAsStream("/resources/" + path);
+			return this.getClass().getClassLoader().getResourceAsStream(path);
 		}
 		
 		return null;

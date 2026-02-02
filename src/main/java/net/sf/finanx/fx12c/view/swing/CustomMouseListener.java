@@ -1,11 +1,11 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import net.sf.finanx.hp12c.controller.Controller;
-import net.sf.finanx.hp12c.controller.Key;
-import net.sf.finanx.hp12c.view.swing.ImageButton;
+import net.sf.finanx.fx12c.controller.Controller;
+import net.sf.finanx.fx12c.controller.Key;
+import net.sf.finanx.fx12c.view.swing.ImageButton;
 
 public class CustomMouseListener extends MouseAdapter {
 

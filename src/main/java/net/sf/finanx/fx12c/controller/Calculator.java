@@ -1,17 +1,17 @@
-package net.sf.finanx.hp12c.controller;
+package net.sf.finanx.fx12c.controller;
 
-import static net.sf.finanx.math.Number.*;
+import static net.sf.finanx.fx12c.math.Number.*;
 
-import net.sf.finanx.hp12c.model.Display;
-import net.sf.finanx.hp12c.model.FinanceMemory;
-import net.sf.finanx.hp12c.model.Flags;
-import net.sf.finanx.hp12c.model.GeneralMemory;
-import net.sf.finanx.hp12c.model.History;
-import net.sf.finanx.hp12c.model.ProgramMemory;
-import net.sf.finanx.hp12c.model.Stack;
-import net.sf.finanx.hp12c.model.Step;
-import net.sf.finanx.math.Number;
-import net.sf.finanx.utils.Timer;
+import net.sf.finanx.fx12c.math.Number;
+import net.sf.finanx.fx12c.model.Display;
+import net.sf.finanx.fx12c.model.FinanceMemory;
+import net.sf.finanx.fx12c.model.Flags;
+import net.sf.finanx.fx12c.model.GeneralMemory;
+import net.sf.finanx.fx12c.model.History;
+import net.sf.finanx.fx12c.model.ProgramMemory;
+import net.sf.finanx.fx12c.model.Stack;
+import net.sf.finanx.fx12c.model.Step;
+import net.sf.finanx.fx12c.utils.Timer;
 
 /*
  * TODO: Erros for:

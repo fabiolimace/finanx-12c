@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.persistence;
+package net.sf.finanx.fx12c.persistence;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import net.sf.finanx.hp12c.controller.Configuration;
-import net.sf.finanx.utils.StringEscape;;
+import net.sf.finanx.fx12c.controller.Configuration;
+import net.sf.finanx.fx12c.utils.StringEscape;;
 
 public class ConfigurationDAO extends DataAccessObject {
 

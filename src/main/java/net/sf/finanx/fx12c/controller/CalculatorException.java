@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.controller;
+package net.sf.finanx.fx12c.controller;
 
 public class CalculatorException extends IllegalArgumentException {
 

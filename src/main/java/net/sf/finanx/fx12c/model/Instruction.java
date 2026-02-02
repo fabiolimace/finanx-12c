@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.model;
+package net.sf.finanx.fx12c.model;
 
 public class Instruction {	
 	

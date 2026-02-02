@@ -1,10 +1,10 @@
-package net.sf.finanx.hp12c.controller;
+package net.sf.finanx.fx12c.controller;
 
-import net.sf.finanx.hp12c.model.FinanceMemory;
-import net.sf.finanx.hp12c.model.GeneralMemory;
-import net.sf.finanx.hp12c.model.ProgramMemory;
-import net.sf.finanx.hp12c.model.Stack;
-import net.sf.finanx.hp12c.model.Step;
+import net.sf.finanx.fx12c.model.FinanceMemory;
+import net.sf.finanx.fx12c.model.GeneralMemory;
+import net.sf.finanx.fx12c.model.ProgramMemory;
+import net.sf.finanx.fx12c.model.Stack;
+import net.sf.finanx.fx12c.model.Step;
 
 public class Configuration {
 

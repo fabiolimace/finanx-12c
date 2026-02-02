@@ -1,11 +1,11 @@
-package net.sf.finanx.math;
+package net.sf.finanx.fx12c.math;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import net.sf.finanx.hp12c.controller.CalculatorException;
-import net.sf.finanx.hp12c.controller.Error;
+import net.sf.finanx.fx12c.controller.CalculatorException;
+import net.sf.finanx.fx12c.controller.Error;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.persistence;
+package net.sf.finanx.fx12c.persistence;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

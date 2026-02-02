@@ -1,12 +1,12 @@
-package net.sf.finanx.hp12c.model;
+package net.sf.finanx.fx12c.model;
 
-import static net.sf.finanx.math.Number.*;
+import static net.sf.finanx.fx12c.math.Number.*;
 
 import java.util.Calendar;
 
-import net.sf.finanx.hp12c.controller.CalculatorException;
-import net.sf.finanx.hp12c.controller.Error;
-import net.sf.finanx.math.Number;
+import net.sf.finanx.fx12c.controller.CalculatorException;
+import net.sf.finanx.fx12c.controller.Error;
+import net.sf.finanx.fx12c.math.Number;
 
 public class Stack {
 	
@@ -388,7 +388,7 @@ public class Stack {
 	 * @throws CalculatorException
 	 */
 	public void integralPart() throws CalculatorException {
-		Number x = pop();
+		Number x = pop(); // FIXME: TOP
 		set(0, x.integralPart());
 		setLastTop(x);
 	}

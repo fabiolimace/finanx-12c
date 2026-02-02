@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.persistence;
+package net.sf.finanx.fx12c.persistence;
 
 public class Skin {
 

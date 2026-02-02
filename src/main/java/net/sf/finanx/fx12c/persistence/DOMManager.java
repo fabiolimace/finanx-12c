@@ -3,7 +3,7 @@
  * It's generates a hashtable that stores all DOM objects.
  */
 
-package net.sf.finanx.hp12c.persistence;
+package net.sf.finanx.fx12c.persistence;
 
 // For reading operations
 import javax.xml.parsers.DocumentBuilder; 
@@ -13,7 +13,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import net.sf.finanx.utils.OSDetector;
+import net.sf.finanx.fx12c.utils.OSDetector;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -84,7 +84,7 @@ public class DOMManager {
 				e.printStackTrace();
 			}
 		} else {
-			return this.getClass().getResourceAsStream("/resources/" + path);
+			return this.getClass().getClassLoader().getResourceAsStream(path);
 		}
 		
 		return null;

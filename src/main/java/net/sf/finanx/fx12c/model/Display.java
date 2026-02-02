@@ -1,9 +1,9 @@
-package net.sf.finanx.hp12c.model;
+package net.sf.finanx.fx12c.model;
 
 import java.util.Locale;
 
-import net.sf.finanx.hp12c.controller.CalculatorException;
-import net.sf.finanx.math.Number;
+import net.sf.finanx.fx12c.controller.CalculatorException;
+import net.sf.finanx.fx12c.math.Number;
 
 public class Display {
 

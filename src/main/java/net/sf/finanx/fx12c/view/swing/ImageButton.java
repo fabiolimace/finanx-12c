@@ -1,4 +1,4 @@
-package net.sf.finanx.hp12c.view.swing;
+package net.sf.finanx.fx12c.view.swing;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -7,7 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import net.sf.finanx.hp12c.controller.Key;
+import net.sf.finanx.fx12c.controller.Key;
 
 public class ImageButton extends JButton implements CustomImage {
 	

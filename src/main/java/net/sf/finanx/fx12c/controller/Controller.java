@@ -1,27 +1,27 @@
-package net.sf.finanx.hp12c.controller;
+package net.sf.finanx.fx12c.controller;
 
 import java.awt.Point;
 
 import javax.swing.JTextField;
 
-import net.sf.finanx.hp12c.model.FinanceMemory;
-import net.sf.finanx.hp12c.model.GeneralMemory;
-import net.sf.finanx.hp12c.model.ProgramMemory;
-import net.sf.finanx.hp12c.model.Stack;
-import net.sf.finanx.hp12c.persistence.ConfigurationDAO;
-import net.sf.finanx.hp12c.persistence.Item;
-import net.sf.finanx.hp12c.persistence.ItemList;
-import net.sf.finanx.hp12c.persistence.LanguageDAO;
-import net.sf.finanx.hp12c.persistence.MemoryDAO;
-import net.sf.finanx.hp12c.persistence.Skin;
-import net.sf.finanx.hp12c.persistence.SkinDAO;
-import net.sf.finanx.hp12c.persistence.StringList;
-import net.sf.finanx.hp12c.view.swing.CustomKeyListener;
-import net.sf.finanx.hp12c.view.swing.CustomMenuListener;
-import net.sf.finanx.hp12c.view.swing.CustomMouseListener;
-import net.sf.finanx.hp12c.view.swing.CustomWindowListener;
-import net.sf.finanx.hp12c.view.swing.MainWindow;
-import net.sf.finanx.math.Number;
+import net.sf.finanx.fx12c.math.Number;
+import net.sf.finanx.fx12c.model.FinanceMemory;
+import net.sf.finanx.fx12c.model.GeneralMemory;
+import net.sf.finanx.fx12c.model.ProgramMemory;
+import net.sf.finanx.fx12c.model.Stack;
+import net.sf.finanx.fx12c.persistence.ConfigurationDAO;
+import net.sf.finanx.fx12c.persistence.Item;
+import net.sf.finanx.fx12c.persistence.ItemList;
+import net.sf.finanx.fx12c.persistence.LanguageDAO;
+import net.sf.finanx.fx12c.persistence.MemoryDAO;
+import net.sf.finanx.fx12c.persistence.Skin;
+import net.sf.finanx.fx12c.persistence.SkinDAO;
+import net.sf.finanx.fx12c.persistence.StringList;
+import net.sf.finanx.fx12c.view.swing.CustomKeyListener;
+import net.sf.finanx.fx12c.view.swing.CustomMenuListener;
+import net.sf.finanx.fx12c.view.swing.CustomMouseListener;
+import net.sf.finanx.fx12c.view.swing.CustomWindowListener;
+import net.sf.finanx.fx12c.view.swing.MainWindow;
 
 public class Controller {
 
