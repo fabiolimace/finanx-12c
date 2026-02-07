@@ -185,16 +185,6 @@ public class Stack {
 		this.stk[1] = this.stk[0];
 		this.stk[0] = this.swp;		
 	}
-	
-	public void lowerTopPair()
-	{
-		if(this.stk[0].greaterThan(this.stk[1]))
-	    {
-	        this.swp = this.stk[1];
-	        this.stk[1] = this.stk[0];
-	        this.stk[0] = this.swp;
-	    }
-	}
 
 	public void setLastTop(Number top){
 		this.lastTop = top;

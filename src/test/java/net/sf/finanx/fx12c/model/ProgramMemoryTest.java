@@ -1,0 +1,218 @@
+package net.sf.finanx.fx12c.model;
+
+import static net.sf.finanx.fx12c.math.Number.*;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import net.sf.finanx.fx12c.controller.Calculator;
+
+/**
+ *
+ * @see StackTest
+ * 
+ */
+public class ProgramMemoryTest {
+
+	private Calculator cal;
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+
+		Flags flg = new Flags();
+		Stack stk = new Stack();
+		ProgramMemory prg = new ProgramMemory();
+
+		cal = new Calculator(/* testing = */ true);
+		cal.setFlags(flg);
+		cal.setStack(stk);
+		cal.setProgramMemory(prg);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	private void executeProgram() {
+		cal.getProgramMemory().setCurrentIndex(0);
+		cal.getFlags().toggleRun();
+		cal.executeProgram();
+	}
+
+	private double stk(int i) {
+		return cal.getStack().get(i).d();
+	}
+
+	@Test
+	public void testMinProgram() throws Exception {
+		testMinProgram(1, 1);
+		testMinProgram(1, 2);
+		testMinProgram(2, 1);
+		testMinProgram(2, 2);
+	}
+
+	private void testMinProgram(double y, double x) throws Exception {
+		setUp();
+		assertEquals(Math.min(y, x), minProgram(y, x), 0);
+	}
+
+	private double minProgram(double y, double x) {
+
+//		Y	ENTER
+//		X
+//		XLTY
+//		SWAPXY
+//		CLRX
+//		ADD
+
+		cal.getStack().put(n(y));
+		cal.getStack().put(n(x));
+
+		cal.getProgramMemory().put(Step.STP_G_XY);
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_CLX);
+		cal.getProgramMemory().put(Step.STP_SUM);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
+	public void testMaxProgram() throws Exception {
+		testMaxProgram(1, 1);
+		testMaxProgram(1, 2);
+		testMaxProgram(2, 1);
+		testMaxProgram(2, 2);
+	}
+
+	private void testMaxProgram(double y, double x) throws Exception {
+		setUp();
+		assertEquals(Math.max(y, x), maxProgram(y, x), 0);
+	}
+
+	private double maxProgram(double y, double x) {
+
+//		Y	ENTER
+//		X
+//		XLTY
+//		SWAPXY
+//		SWAPXY
+//		CLRX
+//		ADD
+
+		cal.getStack().put(n(y));
+		cal.getStack().put(n(x));
+
+		cal.getProgramMemory().put(Step.STP_G_XY);
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_CLX);
+		cal.getProgramMemory().put(Step.STP_SUM);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
+	public void testAbsProgram() throws Exception {
+		testAbsProgram(0);
+		testAbsProgram(1);
+		testAbsProgram(-1);
+		testAbsProgram(31);
+		testAbsProgram(-57);
+	}
+
+	private void testAbsProgram(double x) throws Exception {
+		setUp();
+		assertEquals(Math.abs(x), absProgram(x), 0);
+	}
+
+	private double absProgram(double x) {
+
+//		x	ENTER
+//		0
+//		SWAPXY
+//		XLTY
+//		CHS
+//		ADD
+
+		cal.getStack().put(n(x));
+		cal.getStack().put(n(0));
+
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_G_XY);
+		cal.getProgramMemory().put(Step.STP_CHS);
+		cal.getProgramMemory().put(Step.STP_SUM);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
+	public void testModProgram() throws Exception {
+		testModProgram(249, 51);
+		testModProgram(73, 37);
+		testModProgram(37, 17);
+		testModProgram(9, 5);
+	}
+
+	private void testModProgram(long y, long x) throws Exception {
+		setUp();
+		assertEquals(Math.floorMod(y, x), modProgram(y, x), 0);
+	}
+
+	private double modProgram(long y, long x) {
+
+//		y	ENTER
+//		x	ENTER
+//		RDOWN
+//		RDOWN
+//		ENTER
+//		RDOWN
+//		RDOWN
+//		RDOWN
+//		DIV
+//		LASTX
+//		SWAPXY
+//		INTG
+//		MUL
+//		SUB
+
+		cal.getStack().put(n(y));
+		cal.getStack().put(n(x));
+		cal.getDisplay().setValue(n(x));
+
+		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_DIV);
+		cal.getProgramMemory().put(Step.STP_G_ENTER);
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_G_PERC);
+		cal.getProgramMemory().put(Step.STP_MUL);
+		cal.getProgramMemory().put(Step.STP_SUB);
+
+		executeProgram();
+
+		return stk(0);
+	}
+}

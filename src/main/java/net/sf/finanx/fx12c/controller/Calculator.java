@@ -48,6 +48,8 @@ public class Calculator {
 
 	private Configuration cfg;
 
+	private boolean testing;
+
 	private class Worker extends Thread {
 
 		private Calculator calculator;
@@ -58,23 +60,19 @@ public class Calculator {
 		}
 
 		public void run() {
-			while (calculator.getFlags().getRun() == 1) {
-				calculator.executeSingleStep();
-				try {
-					sleep(10);
-				} catch (InterruptedException e) {
-					calculator.getFlags().setRun(0);
-					Thread.currentThread().interrupt();
-				}
-			}
+			calculator.executeProgramLoop();
 		}
 	}
 
 	public Calculator() {
-		this.init();
+		this.init(false);
 	}
 
-	protected void init() {
+	public Calculator(boolean testing) {
+		this.init(testing);
+	}
+
+	protected void init(boolean testing) {
 
 		// Not persistent data
 		this.flg = new Flags();
@@ -94,6 +92,8 @@ public class Calculator {
 		// Program runner. An independent thread
 		// that executes steps sequentially.
 		this.worker = new Worker(this);
+
+		this.testing = testing;
 	}
 
 	public Controller getController() {
@@ -613,10 +613,7 @@ public class Calculator {
 	}
 
 	public void printRegisters() {
-		if ((dsp.getStatus() != Display.STATUS_INPUT) 
-				&& flg.getF() == 0 
-				&& flg.getG() == 0 
-				&& flg.getSto() == 0
+		if ((dsp.getStatus() != Display.STATUS_INPUT) && flg.getF() == 0 && flg.getG() == 0 && flg.getSto() == 0
 				&& flg.getRcl() == 0) {
 			System.out.println("--------------------\n");
 			System.out.println(stp);
@@ -626,11 +623,11 @@ public class Calculator {
 	}
 
 	/*
-	 * Processes STO operations. It Receives integers to form the memory index.
-	 * It uses the memory index to store the X value into a memory register.
-	 * Note 1: If the calculator has only 20 registers the calculator will work
-	 * like the HP12C Gold, on witch a point represents 10. Note 2: It stores
-	 * values from 000 to 999.
+	 * Processes STO operations. It Receives integers to form the memory index. It
+	 * uses the memory index to store the X value into a memory register. Note 1: If
+	 * the calculator has only 20 registers the calculator will work like the HP12C
+	 * Gold, on witch a point represents 10. Note 2: It stores values from 000 to
+	 * 999.
 	 */
 	protected void stoInput(int i) throws CalculatorException {
 
@@ -699,11 +696,10 @@ public class Calculator {
 	}
 
 	/*
-	 * Processes RCL operations. It Receives integers to form the memory index.
-	 * It uses the memory index to store the X value into a memory register.
-	 * Note 1: If the calculateor has only 20 registers the calculator will work
-	 * like the HP12C Gold, on witch a point represents 10. Note 2: It recall
-	 * from 000 to 999.
+	 * Processes RCL operations. It Receives integers to form the memory index. It
+	 * uses the memory index to store the X value into a memory register. Note 1: If
+	 * the calculateor has only 20 registers the calculator will work like the HP12C
+	 * Gold, on witch a point represents 10. Note 2: It recall from 000 to 999.
 	 */
 	protected void rclInput(int i) {
 
@@ -869,7 +865,9 @@ public class Calculator {
 	public void showDisplayMessage(String msg) {
 		dsp.setMessage(msg);
 		dsp.setLock(true);
-		controller.getWindow().updateDisplay();
+		if (!testing) {
+			controller.getWindow().updateDisplay();
+		}
 	}
 
 	public void programInput(Key key) {
@@ -1120,7 +1118,6 @@ public class Calculator {
 
 			prg.setCurrentIndex(stp.getComplement());
 		} else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_XY.getCode()) {
-
 			if (stk.get(0).lessThanOrEqualTo(stk.get(1))) {
 				this.prg.next();
 			} else {
@@ -1160,8 +1157,10 @@ public class Calculator {
 
 	public void executeSingleStep() {
 
-		showDisplayMessage("running");
-		getDisplay().setLock(false);
+		if (!testing) {
+			showDisplayMessage("running");
+			getDisplay().setLock(false);
+		}
 
 		if (prg.getCurrentIndex() == 0)
 			this.prg.next();
@@ -1174,18 +1173,35 @@ public class Calculator {
 	}
 
 	public void executeProgram() {
+		if (!testing) {
+			this.worker = new Worker(this);
+			this.worker.start();
+		} else {
+			this.executeProgramLoop();
+		}
+	}
 
-		this.worker = null;
-		this.worker = new Worker(this);
-		this.worker.start();
-
+	protected void executeProgramLoop() {
+		while (this.getFlags().getRun() == 1) {
+			this.executeSingleStep();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				this.getFlags().setRun(0);
+				Thread.currentThread().interrupt();
+			}
+		}
 	}
 
 	public void stopProgram() {
-		prg.setCurrentIndex(0);
+
 		flg.setRun(0);
-		dsp.setLock(false);
-		controller.getWindow().updateDisplay();
+		prg.setCurrentIndex(0);
+
+		if (!testing) {
+			dsp.setLock(false);
+			controller.getWindow().updateDisplay();
+		}
 	}
 
 	public Step getStep() {
@@ -1205,7 +1221,6 @@ public class Calculator {
 	}
 
 	public void putStep(Step stp) {
-		System.out.println(stp);
 		this.prg.put(new Step(stp));
 	}
 
@@ -2077,9 +2092,6 @@ public class Calculator {
 			dsp.setStatus(Display.STATUS_READY);
 			flg.toggleF();
 		} else if (flg.getG() == 1) {
-			stk.lowerTopPair();
-			stp.setStep(Step.STP_G_XY);
-			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();

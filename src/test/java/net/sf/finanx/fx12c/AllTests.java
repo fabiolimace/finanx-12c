@@ -8,10 +8,11 @@ import net.sf.finanx.fx12c.controller.CalculatorTest;
 import net.sf.finanx.fx12c.math.NumberTest;
 import net.sf.finanx.fx12c.model.FinanceMemoryTest;
 import net.sf.finanx.fx12c.model.GeneralMemoryTest;
+import net.sf.finanx.fx12c.model.ProgramMemoryTest;
 import net.sf.finanx.fx12c.model.StackTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ NumberTest.class, FinanceMemoryTest.class, GeneralMemoryTest.class, StackTest.class, CalculatorTest.class })
+@SuiteClasses({ NumberTest.class, FinanceMemoryTest.class, GeneralMemoryTest.class, ProgramMemoryTest.class, StackTest.class, CalculatorTest.class })
 public class AllTests {
 
 }
