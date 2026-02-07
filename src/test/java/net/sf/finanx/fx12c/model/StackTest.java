@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.sf.finanx.fx12c.model.Stack;
-
 /*
  * Examples extractes from the following books:
  *  - HP12C Financial Calculator User's Guide, 2005, refered here as "HP12C Manual"
@@ -115,7 +113,7 @@ public class StackTest {
 	@Test
 	public void integralPartTest() throws Exception {
 
-		/**
+		/*
 		 * 6.78 ENTER
 		 * X = 6
 		 * Y = 0
@@ -125,7 +123,7 @@ public class StackTest {
 		assertEquals(n(6), stk.pop());
 		assertEquals(n(0), stk.top());
 
-		/**
+		/*
 		 * 1.23 ENTER
 		 * 4.56 INTG
 		 * X = 4
@@ -141,10 +139,29 @@ public class StackTest {
 	
 	@Test
 	public void fractionalPartTest() throws Exception {
+
+		/*
+		 * 6.78 ENTER
+		 * X = 0.78
+		 * Y = 0
+		 */
 		stk.put(n(6.78));
 		stk.fractionalPart();
 		assertEquals(n(0.78), stk.pop().round(2));
 		assertEquals(n(0), stk.top());
+
+		/*
+		 * 1.23 ENTER
+		 * 4.56 FRAC
+		 * X = 0.56
+		 * Y = 1.23
+		 */
+		stk.clear();
+		stk.put(n(1.23));
+		stk.put(n(4.56));
+		stk.fractionalPart();
+		assertEquals(n(0.56), stk.pop().round(2));
+		assertEquals(n(1.23), stk.top());
 	}
 	
 	@Test

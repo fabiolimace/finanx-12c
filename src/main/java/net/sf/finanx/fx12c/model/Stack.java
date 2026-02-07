@@ -403,7 +403,7 @@ public class Stack {
 	 * @throws CalculatorException
 	 */
 	public void fractionalPart() throws CalculatorException {
-		Number x = pop();
+		Number x = top();
 		set(0, x.fractionalPart());
 		setLastTop(x);
 	}
