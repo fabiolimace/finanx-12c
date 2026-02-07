@@ -471,27 +471,27 @@ public class MainWindow {
 		imageMap.put(Key.KEY_FV.getName(), I15);
 		imageMap.put(Key.KEY_CHS.getName(), I16);
 		imageMap.put(Key.KEY_MUL.getName(), I20);
-		imageMap.put(Key.KEY_POW.getName(), I21);
+		imageMap.put(Key.KEY_POWER.getName(), I21);
 		imageMap.put(Key.KEY_RECIPROCAL.getName(), I22);
-		imageMap.put(Key.KEY_PERC_TOT.getName(), I23);
-		imageMap.put(Key.KEY_PERC_DELTA.getName(), I24);
-		imageMap.put(Key.KEY_PERC.getName(), I25);
+		imageMap.put(Key.KEY_PERCENTT.getName(), I23);
+		imageMap.put(Key.KEY_DELTAPERCENT.getName(), I24);
+		imageMap.put(Key.KEY_PERCENT.getName(), I25);
 		imageMap.put(Key.KEY_EEX.getName(), I26);
 		imageMap.put(Key.KEY_SUB.getName(), I30);
 		imageMap.put(Key.KEY_RS.getName(), I31);
 		imageMap.put(Key.KEY_SST.getName(), I32);
-		imageMap.put(Key.KEY_ROLL.getName(), I33);
-		imageMap.put(Key.KEY_XY.getName(), I34);
+		imageMap.put(Key.KEY_RDOWN.getName(), I33);
+		imageMap.put(Key.KEY_SWAPXY.getName(), I34);
 		imageMap.put(Key.KEY_CLX.getName(), I35);
 		imageMap.put(Key.KEY_ENTER.getName(), I36);
-		imageMap.put(Key.KEY_SUM.getName(), I40);
+		imageMap.put(Key.KEY_ADD.getName(), I40);
 		imageMap.put(Key.KEY_ON.getName(), I41);
 		imageMap.put(Key.KEY_F.getName(), I42);
 		imageMap.put(Key.KEY_G.getName(), I43);
 		imageMap.put(Key.KEY_STO.getName(), I44);
 		imageMap.put(Key.KEY_RCL.getName(), I45);
 		imageMap.put(Key.KEY_DOT.getName(), I48);
-		imageMap.put(Key.KEY_TOT.getName(), I49);
+		imageMap.put(Key.KEY_SIGMAPLUS.getName(), I49);
 
 		imageMapPressed = new Hashtable<String, ImageIcon>();
 		imageMapPressed.put(Key.KEY_0.getName(), I00p);
@@ -512,27 +512,27 @@ public class MainWindow {
 		imageMapPressed.put(Key.KEY_FV.getName(), I15p);
 		imageMapPressed.put(Key.KEY_CHS.getName(), I16p);
 		imageMapPressed.put(Key.KEY_MUL.getName(), I20p);
-		imageMapPressed.put(Key.KEY_POW.getName(), I21p);
+		imageMapPressed.put(Key.KEY_POWER.getName(), I21p);
 		imageMapPressed.put(Key.KEY_RECIPROCAL.getName(), I22p);
-		imageMapPressed.put(Key.KEY_PERC_TOT.getName(), I23p);
-		imageMapPressed.put(Key.KEY_PERC_DELTA.getName(), I24p);
-		imageMapPressed.put(Key.KEY_PERC.getName(), I25p);
+		imageMapPressed.put(Key.KEY_PERCENTT.getName(), I23p);
+		imageMapPressed.put(Key.KEY_DELTAPERCENT.getName(), I24p);
+		imageMapPressed.put(Key.KEY_PERCENT.getName(), I25p);
 		imageMapPressed.put(Key.KEY_EEX.getName(), I26p);
 		imageMapPressed.put(Key.KEY_SUB.getName(), I30p);
 		imageMapPressed.put(Key.KEY_RS.getName(), I31p);
 		imageMapPressed.put(Key.KEY_SST.getName(), I32p);
-		imageMapPressed.put(Key.KEY_ROLL.getName(), I33p);
-		imageMapPressed.put(Key.KEY_XY.getName(), I34p);
+		imageMapPressed.put(Key.KEY_RDOWN.getName(), I33p);
+		imageMapPressed.put(Key.KEY_SWAPXY.getName(), I34p);
 		imageMapPressed.put(Key.KEY_CLX.getName(), I35p);
 		imageMapPressed.put(Key.KEY_ENTER.getName(), I36p);
-		imageMapPressed.put(Key.KEY_SUM.getName(), I40p);
+		imageMapPressed.put(Key.KEY_ADD.getName(), I40p);
 		imageMapPressed.put(Key.KEY_ON.getName(), I41p);
 		imageMapPressed.put(Key.KEY_F.getName(), I42p);
 		imageMapPressed.put(Key.KEY_G.getName(), I43p);
 		imageMapPressed.put(Key.KEY_STO.getName(), I44p);
 		imageMapPressed.put(Key.KEY_RCL.getName(), I45p);
 		imageMapPressed.put(Key.KEY_DOT.getName(), I48p);
-		imageMapPressed.put(Key.KEY_TOT.getName(), I49p);
+		imageMapPressed.put(Key.KEY_SIGMAPLUS.getName(), I49p);
 
 	}
 
@@ -787,7 +787,7 @@ public class MainWindow {
 		// =================================
 
 		B21 = new ImageButton(I21);
-		B21.setKey(Key.KEY_POW);
+		B21.setKey(Key.KEY_POWER);
 		B21.setBorderPainted(false);
 		B21.setPreferredSize(new Dimension(wbot, hbot));
 		B21.setBackground(buttonBgColor);
@@ -821,7 +821,7 @@ public class MainWindow {
 		mainPanel.add(B22, R22);
 
 		B23 = new ImageButton(I23);
-		B23.setKey(Key.KEY_PERC_TOT);
+		B23.setKey(Key.KEY_PERCENTT);
 		B23.setBorderPainted(false);
 		B23.setPreferredSize(new Dimension(wbot, hbot));
 		B23.setBackground(buttonBgColor);
@@ -837,7 +837,7 @@ public class MainWindow {
 		mainPanel.add(B23, R23);
 
 		B24 = new ImageButton(I24);
-		B24.setKey(Key.KEY_PERC_DELTA);
+		B24.setKey(Key.KEY_DELTAPERCENT);
 		B24.setBorderPainted(false);
 		B24.setPreferredSize(new Dimension(wbot, hbot));
 		B24.setBackground(buttonBgColor);
@@ -853,7 +853,7 @@ public class MainWindow {
 		mainPanel.add(B24, R24);
 
 		B25 = new ImageButton(I25);
-		B25.setKey(Key.KEY_PERC);
+		B25.setKey(Key.KEY_PERCENT);
 		B25.setBorderPainted(false);
 		B25.setPreferredSize(new Dimension(wbot, hbot));
 		B25.setBackground(buttonBgColor);
@@ -983,7 +983,7 @@ public class MainWindow {
 		mainPanel.add(B32, R32);
 
 		B33 = new ImageButton(I33);
-		B33.setKey(Key.KEY_ROLL);
+		B33.setKey(Key.KEY_RDOWN);
 		B33.setBorderPainted(false);
 		B33.setPreferredSize(new Dimension(wbot, hbot));
 		B33.setBackground(buttonBgColor);
@@ -999,7 +999,7 @@ public class MainWindow {
 		mainPanel.add(B33, R33);
 
 		B34 = new ImageButton(I34);
-		B34.setKey(Key.KEY_XY);
+		B34.setKey(Key.KEY_SWAPXY);
 		B34.setBorderPainted(false);
 		B34.setPreferredSize(new Dimension(wbot, hbot));
 		B34.setBackground(buttonBgColor);
@@ -1225,7 +1225,7 @@ public class MainWindow {
 		mainPanel.add(B48, R48);
 
 		B49 = new ImageButton(I49);
-		B49.setKey(Key.KEY_TOT);
+		B49.setKey(Key.KEY_SIGMAPLUS);
 		B49.setBorderPainted(false);
 		B49.setPreferredSize(new Dimension(wbot, hbot));
 		B49.setBackground(buttonBgColor);
@@ -1241,7 +1241,7 @@ public class MainWindow {
 		mainPanel.add(B49, R49);
 
 		B40 = new ImageButton(I40);
-		B40.setKey(Key.KEY_SUM);
+		B40.setKey(Key.KEY_ADD);
 		B40.setBorderPainted(false);
 		B40.setPreferredSize(new Dimension(wbot, hbot));
 		B40.setBackground(buttonBgColor);
@@ -1275,27 +1275,27 @@ public class MainWindow {
 		bot.put(Key.KEY_FV.getName(), B15);
 		bot.put(Key.KEY_CHS.getName(), B16);
 		bot.put(Key.KEY_MUL.getName(), B20);
-		bot.put(Key.KEY_POW.getName(), B21);
+		bot.put(Key.KEY_POWER.getName(), B21);
 		bot.put(Key.KEY_RECIPROCAL.getName(), B22);
-		bot.put(Key.KEY_PERC_TOT.getName(), B23);
-		bot.put(Key.KEY_PERC_DELTA.getName(), B24);
-		bot.put(Key.KEY_PERC.getName(), B25);
+		bot.put(Key.KEY_PERCENTT.getName(), B23);
+		bot.put(Key.KEY_DELTAPERCENT.getName(), B24);
+		bot.put(Key.KEY_PERCENT.getName(), B25);
 		bot.put(Key.KEY_EEX.getName(), B26);
 		bot.put(Key.KEY_SUB.getName(), B30);
 		bot.put(Key.KEY_RS.getName(), B31);
 		bot.put(Key.KEY_SST.getName(), B32);
-		bot.put(Key.KEY_ROLL.getName(), B33);
-		bot.put(Key.KEY_XY.getName(), B34);
+		bot.put(Key.KEY_RDOWN.getName(), B33);
+		bot.put(Key.KEY_SWAPXY.getName(), B34);
 		bot.put(Key.KEY_CLX.getName(), B35);
 		bot.put(Key.KEY_ENTER.getName(), B36);
-		bot.put(Key.KEY_SUM.getName(), B40);
+		bot.put(Key.KEY_ADD.getName(), B40);
 		bot.put(Key.KEY_ON.getName(), B41);
 		bot.put(Key.KEY_F.getName(), B42);
 		bot.put(Key.KEY_G.getName(), B43);
 		bot.put(Key.KEY_STO.getName(), B44);
 		bot.put(Key.KEY_RCL.getName(), B45);
 		bot.put(Key.KEY_DOT.getName(), B48);
-		bot.put(Key.KEY_TOT.getName(), B49);
+		bot.put(Key.KEY_SIGMAPLUS.getName(), B49);
 
 		mainPanel.setFocusCycleRoot(true);
 

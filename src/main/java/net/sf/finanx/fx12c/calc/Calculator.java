@@ -278,7 +278,7 @@ public class Calculator {
 		case KEY_SUB: {
 			break;
 		}
-		case KEY_SUM: {
+		case KEY_ADD: {
 			break;
 		}
 		case KEY_N: {
@@ -299,19 +299,19 @@ public class Calculator {
 		case KEY_CHS: {
 			break;
 		}
-		case KEY_POW: {
+		case KEY_POWER: {
 			break;
 		}
 		case KEY_RECIPROCAL: {
 			break;
 		}
-		case KEY_PERC_TOT: {
+		case KEY_PERCENTT: {
 			break;
 		}
-		case KEY_PERC_DELTA: {
+		case KEY_DELTAPERCENT: {
 			break;
 		}
-		case KEY_PERC: {
+		case KEY_PERCENT: {
 			break;
 		}
 		case KEY_EEX: {
@@ -341,10 +341,10 @@ public class Calculator {
 			}
 			break;
 		}
-		case KEY_ROLL: {
+		case KEY_RDOWN: {
 			break;
 		}
-		case KEY_XY: {
+		case KEY_SWAPXY: {
 			break;
 		}
 		case KEY_CLX: {
@@ -376,7 +376,7 @@ public class Calculator {
 		case KEY_DOT: {
 			break;
 		}
-		case KEY_TOT: {
+		case KEY_SIGMAPLUS: {
 			break;
 		}
 		default:
@@ -465,7 +465,7 @@ public class Calculator {
 				this.doKey30();
 				break;
 			}
-			case KEY_SUM: {
+			case KEY_ADD: {
 				this.doKey40();
 				break;
 			}
@@ -496,7 +496,7 @@ public class Calculator {
 				this.doKey16();
 				break;
 			}
-			case KEY_POW: {
+			case KEY_POWER: {
 				this.doKey21();
 				break;
 			}
@@ -504,15 +504,15 @@ public class Calculator {
 				this.doKey22();
 				break;
 			}
-			case KEY_PERC_TOT: {
+			case KEY_PERCENTT: {
 				this.doKey23();
 				break;
 			}
-			case KEY_PERC_DELTA: {
+			case KEY_DELTAPERCENT: {
 				this.doKey24();
 				break;
 			}
-			case KEY_PERC: {
+			case KEY_PERCENT: {
 				this.doKey25();
 				break;
 			}
@@ -528,11 +528,11 @@ public class Calculator {
 				this.doKey32();
 				break;
 			}
-			case KEY_ROLL: {
+			case KEY_RDOWN: {
 				this.doKey33();
 				break;
 			}
-			case KEY_XY: {
+			case KEY_SWAPXY: {
 				this.doKey34();
 				break;
 			}
@@ -569,7 +569,7 @@ public class Calculator {
 				this.doKey48();
 				break;
 			}
-			case KEY_TOT: {
+			case KEY_SIGMAPLUS: {
 				this.doKey49();
 				break;
 			}
@@ -673,7 +673,7 @@ public class Calculator {
 		if (flg.getSto() == 0) {
 			if (dsp.getMode() == Display.MODE_NORMAL) {
 				if (stp.getModifier() == Key.KEY_STO.getCode()) {
-					if (stp.getKey() == Key.KEY_SUM.getCode()) {
+					if (stp.getKey() == Key.KEY_ADD.getCode()) {
 						mem.set(stp.getComplement(), stk.top().add(mem.get(stp.getComplement())));
 					} else if (stp.getKey() == Key.KEY_SUB.getCode()) {
 						mem.set(stp.getComplement(), stk.top().subtract(mem.get(stp.getComplement())));
@@ -797,13 +797,13 @@ public class Calculator {
 		if (flg.getGto() == 4) {
 			if (flg.getPrgm() == 1) {
 				flg.setGto(0);
-				stp.setStep(Step.STP_G_ROLL);
+				stp.setStep(Step.STP_G_GTO);
 				stp.setComplement((int) (tmp[0].i() * 100 + tmp[1].i() * 10 + tmp[2].i()));
 				dsp.setStatus(Display.STATUS_OUTPUT);
 			} else {
 				flg.setGto(0);
 				prg.setCurrentIndex((int) (tmp[0].i() * 100 + tmp[1].i() * 10 + tmp[2].i()));
-				stp.setStep(Step.STP_G_ROLL);
+				stp.setStep(Step.STP_G_GTO);
 				stp.setComplement((int) (tmp[0].i() * 100 + tmp[1].i() * 10 + tmp[2].i()));
 				dsp.setStatus(Display.STATUS_OUTPUT);
 			}
@@ -925,11 +925,11 @@ public class Calculator {
 				}
 				break;
 			}
-			case KEY_ROLL: {
+			case KEY_RDOWN: { 							// FIXME: should be inserted as a program instruction
 				this.doKey33();
 
 				if (flg.getGto() > 0) {
-					stp.setStep(Step.STP_G_ROLL);
+					stp.setStep(Step.STP_G_GTO);
 					dsp.setStatus(Display.STATUS_INPUT);
 				} else {
 					dsp.setStatus(Display.STATUS_READY);
@@ -939,7 +939,7 @@ public class Calculator {
 			}
 			case KEY_SST: {
 				if (flg.getF() == 1) {
-					stp = new Step(Step.STP_F_SST);
+					stp = new Step(Step.STP_F_SIGMA);
 					putStep(stp);
 					flg.toggleF();
 					dsp.setStatus(Display.STATUS_READY);
@@ -1008,9 +1008,9 @@ public class Calculator {
 						stp.setModifier(Key.KEY_STO.getCode());
 						stp.setKey(Key.KEY_FV.getCode());
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_SUM.getCode()) {
+					} else if (k.getCode() == Key.KEY_ADD.getCode()) {
 						stp.setModifier(Key.KEY_STO.getCode());
-						stp.setKey(Key.KEY_SUM.getCode());
+						stp.setKey(Key.KEY_ADD.getCode());
 					} else if (k.getCode() == Key.KEY_SUB.getCode()) {
 						stp.setModifier(Key.KEY_STO.getCode());
 						stp.setKey(Key.KEY_SUB.getCode());
@@ -1104,16 +1104,16 @@ public class Calculator {
 			this.stopProgram();
 		}
 		// goes to line number ZERO and stops execution.
-		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_ROLL.getCode()
+		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_RDOWN.getCode()
 				&& stp.getComplement() == Key.KEY_0.getCode()) {
 
 			this.stopProgram();
 		}
 		// goes to line number specified by the instruction [g][gto]xxx.
-		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_ROLL.getCode()) {
+		else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_RDOWN.getCode()) {
 
 			prg.setCurrentIndex(stp.getComplement());
-		} else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_XY.getCode()) {
+		} else if (stp.getModifier() == Key.KEY_G.getCode() && stp.getKey() == Key.KEY_SWAPXY.getCode()) {
 			if (stk.get(0).lessThanOrEqualTo(stk.get(1))) {
 				this.prg.next();
 			} else {
@@ -1255,7 +1255,7 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_0);
+			stp.setStep(Step.STP_G_X);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(0);
@@ -1289,7 +1289,7 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_1);
+			stp.setStep(Step.STP_G_XR);
 			dsp.setStatus(Display.STATUS_READY);
 
 		} else if (flg.getSto() > 0) {
@@ -1323,7 +1323,7 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_2);
+			stp.setStep(Step.STP_G_YR);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(2);
@@ -1347,7 +1347,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			stk.factorial();
 			flg.toggleG();
-			stp.setStep(Step.STP_F_3);
+			stp.setStep(Step.STP_G_FACTORIAL);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(3);
@@ -1371,7 +1371,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			this.flg.setDmy(1);
 			this.flg.toggleG();
-			stp.setStep(Step.STP_G_4);
+			stp.setStep(Step.STP_G_DMY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(4);
 		} else if (flg.getRcl() > 0) {
@@ -1394,7 +1394,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			this.flg.setDmy(0);
 			this.flg.toggleG();
-			stp.setStep(Step.STP_G_5);
+			stp.setStep(Step.STP_G_MDY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(5);
 		} else if (flg.getRcl() > 0) {
@@ -1418,7 +1418,7 @@ public class Calculator {
 			stk.put(mem.weightedMean());
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_6);
+			stp.setStep(Step.STP_G_XW);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(6);
@@ -1442,7 +1442,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			this.flg.setBegin(1);
 			this.flg.toggleG();
-			stp.setStep(Step.STP_G_7);
+			stp.setStep(Step.STP_G_BEG);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(7);
 		} else if (flg.getRcl() > 0) {
@@ -1466,7 +1466,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			this.flg.setBegin(0);
 			this.flg.toggleG();
-			stp.setStep(Step.STP_G_8);
+			stp.setStep(Step.STP_G_END);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(8);
 		} else if (flg.getRcl() > 0) {
@@ -1489,7 +1489,7 @@ public class Calculator {
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getG() == 1) {
 			flg.toggleG();
-			stp.setStep(Step.STP_G_9);
+			stp.setStep(Step.STP_G_MEM);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(9);
 		} else if (flg.getRcl() > 0) {
@@ -1531,13 +1531,13 @@ public class Calculator {
 			fin.setN(tmp[4]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_N);
+			stp.setStep(Step.STP_F_AMORT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			stk.put(stk.pop().multiply(TWELVE));
 			fin.setN(stk.top());
-			stp.setStep(Step.STP_G_N);
+			stp.setStep(Step.STP_G_12MUL);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
@@ -1576,13 +1576,13 @@ public class Calculator {
 			stk.set(2, tmp[1]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_I);
+			stp.setStep(Step.STP_F_INT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 
 		} else if (flg.getG() == 1) {
 			stk.put(stk.pop().divide(TWELVE));
 			fin.setI(stk.top());
-			stp.setStep(Step.STP_G_I);
+			stp.setStep(Step.STP_G_12DIV);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
@@ -1620,14 +1620,14 @@ public class Calculator {
 			stk.set(0, fin.npv(mem.getArray()));
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_PV);
+			stp.setStep(Step.STP_F_NPV);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			mem.set(0, stk.top());
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_PV);
+			stp.setStep(Step.STP_G_CFO);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			fin.setPv(stk.top());
@@ -1661,13 +1661,13 @@ public class Calculator {
 		if (flg.getF() == 1) {
 			stk.round(dsp.getPrecision());
 			flg.toggleF();
-			stp.setStep(Step.STP_F_PMT);
+			stp.setStep(Step.STP_F_RND);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getG() == 1) {
 			mem.put(stk.top(), ONE);
 			fin.setN(fin.getN().add(ONE));
 			flg.toggleG();
-			stp.setStep(Step.STP_G_PMT);
+			stp.setStep(Step.STP_G_CFJ);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			fin.setPmt(stk.top());
@@ -1704,13 +1704,13 @@ public class Calculator {
 			stk.set(0, fin.irr(mem.getArray()));
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_FV);
+			stp.setStep(Step.STP_F_IRR);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			mem.setTimes(mem.getCurrentIndex(), stk.top());
 			flg.toggleG();
-			stp.setStep(Step.STP_G_FV);
+			stp.setStep(Step.STP_G_NJ);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			fin.setFv(stk.top());
@@ -1752,9 +1752,9 @@ public class Calculator {
 
 			// Calculate week day and show it.
 			dsp.setValue(stk.top());
-			stp.setStep(Step.STP_G_CHS);
+			stp.setStep(Step.STP_G_DATE);
 			dsp.setStatus(Display.STATUS_READY);
-			dsp.setMessage((dsp.getString() + "          ").substring(1, 11) + stk.dayOfWeek().i());
+			dsp.setMessage((dsp.getString() + "          ").substring(1, 11) + stk.dayOfWeek().i());	// TODO: use constant for spaces
 
 			flg.toggleG();
 			dsp.setLock(true);
@@ -1804,12 +1804,12 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_POW);
+			stp.setStep(Step.STP_F_PRICE);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getG() == 1) {
 			stk.sqrt();
 			flg.toggleG();
-			stp.setStep(Step.STP_G_POW);
+			stp.setStep(Step.STP_G_SQRT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
@@ -1817,7 +1817,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.pow();
-			stp.setStep(Step.STP_POW);
+			stp.setStep(Step.STP_POWER);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -1828,7 +1828,7 @@ public class Calculator {
 			// Shows a message: "Not Available Sorry"
 			this.showDisplayMessage(" N.A. Sorry ");
 			flg.toggleF();
-			stp.setStep(Step.STP_F_RECIPROCAL);
+			stp.setStep(Step.STP_F_YTM);
 			dsp.setStatus(Display.STATUS_READY);
 
 			// TODO: This piece of code is ready to work
@@ -1848,7 +1848,7 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			stk.exp();
 			flg.toggleG();
-			stp.setStep(Step.STP_G_RECIPROCAL);
+			stp.setStep(Step.STP_G_EX);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
@@ -1870,13 +1870,13 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_PERC_TOT);
+			stp.setStep(Step.STP_F_SL);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			stk.log();
 			flg.toggleG();
-			stp.setStep(Step.STP_G_PERC_TOT);
+			stp.setStep(Step.STP_G_LN);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
@@ -1884,7 +1884,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.percentOfTotal();
-			stp.setStep(Step.STP_PERC_TOT);
+			stp.setStep(Step.STP_PERCENTT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -1898,13 +1898,13 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_PERC_DELTA);
+			stp.setStep(Step.STP_F_SOYD);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			stk.fractionalPart();
 			flg.toggleG();
-			stp.setStep(Step.STP_G_PERC_DELTA);
+			stp.setStep(Step.STP_G_FRAC);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
@@ -1912,7 +1912,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.percentDifference();
-			stp.setStep(Step.STP_PERC_DELTA);
+			stp.setStep(Step.STP_DELTAPERCENT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -1926,12 +1926,12 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_PERC);
+			stp.setStep(Step.STP_F_DB);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
 			stk.integralPart();
-			stp.setStep(Step.STP_G_PERC);
+			stp.setStep(Step.STP_G_INTG);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
@@ -1940,7 +1940,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.percent();
-			stp.setStep(Step.STP_PERC);
+			stp.setStep(Step.STP_PERCENT);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -1951,13 +1951,13 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			stk.diffOfDaysBetweenDates();
 			flg.toggleG();
-			stp.setStep(Step.STP_F_EEX);
+			stp.setStep(Step.STP_G_DELTADYS);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 
 		} else if (flg.getSto() > 0) {
 			flg.toggleC();
 			flg.setSto(0);
-			stp.setStep(Step.STP_G_EEX);
+			stp.setStep(Step.STP_STO_EEX);
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
@@ -2065,18 +2065,18 @@ public class Calculator {
 			else if (dsp.getMode() == Display.MODE_PROGRAM)
 				prg.clear();
 			flg.toggleF();
-			stp.setStep(Step.STP_F_ROLL);
+			stp.setStep(Step.STP_F_PRGM);
 		} else if (flg.getG() == 1) {
 			flg.toggleGto();
 			flg.toggleG();
-			stp.setStep(Step.STP_G_ROLL);
+			stp.setStep(Step.STP_G_GTO);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
 			stk.rollDown();
-			stp.setStep(Step.STP_ROLL);
+			stp.setStep(Step.STP_RDOWN);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -2084,7 +2084,7 @@ public class Calculator {
 	protected void doKey34() throws CalculatorException {
 		if (flg.getF() == 1) {
 			fin.clear();
-			stp.setStep(Step.STP_F_XY);
+			stp.setStep(Step.STP_F_FIN);
 			dsp.setStatus(Display.STATUS_READY);
 			flg.toggleF();
 		} else if (flg.getG() == 1) {
@@ -2095,7 +2095,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.swapTopPair();
-			stp.setStep(Step.STP_XY);
+			stp.setStep(Step.STP_SWAPXY);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -2108,7 +2108,7 @@ public class Calculator {
 			stk.clearLastTop();
 
 			flg.toggleF();
-			stp.setStep(Step.STP_F_CLX);
+			stp.setStep(Step.STP_F_REG);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getG() == 1) {
 			flg.toggleG();
@@ -2126,12 +2126,12 @@ public class Calculator {
 	protected void doKey36() throws CalculatorException {
 		if (flg.getF() == 1) {
 			flg.toggleF();
-			stp.setStep(Step.STP_F_ENTER);
+			stp.setStep(Step.STP_F_PREFIX);
 		} else if (flg.getG() == 1) {
 
 			this.setX(stk.getLastTop());
 
-			stp.setStep(Step.STP_G_ENTER);
+			stp.setStep(Step.STP_G_LASTX);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
@@ -2151,12 +2151,12 @@ public class Calculator {
 		} else if (flg.getG() == 1) {
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
-			stp.setStep(Step.STP_STO_SUM);
+			stp.setStep(Step.STP_STO_ADD);
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
 			stk.add();
-			stp.setStep(Step.STP_SUM);
+			stp.setStep(Step.STP_ADD);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}
@@ -2240,7 +2240,7 @@ public class Calculator {
 			stk.put(tmp[0]);
 
 			flg.toggleG();
-			stp.setStep(Step.STP_G_DOT);
+			stp.setStep(Step.STP_G_S);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getSto() > 0) {
 			this.stoInput(-1);
@@ -2267,7 +2267,7 @@ public class Calculator {
 			stk.setLastTop();
 			stk.set(0, mem.getR1());
 			flg.toggleG();
-			stp.setStep(Step.STP_G_TOT);
+			stp.setStep(Step.STP_G_SIGMAMINUS);
 			dsp.setStatus(Display.STATUS_READY);
 		} else if (flg.getSto() > 0) {
 			flg.toggleSto();
@@ -2277,7 +2277,7 @@ public class Calculator {
 			mem.sumStats(stk.top(), stk.get(1));
 			stk.setLastTop();
 			stk.set(0, mem.getR1());
-			stp.setStep(Step.STP_TOT);
+			stp.setStep(Step.STP_SIGMAPLUS);
 			dsp.setStatus(Display.STATUS_READY);
 		}
 	}
