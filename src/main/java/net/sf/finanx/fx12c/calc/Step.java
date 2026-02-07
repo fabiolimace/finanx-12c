@@ -328,9 +328,9 @@ public class Step {
 
 		String rtn = "==[STEP]============\n";
 	
-		rtn += "Modifier: [" + Key.getName(this.mod) + "]\n";
+		rtn += "Modifier: [" + Key.valueOf(this.mod) + "]\n";
 		
-		rtn += "Function: [" + Key.getName(this.key) + "]\n";
+		rtn += "Function: [" + Key.valueOf(this.key) + "]\n";
 
 		return rtn;
 	}

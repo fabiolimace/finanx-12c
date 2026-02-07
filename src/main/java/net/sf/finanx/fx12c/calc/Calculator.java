@@ -1128,13 +1128,13 @@ public class Calculator {
 			this.prg.next();
 		} else {
 			if (stp.getModifier() > (-1)) {
-				keyReleased(Key.getKey(stp.getModifier()));
+				keyReleased(Key.valueOf(stp.getModifier()));
 			}
 			if (stp.getKey() > (-1)) {
-				keyReleased(Key.getKey(stp.getKey()));
+				keyReleased(Key.valueOf(stp.getKey()));
 			}
 			if (stp.getComplement() > (-1)) {
-				keyReleased(Key.getKey(stp.getComplement()));
+				keyReleased(Key.valueOf(stp.getComplement()));
 			}
 			this.prg.next();
 		}

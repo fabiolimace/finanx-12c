@@ -1,10 +1,8 @@
 package net.sf.finanx.fx12c.calc;
 
-import java.util.Arrays;
-import java.util.List;
-
 public enum Key {
-	
+
+	// @formatter:off
 	KEY_NULL(-1),
 	KEY_0(0),
 	KEY_1(1),
@@ -45,58 +43,23 @@ public enum Key {
 	KEY_RCL(45),
 	KEY_DOT(48),
 	KEY_SIGMAPLUS(49);
-	
+	// @formatter:on
+
 	private int code;
-	
-	private Key(int code){
+
+	private Key(int code) {
 		this.code = code;
-	}
-	
-	public String getName() {
-		return this.name();
 	}
 
 	public int getCode() {
 		return this.code;
 	}
-	
-	public static Key getKey(int code){
-		Key k[] = Key.values();
-		for (int i = 0; i< k.length; i++){
-			if (k[i].getCode() == code)
-				return k[i];
-		}
-		return null;
-	}
-	public static Key getKey(String name){
-		Key k[] = Key.values();
-		for (int i = 0; i< k.length; i++){
-			if (k[i].getName().contentEquals(name))
-				return k[i];
-		}
-		return null;
-	}
-	
-	public void print(){
-		System.out.println(this);
-	}
 
-	public static String getName(int code) {
-		List<Key> keyList = Arrays.asList(Key.values());
-		for(Key k : keyList) {
-			if (k.code == code && code != -1) {
-				return k.name();
-			}
+	public static Key valueOf(int code) {
+		for (Key key : Key.values()) {
+			if (key.getCode() == code)
+				return key;
 		}
-		return "";
-	}
-	
-	public String toString() {
-		String r = "==[KEY]=============\n";
-		
-		r += this.name()+": "; 
-		r += this.code+"\n";
-		
-		return r;
+		return KEY_NULL;
 	}
 }
