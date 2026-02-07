@@ -164,7 +164,7 @@ public class ProgramMemoryTest {
 
 		return stk(0);
 	}
-	
+
 	@Test
 	public void testLog10Program() throws Exception {
 		testLog10Program(3);
@@ -231,6 +231,102 @@ public class ProgramMemoryTest {
 		cal.getStack().put(n(y));
 		cal.getStack().put(n(x));
 		cal.getDisplay().setValue(n(x));
+
+		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_ROLL);
+		cal.getProgramMemory().put(Step.STP_DIV);
+		cal.getProgramMemory().put(Step.STP_G_ENTER);
+		cal.getProgramMemory().put(Step.STP_XY);
+		cal.getProgramMemory().put(Step.STP_G_PERC);
+		cal.getProgramMemory().put(Step.STP_MUL);
+		cal.getProgramMemory().put(Step.STP_SUB);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
+	public void testRandProgram() throws Exception {
+		testRandProgram(51);
+		testRandProgram(37);
+		testRandProgram(17);
+		testRandProgram(7);
+		testRandProgram(5);
+		testRandProgram(3);
+		testRandProgram(2);
+		testRandProgram(1);
+		testRandProgram(0);
+	}
+
+	private void testRandProgram(long x) throws Exception {
+		setUp();
+		assertEquals(glibcRand(x), randProgram(x), 0);
+	}
+
+	private double glibcRand(long seed) {
+		// GLIBC constants: a = 1103515245, c = 12345, m = 2^31, and seed > 0
+		return (((seed == 0 ? 1 : seed) * 1103515245) + 12345) & 0x7fffffffL;
+	}
+
+	private double randProgram(long x) {
+
+//		X
+//		XEQ0
+//		1	 		ENTER
+//		1103515245	MUL
+//		12345		ADD
+//		2			ENTER
+//		31			POW
+//		ENTER
+//		RDOWN
+//		RDOWN
+//		ENTER
+//		RDOWN
+//		RDOWN
+//		RDOWN
+//		DIV
+//		LASTX
+//		SWAPXY
+//		INTG
+//		MUL
+//		SUB
+
+		cal.getStack().put(n(x));
+		cal.getDisplay().setValue(n(x));
+		cal.getProgramMemory().put(Step.STP_G_CLX);
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_ENTER);
+
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_0);
+		cal.getProgramMemory().put(Step.STP_3);
+		cal.getProgramMemory().put(Step.STP_5);
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_5);
+		cal.getProgramMemory().put(Step.STP_2);
+		cal.getProgramMemory().put(Step.STP_4);
+		cal.getProgramMemory().put(Step.STP_5);
+		cal.getProgramMemory().put(Step.STP_MUL);
+
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_2);
+		cal.getProgramMemory().put(Step.STP_3);
+		cal.getProgramMemory().put(Step.STP_4);
+		cal.getProgramMemory().put(Step.STP_5);
+		cal.getProgramMemory().put(Step.STP_SUM);
+
+		cal.getProgramMemory().put(Step.STP_2);
+		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Step.STP_3);
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_POW);
 
 		cal.getProgramMemory().put(Step.STP_ENTER);
 		cal.getProgramMemory().put(Step.STP_ROLL);
