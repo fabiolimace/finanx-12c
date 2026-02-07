@@ -12,8 +12,6 @@ import org.junit.Test;
 import net.sf.finanx.fx12c.calc.Calculator;
 import net.sf.finanx.fx12c.calc.Flags;
 import net.sf.finanx.fx12c.calc.Step;
-import net.sf.finanx.fx12c.memory.ProgramMemory;
-import net.sf.finanx.fx12c.memory.Stack;
 
 /**
  *
@@ -161,6 +159,39 @@ public class ProgramMemoryTest {
 		cal.getProgramMemory().put(Step.STP_G_XY);
 		cal.getProgramMemory().put(Step.STP_CHS);
 		cal.getProgramMemory().put(Step.STP_SUM);
+
+		executeProgram();
+
+		return stk(0);
+	}
+	
+	@Test
+	public void testLog10Program() throws Exception {
+		testLog10Program(3);
+		testLog10Program(5);
+		testLog10Program(17);
+		testLog10Program(31);
+		testLog10Program(37);
+	}
+
+	private void testLog10Program(double x) throws Exception {
+		setUp();
+		assertEquals(Math.log10(x), log10Program(x), 1e-10);
+	}
+
+	private double log10Program(double x) {
+
+//		X	LN
+//		10	LN
+//		DIV
+
+		cal.getStack().put(n(x));
+
+		cal.getProgramMemory().put(Step.STP_G_PERC_TOT);
+		cal.getProgramMemory().put(Step.STP_1);
+		cal.getProgramMemory().put(Step.STP_0);
+		cal.getProgramMemory().put(Step.STP_G_PERC_TOT);
+		cal.getProgramMemory().put(Step.STP_DIV);
 
 		executeProgram();
 
