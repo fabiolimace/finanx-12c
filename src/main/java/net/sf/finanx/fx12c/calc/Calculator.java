@@ -40,7 +40,6 @@ public class Calculator {
 	private FinanceMemory fin;
 	private GeneralMemory mem;
 	private ProgramMemory prg;
-	private History hst;
 
 	private Configuration cfg;
 
@@ -70,10 +69,9 @@ public class Calculator {
 
 	protected void init(boolean testing) {
 
-		// Not persistent data
-		this.flg = new Flags();
+		// Transient data
 		this.stp = new Step();
-		this.hst = new History();
+		this.flg = new Flags();
 		this.dsp = new Display();
 
 		// Persistent data
@@ -85,8 +83,8 @@ public class Calculator {
 		// Persistent configurations
 		this.cfg = new Configuration();
 
-		// Program runner. An independent thread
-		// that executes steps sequentially.
+		// An independent thread that
+		// executes steps sequentially.
 		this.worker = new Worker(this);
 
 		this.testing = testing;
@@ -144,10 +142,6 @@ public class Calculator {
 		return this.prg;
 	}
 
-	public History getOperationHistory() {
-		return this.hst;
-	}
-
 	public Flags getFlags() {
 		return this.flg;
 	}
@@ -170,10 +164,6 @@ public class Calculator {
 
 	public void setProgramMemory(ProgramMemory prg) {
 		this.prg = prg;
-	}
-
-	public void setOperationHistory(History hst) {
-		this.hst = hst;
 	}
 
 	public void setFlags(Flags flg) {
