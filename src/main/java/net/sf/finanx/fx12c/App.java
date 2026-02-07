@@ -1,6 +1,6 @@
 package net.sf.finanx.fx12c;
 
-import net.sf.finanx.fx12c.controller.Controller;
+import net.sf.finanx.fx12c.calc.Controller;
 
 public class App {
 

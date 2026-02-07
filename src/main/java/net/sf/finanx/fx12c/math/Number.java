@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import net.sf.finanx.fx12c.controller.CalculatorException;
-import net.sf.finanx.fx12c.controller.Error;
+import net.sf.finanx.fx12c.calc.CalculatorException;
+import net.sf.finanx.fx12c.calc.Error;
 
 /**
  * 
