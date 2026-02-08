@@ -185,7 +185,7 @@ public class Calculator {
 	}
 
 	public Number getX() {
-		return this.stk.top();
+		return this.stk.peek();
 	}
 
 	public void shiftUpIfOutputStatus() {
@@ -663,16 +663,16 @@ public class Calculator {
 			if (dsp.getMode() == Display.MODE_NORMAL) {
 				if (stp.getOp().getModifier() == Key.KEY_44) {
 					if (stp.getOp().getKey() == Key.KEY_40) {
-						mem.set(stp.getComplement(), stk.top().add(mem.get(stp.getComplement())));
+						mem.set(stp.getComplement(), stk.peek().add(mem.get(stp.getComplement())));
 					} else if (stp.getOp().getKey() == Key.KEY_30) {
-						mem.set(stp.getComplement(), stk.top().subtract(mem.get(stp.getComplement())));
+						mem.set(stp.getComplement(), stk.peek().subtract(mem.get(stp.getComplement())));
 					} else if (stp.getOp().getKey() == Key.KEY_20) {
-						mem.set(stp.getComplement(), stk.top().multiply(mem.get(stp.getComplement())));
+						mem.set(stp.getComplement(), stk.peek().multiply(mem.get(stp.getComplement())));
 					} else if (stp.getOp().getKey() == Key.KEY_10) {
-						mem.set(stp.getComplement(), stk.top().divide(mem.get(stp.getComplement())));
+						mem.set(stp.getComplement(), stk.peek().divide(mem.get(stp.getComplement())));
 					}
 				} else {
-					mem.set((int) (i(tmp[0]) * 100 + i(tmp[1]) * 10 + i(tmp[2])), stk.top());
+					mem.set((int) (i(tmp[0]) * 100 + i(tmp[1]) * 10 + i(tmp[2])), stk.peek());
 				}
 				dsp.setStatus(Display.STATUS_OUTPUT);
 				stp.setOp(Op.OP_STO);
@@ -1102,7 +1102,7 @@ public class Calculator {
 				this.prg.next();
 			}
 		} else if (stp.getOp().getKey() == Key.KEY_44) {
-			mem.set(stp.getComplement(), stk.top());
+			mem.set(stp.getComplement(), stk.peek());
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			this.prg.next();
 		} else if (stp.getOp().getKey() == Key.KEY_45) {
@@ -1255,9 +1255,9 @@ public class Calculator {
 			// Temporary variables
 			tmp = new Number[2];
 
-			tmp = mem.xLinearEstimation(stk.top());
+			tmp = mem.xLinearEstimation(stk.peek());
 
-			stk.setLastTop();
+			stk.setLastX();
 
 			stk.set(0, tmp[1]);
 			stk.put(tmp[0]);
@@ -1289,9 +1289,9 @@ public class Calculator {
 			// Temporary variables
 			tmp = new Number[2];
 
-			tmp = mem.yLinearEstimation(stk.top());
+			tmp = mem.yLinearEstimation(stk.peek());
 
-			stk.setLastTop();
+			stk.setLastX();
 
 			stk.set(0, tmp[1]);
 			stk.put(tmp[0]);
@@ -1495,7 +1495,7 @@ public class Calculator {
 
 	protected void doKey11() throws CalculatorException {
 		if (flg.getF() == 1) {
-			tmp = fin.amortization(stk.top(), dsp.getPrecision());
+			tmp = fin.amortization(stk.peek(), dsp.getPrecision());
 
 			// For details, see HP12Camortization(...)
 			stk.put(tmp[0]);
@@ -1510,12 +1510,12 @@ public class Calculator {
 			;
 		} else if (flg.getG() == 1) {
 			stk.put(stk.pop().multiply(TWELVE));
-			fin.setN(stk.top());
+			fin.setN(stk.peek());
 			stp.setOp(Op.OP_12_MUL);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
-			fin.setN(stk.top());
+			fin.setN(stk.peek());
 			flg.setSto(0);
 			stp.setOp(Op.OP_STO_N);
 			dsp.setStatus(Display.STATUS_READY);
@@ -1529,11 +1529,11 @@ public class Calculator {
 
 				stk.set(0, fin.period());
 
-				fin.setN(stk.top());
+				fin.setN(stk.peek());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 
 			} else {
-				fin.setN(stk.top());
+				fin.setN(stk.peek());
 				dsp.setStatus(Display.STATUS_READY);
 			}
 			stp.setOp(Op.OP_N);
@@ -1555,12 +1555,12 @@ public class Calculator {
 
 		} else if (flg.getG() == 1) {
 			stk.put(stk.pop().divide(TWELVE));
-			fin.setI(stk.top());
+			fin.setI(stk.peek());
 			stp.setOp(Op.OP_12_DIV);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			flg.toggleG();
 		} else if (flg.getSto() > 0) {
-			fin.setI(stk.top());
+			fin.setI(stk.peek());
 			flg.setSto(0);
 			stp.setOp(Op.OP_STO_I);
 			dsp.setStatus(Display.STATUS_READY);
@@ -1578,10 +1578,10 @@ public class Calculator {
 				// if (checkOddPeriod())
 				// executeOddPeriodTasks();
 
-				fin.setI(stk.top());
+				fin.setI(stk.peek());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 			} else {
-				fin.setI(stk.top());
+				fin.setI(stk.peek());
 				dsp.setStatus(Display.STATUS_READY);
 			}
 			stp.setOp(Op.OP_I);
@@ -1598,13 +1598,13 @@ public class Calculator {
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
-			mem.set(0, stk.top());
+			mem.set(0, stk.peek());
 
 			flg.toggleG();
 			stp.setOp(Op.OP_CFO);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
-			fin.setPv(stk.top());
+			fin.setPv(stk.peek());
 			flg.setSto(0);
 			stp.setOp(Op.OP_STO_PV);
 			dsp.setStatus(Display.STATUS_READY);
@@ -1621,10 +1621,10 @@ public class Calculator {
 
 				stk.set(0, fin.presentValue());
 
-				fin.setPv(stk.top());
+				fin.setPv(stk.peek());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 			} else {
-				fin.setPv(stk.top());
+				fin.setPv(stk.peek());
 				dsp.setStatus(Display.STATUS_READY);
 			}
 			stp.setOp(Op.OP_PV);
@@ -1638,13 +1638,13 @@ public class Calculator {
 			stp.setOp(Op.OP_RND);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getG() == 1) {
-			mem.put(stk.top(), ONE);
+			mem.put(stk.peek(), ONE);
 			fin.setN(fin.getN().add(ONE));
 			flg.toggleG();
 			stp.setOp(Op.OP_CFJ);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
-			fin.setPmt(stk.top());
+			fin.setPmt(stk.peek());
 			flg.setSto(0);
 			stp.setOp(Op.OP_STO_PMT);
 			dsp.setStatus(Display.STATUS_READY);
@@ -1662,10 +1662,10 @@ public class Calculator {
 
 				stk.set(0, fin.pricePayment());
 
-				fin.setPmt(stk.top());
+				fin.setPmt(stk.peek());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 			} else {
-				fin.setPmt(stk.top());
+				fin.setPmt(stk.peek());
 				dsp.setStatus(Display.STATUS_READY);
 			}
 			stp.setOp(Op.OP_PMT);
@@ -1682,12 +1682,12 @@ public class Calculator {
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			;
 		} else if (flg.getG() == 1) {
-			mem.setTimes(mem.getCurrentIndex(), stk.top());
+			mem.setTimes(mem.getCurrentIndex(), stk.peek());
 			flg.toggleG();
 			stp.setOp(Op.OP_NJ);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		} else if (flg.getSto() > 0) {
-			fin.setFv(stk.top());
+			fin.setFv(stk.peek());
 			flg.setSto(0);
 			stp.setOp(Op.OP_STO_FV);
 			dsp.setStatus(Display.STATUS_READY);
@@ -1705,10 +1705,10 @@ public class Calculator {
 
 				stk.set(0, fin.futureValue());
 
-				fin.setFv(stk.top());
+				fin.setFv(stk.peek());
 				dsp.setStatus(Display.STATUS_OUTPUT2);
 			} else {
-				fin.setFv(stk.top());
+				fin.setFv(stk.peek());
 				dsp.setStatus(Display.STATUS_READY);
 			}
 			stp.setOp(Op.OP_FV);
@@ -1725,7 +1725,7 @@ public class Calculator {
 			stk.addDaysToDate();
 
 			// Calculate week day and show it.
-			dsp.setValue(stk.top());
+			dsp.setValue(stk.peek());
 			stp.setOp(Op.OP_DATE);
 			dsp.setStatus(Display.STATUS_READY);
 			dsp.setMessage((dsp.getString() + "          ").substring(1, 11) + stk.dayOfWeek().i()); // TODO: use
@@ -1741,7 +1741,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			if ((dsp.getStatus() != Display.STATUS_INPUT)) {
-				stk.put((stk.pop()).negate());
+				stk.negate();
 			} else {
 				this.dsp.inputChar('-');
 			}
@@ -1838,7 +1838,7 @@ public class Calculator {
 		if (flg.getF() == 1) {
 
 			tmp = new Number[2];
-			tmp = fin.slDepreciation(stk.top());
+			tmp = fin.slDepreciation(stk.peek());
 			stk.put(tmp[1]);
 			stk.put(tmp[0]);
 
@@ -1866,7 +1866,7 @@ public class Calculator {
 		if (flg.getF() == 1) {
 
 			tmp = new Number[2];
-			tmp = fin.soydDepreciation(stk.top());
+			tmp = fin.soydDepreciation(stk.peek());
 			stk.put(tmp[1]);
 			stk.put(tmp[0]);
 
@@ -1894,7 +1894,7 @@ public class Calculator {
 		if (flg.getF() == 1) {
 
 			tmp = new Number[2];
-			tmp = fin.dbDepreciation(stk.top());
+			tmp = fin.dbDepreciation(stk.peek());
 			stk.put(tmp[1]);
 			stk.put(tmp[0]);
 
@@ -2048,7 +2048,7 @@ public class Calculator {
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
-			stk.rollDown();
+			stk.rotateDown();
 			stp.setOp(Op.OP_R_DOWN);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
@@ -2067,7 +2067,7 @@ public class Calculator {
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
-			stk.swapTopPair();
+			stk.swapXY();
 			stp.setOp(Op.OP_SWAP_XY);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
@@ -2078,7 +2078,6 @@ public class Calculator {
 			mem.clear();
 			fin.clear();
 			stk.clear();
-			stk.clearLastTop();
 
 			flg.toggleF();
 			stp.setOp(Op.OP_REG);
@@ -2102,7 +2101,7 @@ public class Calculator {
 			stp.setOp(Op.OP_PREFIX);
 		} else if (flg.getG() == 1) {
 
-			this.setX(stk.getLastTop());
+			this.setX(stk.getLastX());
 
 			stp.setOp(Op.OP_LASTX);
 			dsp.setStatus(Display.STATUS_OUTPUT);
@@ -2236,8 +2235,8 @@ public class Calculator {
 		if (flg.getF() == 1) {
 			flg.toggleF();
 		} else if (flg.getG() == 1) {
-			mem.subStats(stk.top(), stk.get(1));
-			stk.setLastTop();
+			mem.subStats(stk.peek(), stk.get(1));
+			stk.setLastX();
 			stk.set(0, mem.getR1());
 			flg.toggleG();
 			stp.setOp(Op.OP_SIGMA_MINUS);
@@ -2247,8 +2246,8 @@ public class Calculator {
 		} else if (flg.getRcl() > 0) {
 			flg.toggleRcl();
 		} else {
-			mem.sumStats(stk.top(), stk.get(1));
-			stk.setLastTop();
+			mem.sumStats(stk.peek(), stk.get(1));
+			stk.setLastX();
 			stk.set(0, mem.getR1());
 			stp.setOp(Op.OP_SIGMA_PLUS);
 			dsp.setStatus(Display.STATUS_READY);
