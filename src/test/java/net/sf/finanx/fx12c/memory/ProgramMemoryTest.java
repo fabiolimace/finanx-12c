@@ -281,21 +281,21 @@ public class ProgramMemoryTest {
 	}
 
 	@Test
-	public void testRandProgram() throws Exception {
-		testRandProgram(51);
-		testRandProgram(37);
-		testRandProgram(17);
-		testRandProgram(7);
-		testRandProgram(5);
-		testRandProgram(3);
-		testRandProgram(2);
-		testRandProgram(1);
-		testRandProgram(0);
+	public void testGlibcRandProgram() throws Exception {
+		testGlibcRandProgram(51);
+		testGlibcRandProgram(37);
+		testGlibcRandProgram(17);
+		testGlibcRandProgram(7);
+		testGlibcRandProgram(5);
+		testGlibcRandProgram(3);
+		testGlibcRandProgram(2);
+		testGlibcRandProgram(1);
+		testGlibcRandProgram(0);
 	}
 
-	private void testRandProgram(long x) throws Exception {
+	private void testGlibcRandProgram(long x) throws Exception {
 		setUp();
-		assertEquals(glibcRand(x), randProgram(x), 0);
+		assertEquals(glibcRand(x), glibcRandProgram(x), 0);
 	}
 
 	private double glibcRand(long seed) {
@@ -303,7 +303,14 @@ public class ProgramMemoryTest {
 		return (((seed == 0 ? 1 : seed) * 1103515245) + 12345) & 0x7fffffffL;
 	}
 
-	private double randProgram(long x) {
+	private double glibcRandProgram(long x) {
+
+		/*
+		 * NOTE: this program is not suitable for physical HP12C due to precision loss.
+		 * We use the GLIBC's constants here only to test the program memory execution.
+		 * In physical HP12C the constants of the random generator should be different.
+		 * Check the test for MINSTD random generator, also known as Lehmer RNG (1988).
+		 */
 
 //		X
 //		XEQ0
@@ -356,6 +363,99 @@ public class ProgramMemoryTest {
 		cal.getProgramMemory().put(Op.OP_3);
 		cal.getProgramMemory().put(Op.OP_1);
 		cal.getProgramMemory().put(Op.OP_POWER);
+
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_DIV);
+		cal.getProgramMemory().put(Op.OP_LASTX);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_INTG);
+		cal.getProgramMemory().put(Op.OP_MUL);
+		cal.getProgramMemory().put(Op.OP_SUB);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
+	public void testMinstdRandProgram() throws Exception {
+		testMinstdRandProgram(51);
+		testMinstdRandProgram(37);
+		testMinstdRandProgram(17);
+		testMinstdRandProgram(7);
+		testMinstdRandProgram(5);
+		testMinstdRandProgram(3);
+		testMinstdRandProgram(2);
+		testMinstdRandProgram(1);
+		testMinstdRandProgram(0);
+	}
+
+	private void testMinstdRandProgram(long x) throws Exception {
+		setUp();
+		assertEquals(minstdRand(x), minstdRandProgram(x), 0);
+	}
+
+	private double minstdRand(long seed) {
+		// Original 1988 MINSTD parameters: a = 7^5, m = 2^31-1
+		// https://en.wikipedia.org/wiki/Lehmer_random_number_generator
+		return Math.floorMod(((seed == 0 ? 1 : seed) * 16807), 2147483647);
+	}
+
+	private double minstdRandProgram(long x) {
+
+		/*
+		 * This is the original Lehmer random number generator (1988), known as MINSTD.
+		 * Later the author suggested the use of the multiplier 48271 in place of 16807.
+		 */
+
+//		X
+//		XEQ0
+//		1	 		ENTER
+//		7			ENTER
+//		5			POWER
+//		MUL
+//		2			ENTER
+//		31			POWER
+//		1			SUB
+//		ENTER
+//		RDOWN
+//		RDOWN
+//		ENTER
+//		RDOWN
+//		RDOWN
+//		RDOWN
+//		DIV
+//		LASTX
+//		SWAPXY
+//		INTG
+//		MUL
+//		SUB
+
+		cal.getStack().put(n(x));
+		cal.getDisplay().setValue(n(x));
+		cal.getProgramMemory().put(Op.OP_XEQO);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+
+		cal.getProgramMemory().put(Op.OP_7);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_5);
+		cal.getProgramMemory().put(Op.OP_POWER);
+		cal.getProgramMemory().put(Op.OP_MUL);
+
+		cal.getProgramMemory().put(Op.OP_2);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_3);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_POWER);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_SUB);
 
 		cal.getProgramMemory().put(Op.OP_ENTER);
 		cal.getProgramMemory().put(Op.OP_R_DOWN);

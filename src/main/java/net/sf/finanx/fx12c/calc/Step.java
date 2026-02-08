@@ -9,13 +9,17 @@ public class Step {
 		this(Op.OP_NULL);
 	}
 
-	public Step(Step stp) {
-		this(stp.getOp());
+	public Step(Op op) {
+		this(op, -1);
 	}
 
-	public Step(Op op) {
+	public Step(Step stp) {
+		this(stp.op, stp.complement);
+	}
+
+	public Step(Op op, int complement) {
 		this.op = op;
-		this.complement = -1;
+		this.complement = complement;
 	}
 
 	public Op getOp() {

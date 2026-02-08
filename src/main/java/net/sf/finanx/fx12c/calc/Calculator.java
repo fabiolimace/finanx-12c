@@ -1079,7 +1079,6 @@ public class Calculator {
 		// goes to line number ZERO and stops execution.
 		else if (stp.getOp().getModifier() == Key.KEY_43 && stp.getOp().getKey() == Key.KEY_33
 				&& stp.getComplement() == Key.KEY_00.getCode()) {
-			System.out.println("executeStep stop 2: " + stp.getOp().getKey());
 			this.stopProgram();
 		}
 		// goes to line number specified by the instruction [g][gto]xxx.
@@ -1134,7 +1133,6 @@ public class Calculator {
 		if (prg.getCurrentIndex() == 0)
 			this.prg.next();
 
-		System.out.println(prg.getCurrentIndex());
 		this.executeStep((Step) this.prg.get());
 
 		if (prg.getCurrentIndex() == prg.getSize() - 1) {
@@ -1175,7 +1173,7 @@ public class Calculator {
 	}
 
 	public Step getStep() {
-		return this.stp;
+		return new Step(this.stp);
 	}
 
 	public Step getCurrentProgramStep() {
