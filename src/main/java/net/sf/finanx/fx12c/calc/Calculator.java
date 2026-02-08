@@ -218,34 +218,34 @@ public class Calculator {
 		}
 
 		switch (k) {
-		case KEY_0: {
+		case KEY_00: {
 			break;
 		}
-		case KEY_1: {
+		case KEY_01: {
 			break;
 		}
-		case KEY_2: {
+		case KEY_02: {
 			break;
 		}
-		case KEY_3: {
+		case KEY_03: {
 			break;
 		}
-		case KEY_4: {
+		case KEY_04: {
 			break;
 		}
-		case KEY_5: {
+		case KEY_05: {
 			break;
 		}
-		case KEY_6: {
+		case KEY_06: {
 			break;
 		}
-		case KEY_7: {
+		case KEY_07: {
 			break;
 		}
-		case KEY_8: {
+		case KEY_08: {
 			break;
 		}
-		case KEY_9: {
+		case KEY_09: {
 			if (flg.getG() == 1) {
 				String tmp = "";
 
@@ -259,58 +259,58 @@ public class Calculator {
 			}
 			break;
 		}
-		case KEY_DIV: {
+		case KEY_10: {
 			break;
 		}
-		case KEY_MUL: {
+		case KEY_20: {
 			break;
 		}
-		case KEY_SUB: {
+		case KEY_30: {
 			break;
 		}
-		case KEY_ADD: {
+		case KEY_40: {
 			break;
 		}
-		case KEY_N: {
+		case KEY_11: {
 			break;
 		}
-		case KEY_I: {
+		case KEY_12: {
 			break;
 		}
-		case KEY_PV: {
+		case KEY_13: {
 			break;
 		}
-		case KEY_PMT: {
+		case KEY_14: {
 			break;
 		}
-		case KEY_FV: {
+		case KEY_15: {
 			break;
 		}
-		case KEY_CHS: {
+		case KEY_16: {
 			break;
 		}
-		case KEY_POWER: {
+		case KEY_21: {
 			break;
 		}
-		case KEY_RECIPROCAL: {
+		case KEY_22: {
 			break;
 		}
-		case KEY_PERCENT_T: {
+		case KEY_23: {
 			break;
 		}
-		case KEY_DELTA_PERCENT: {
+		case KEY_24: {
 			break;
 		}
-		case KEY_PERCENT: {
+		case KEY_25: {
 			break;
 		}
-		case KEY_EEX: {
+		case KEY_26: {
 			break;
 		}
-		case KEY_RS: {
+		case KEY_31: {
 			break;
 		}
-		case KEY_SST: {
+		case KEY_32: {
 			if (dsp.getMode() == Display.MODE_NORMAL) {
 
 				if (flg.getG() == 1) {
@@ -331,16 +331,16 @@ public class Calculator {
 			}
 			break;
 		}
-		case KEY_R_DOWN: {
+		case KEY_33: {
 			break;
 		}
-		case KEY_SWAP_XY: {
+		case KEY_34: {
 			break;
 		}
-		case KEY_CLX: {
+		case KEY_35: {
 			break;
 		}
-		case KEY_ENTER: {
+		case KEY_36: {
 			if (flg.getF() == 1) {
 				dsp.setMessage(dsp.getMantissa());
 				dsp.setPause(true);
@@ -348,25 +348,25 @@ public class Calculator {
 			}
 			break;
 		}
-		case KEY_ON: {
+		case KEY_41: {
 			break;
 		}
-		case KEY_F: {
+		case KEY_42: {
 			break;
 		}
-		case KEY_G: {
+		case KEY_43: {
 			break;
 		}
-		case KEY_STO: {
+		case KEY_44: {
 			break;
 		}
-		case KEY_RCL: {
+		case KEY_45: {
 			break;
 		}
-		case KEY_DOT: {
+		case KEY_48: {
 			break;
 		}
-		case KEY_SIGMA_PLUS: {
+		case KEY_49: {
 			break;
 		}
 		default:
@@ -403,163 +403,163 @@ public class Calculator {
 			}
 
 			switch (k) {
-			case KEY_0: {
+			case KEY_00: {
 				this.doKey00();
 				break;
 			}
-			case KEY_1: {
+			case KEY_01: {
 				this.doKey01();
 				break;
 			}
-			case KEY_2: {
+			case KEY_02: {
 				this.doKey02();
 				break;
 			}
-			case KEY_3: {
+			case KEY_03: {
 				this.doKey03();
 				break;
 			}
-			case KEY_4: {
+			case KEY_04: {
 				this.doKey04();
 				break;
 			}
-			case KEY_5: {
+			case KEY_05: {
 				this.doKey05();
 				break;
 			}
-			case KEY_6: {
+			case KEY_06: {
 				this.doKey06();
 				break;
 			}
-			case KEY_7: {
+			case KEY_07: {
 				this.doKey07();
 				break;
 			}
-			case KEY_8: {
+			case KEY_08: {
 				this.doKey08();
 				break;
 			}
-			case KEY_9: {
+			case KEY_09: {
 				this.doKey09();
 				break;
 			}
-			case KEY_DIV: {
+			case KEY_10: {
 				this.doKey10();
 				break;
 			}
-			case KEY_MUL: {
+			case KEY_20: {
 				this.doKey20();
 				break;
 			}
-			case KEY_SUB: {
+			case KEY_30: {
 				this.doKey30();
 				break;
 			}
-			case KEY_ADD: {
+			case KEY_40: {
 				this.doKey40();
 				break;
 			}
-			case KEY_N: {
+			case KEY_11: {
 				this.doKey11();
 				break;
 			}
-			case KEY_I: {
+			case KEY_12: {
 				this.doKey12();
 				break;
 			}
-			case KEY_PV: {
+			case KEY_13: {
 				this.doKey13();
 				break;
 			}
-			case KEY_PMT: {
+			case KEY_14: {
 				this.doKey14();
 				break;
 			}
-			case KEY_FV: {
+			case KEY_15: {
 				this.doKey15();
 				break;
 			}
-			case KEY_CHS: {
+			case KEY_16: {
 				// TODO: When [DATE] is executed as an instruction in a running
 				// program, the calculator pauses for about 1 second to display
 				// the result, then resumes program execution.
 				this.doKey16();
 				break;
 			}
-			case KEY_POWER: {
+			case KEY_21: {
 				this.doKey21();
 				break;
 			}
-			case KEY_RECIPROCAL: {
+			case KEY_22: {
 				this.doKey22();
 				break;
 			}
-			case KEY_PERCENT_T: {
+			case KEY_23: {
 				this.doKey23();
 				break;
 			}
-			case KEY_DELTA_PERCENT: {
+			case KEY_24: {
 				this.doKey24();
 				break;
 			}
-			case KEY_PERCENT: {
+			case KEY_25: {
 				this.doKey25();
 				break;
 			}
-			case KEY_EEX: {
+			case KEY_26: {
 				this.doKey26();
 				break;
 			}
-			case KEY_RS: {
+			case KEY_31: {
 				this.doKey31();
 				break;
 			}
-			case KEY_SST: {
+			case KEY_32: {
 				this.doKey32();
 				break;
 			}
-			case KEY_R_DOWN: {
+			case KEY_33: {
 				this.doKey33();
 				break;
 			}
-			case KEY_SWAP_XY: {
+			case KEY_34: {
 				this.doKey34();
 				break;
 			}
-			case KEY_CLX: {
+			case KEY_35: {
 				this.doKey35();
 				break;
 			}
-			case KEY_ENTER: {
+			case KEY_36: {
 				this.doKey36();
 				break;
 			}
-			case KEY_ON: {
+			case KEY_41: {
 				// this.doKey41();
 				controller.quit();
 				break;
 			}
-			case KEY_F: {
+			case KEY_42: {
 				this.doKey42();
 				break;
 			}
-			case KEY_G: {
+			case KEY_43: {
 				this.doKey43();
 				break;
 			}
-			case KEY_STO: {
+			case KEY_44: {
 				this.doKey44();
 				break;
 			}
-			case KEY_RCL: {
+			case KEY_45: {
 				this.doKey45();
 				break;
 			}
-			case KEY_DOT: {
+			case KEY_48: {
 				this.doKey48();
 				break;
 			}
-			case KEY_SIGMA_PLUS: {
+			case KEY_49: {
 				this.doKey49();
 				break;
 			}
@@ -661,14 +661,14 @@ public class Calculator {
 
 		if (flg.getSto() == 0) {
 			if (dsp.getMode() == Display.MODE_NORMAL) {
-				if (stp.getOp().getModifier() == Key.KEY_STO) {
-					if (stp.getOp().getKey() == Key.KEY_ADD) {
+				if (stp.getOp().getModifier() == Key.KEY_44) {
+					if (stp.getOp().getKey() == Key.KEY_40) {
 						mem.set(stp.getComplement(), stk.top().add(mem.get(stp.getComplement())));
-					} else if (stp.getOp().getKey() == Key.KEY_SUB) {
+					} else if (stp.getOp().getKey() == Key.KEY_30) {
 						mem.set(stp.getComplement(), stk.top().subtract(mem.get(stp.getComplement())));
-					} else if (stp.getOp().getKey() == Key.KEY_MUL) {
+					} else if (stp.getOp().getKey() == Key.KEY_20) {
 						mem.set(stp.getComplement(), stk.top().multiply(mem.get(stp.getComplement())));
-					} else if (stp.getOp().getKey() == Key.KEY_DIV) {
+					} else if (stp.getOp().getKey() == Key.KEY_10) {
 						mem.set(stp.getComplement(), stk.top().divide(mem.get(stp.getComplement())));
 					}
 				} else {
@@ -870,7 +870,7 @@ public class Calculator {
 
 		try {
 			switch (k) {
-			case KEY_F: {
+			case KEY_42: {
 				this.doKey42();
 				if (flg.getF() == 1) {
 					stp.setOp(Op.OP_F);
@@ -881,7 +881,7 @@ public class Calculator {
 				}
 				break;
 			}
-			case KEY_G: {
+			case KEY_43: {
 				this.doKey43();
 				if (flg.getG() == 1) {
 					stp.setOp(Op.OP_G);
@@ -892,7 +892,7 @@ public class Calculator {
 				}
 				break;
 			}
-			case KEY_STO: {
+			case KEY_44: {
 				this.doKey44();
 				if (flg.getSto() > 0) {
 					stp.setOp(Op.OP_STO);
@@ -903,7 +903,7 @@ public class Calculator {
 				}
 				break;
 			}
-			case KEY_RCL: {
+			case KEY_45: {
 				this.doKey45();
 				if (flg.getRcl() > 0) {
 					stp.setOp(Op.OP_RCL);
@@ -914,7 +914,7 @@ public class Calculator {
 				}
 				break;
 			}
-			case KEY_R_DOWN: { // FIXME: should be inserted as a program instruction
+			case KEY_33: { // FIXME: should be inserted as a program instruction
 				this.doKey33();
 
 				if (flg.getGto() > 0) {
@@ -926,7 +926,7 @@ public class Calculator {
 
 				break;
 			}
-			case KEY_SST: {
+			case KEY_32: {
 				if (flg.getF() == 1) {
 					stp = new Step(Op.OP_SIGMA);
 					putStep(stp);
@@ -947,56 +947,56 @@ public class Calculator {
 			}
 			default: {
 				if (flg.getF() == 1) {
-					if (k.getCode() == Key.KEY_ENTER.getCode()) {
+					if (k.getCode() == Key.KEY_36.getCode()) {
 						doKey42();
 						stp.clear();
 						dsp.setStatus(Display.STATUS_READY);
-					} else if (k.getCode() == Key.KEY_RS.getCode()) {
+					} else if (k.getCode() == Key.KEY_31.getCode()) {
 						this.doKey31();
 					} else {
-						stp.setOp(Op.valueOf(Key.KEY_F, k));
+						stp.setOp(Op.valueOf(Key.KEY_42, k));
 						putStep(stp);
 						flg.toggleF();
 						dsp.setStatus(Display.STATUS_READY);
 					}
 				} else if (flg.getG() == 1) {
-					if (k.getCode() == Key.KEY_9.getCode()) {
+					if (k.getCode() == Key.KEY_09.getCode()) {
 						doKey43();
 						stp.clear();
 						dsp.setStatus(Display.STATUS_READY);
 					} else {
-						stp.setOp(Op.valueOf(Key.KEY_G, k));
+						stp.setOp(Op.valueOf(Key.KEY_43, k));
 						putStep(stp);
 						flg.toggleG();
 						dsp.setStatus(Display.STATUS_READY);
 					}
 				} else if (flg.getSto() > 0) {
-					if (k.getCode() <= Key.KEY_9.getCode()) {
+					if (k.getCode() <= Key.KEY_09.getCode()) {
 						this.stoInput(k.getCode());
-					} else if (k.getCode() == Key.KEY_DOT.getCode()) {
+					} else if (k.getCode() == Key.KEY_48.getCode()) {
 						this.stoInput(Key.KEY_NULL.getCode());
-					} else if (k.getCode() == Key.KEY_N.getCode()) {
+					} else if (k.getCode() == Key.KEY_11.getCode()) {
 						stp.setOp(Op.OP_STO_N);
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_I.getCode()) {
+					} else if (k.getCode() == Key.KEY_12.getCode()) {
 						stp.setOp(Op.OP_STO_I);
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_PV.getCode()) {
+					} else if (k.getCode() == Key.KEY_13.getCode()) {
 						stp.setOp(Op.OP_STO_PV);
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_PMT.getCode()) {
+					} else if (k.getCode() == Key.KEY_14.getCode()) {
 						stp.setOp(Op.OP_STO_PMT);
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_FV.getCode()) {
+					} else if (k.getCode() == Key.KEY_15.getCode()) {
 						stp.setOp(Op.OP_STO_FV);
 						flg.setSto(0);
-					} else if (k.getCode() == Key.KEY_ADD.getCode()) {
+					} else if (k.getCode() == Key.KEY_40.getCode()) {
 						stp.setOp(Op.OP_STO_ADD);
-					} else if (k.getCode() == Key.KEY_SUB.getCode()) {
+					} else if (k.getCode() == Key.KEY_30.getCode()) {
 						stp.setOp(Op.OP_STO_SUB);
-					} else if (k.getCode() == Key.KEY_MUL.getCode()) {
+					} else if (k.getCode() == Key.KEY_20.getCode()) {
 						stp.setOp(Op.OP_STO_MUL);
-					} else if (k.getCode() == Key.KEY_DIV.getCode()) {
+					} else if (k.getCode() == Key.KEY_10.getCode()) {
 						stp.setOp(Op.OP_STO_DIV);
 					}
 
@@ -1005,23 +1005,23 @@ public class Calculator {
 						dsp.setStatus(Display.STATUS_READY);
 					}
 				} else if (flg.getRcl() > 0) {
-					if (k.getCode() <= Key.KEY_9.getCode()) {
+					if (k.getCode() <= Key.KEY_09.getCode()) {
 						this.rclInput(k.getCode());
-					} else if (k.getCode() == Key.KEY_DOT.getCode()) {
+					} else if (k.getCode() == Key.KEY_48.getCode()) {
 						this.rclInput(Key.KEY_NULL.getCode());
-					} else if (k.getCode() == Key.KEY_N.getCode()) {
+					} else if (k.getCode() == Key.KEY_11.getCode()) {
 						stp.setOp(Op.OP_RCL_N);
 						flg.setRcl(0);
-					} else if (k.getCode() == Key.KEY_I.getCode()) {
+					} else if (k.getCode() == Key.KEY_12.getCode()) {
 						stp.setOp(Op.OP_RCL_I);
 						flg.setRcl(0);
-					} else if (k.getCode() == Key.KEY_PV.getCode()) {
+					} else if (k.getCode() == Key.KEY_13.getCode()) {
 						stp.setOp(Op.OP_RCL_PV);
 						flg.setRcl(0);
-					} else if (k.getCode() == Key.KEY_PMT.getCode()) {
+					} else if (k.getCode() == Key.KEY_14.getCode()) {
 						stp.setOp(Op.OP_RCL_PMT);
 						flg.setRcl(0);
-					} else if (k.getCode() == Key.KEY_FV.getCode()) {
+					} else if (k.getCode() == Key.KEY_15.getCode()) {
 						stp.setOp(Op.OP_RCL_FV);
 						flg.setRcl(0);
 					}
@@ -1031,9 +1031,9 @@ public class Calculator {
 						dsp.setStatus(Display.STATUS_READY);
 					}
 				} else if (flg.getGto() > 0) {
-					if (k.getCode() <= Key.KEY_9.getCode())
+					if (k.getCode() <= Key.KEY_09.getCode())
 						this.gtoInput(k.getCode());
-					else if (k.getCode() == Key.KEY_DOT.getCode())
+					else if (k.getCode() == Key.KEY_48.getCode())
 						flg.toggleWild();
 
 					if (flg.getGto() == 0) {
@@ -1077,23 +1077,23 @@ public class Calculator {
 			this.stopProgram();
 		}
 		// goes to line number ZERO and stops execution.
-		else if (stp.getOp().getModifier() == Key.KEY_G && stp.getOp().getKey() == Key.KEY_R_DOWN
-				&& stp.getComplement() == Key.KEY_0.getCode()) {
+		else if (stp.getOp().getModifier() == Key.KEY_43 && stp.getOp().getKey() == Key.KEY_33
+				&& stp.getComplement() == Key.KEY_00.getCode()) {
 			System.out.println("executeStep stop 2: " + stp.getOp().getKey());
 			this.stopProgram();
 		}
 		// goes to line number specified by the instruction [g][gto]xxx.
-		else if (stp.getOp().getModifier() == Key.KEY_G && stp.getOp().getKey() == Key.KEY_R_DOWN) {
+		else if (stp.getOp().getModifier() == Key.KEY_43 && stp.getOp().getKey() == Key.KEY_33) {
 
 			prg.setCurrentIndex(stp.getComplement());
-		} else if (stp.getOp().getModifier() == Key.KEY_G && stp.getOp().getKey() == Key.KEY_SWAP_XY) {
+		} else if (stp.getOp().getModifier() == Key.KEY_43 && stp.getOp().getKey() == Key.KEY_34) {
 			if (stk.get(0).lessThanOrEqualTo(stk.get(1))) {
 				this.prg.next();
 			} else {
 				this.prg.next();
 				this.prg.next();
 			}
-		} else if (stp.getOp().getModifier() == Key.KEY_G && stp.getOp().getKey() == Key.KEY_CLX) {
+		} else if (stp.getOp().getModifier() == Key.KEY_43 && stp.getOp().getKey() == Key.KEY_35) {
 
 			if (stk.get(0).isZero()) {
 				this.prg.next();
@@ -1101,11 +1101,11 @@ public class Calculator {
 				this.prg.next();
 				this.prg.next();
 			}
-		} else if (stp.getOp().getKey() == Key.KEY_STO) {
+		} else if (stp.getOp().getKey() == Key.KEY_44) {
 			mem.set(stp.getComplement(), stk.top());
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			this.prg.next();
-		} else if (stp.getOp().getKey() == Key.KEY_RCL) {
+		} else if (stp.getOp().getKey() == Key.KEY_45) {
 			this.setX(mem.get(stp.getComplement()));
 			dsp.setStatus(Display.STATUS_OUTPUT);
 			this.prg.next();

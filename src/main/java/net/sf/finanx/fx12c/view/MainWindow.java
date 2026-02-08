@@ -453,86 +453,86 @@ public class MainWindow {
 		I49p = this.createImageIcon(wbot, hbot, skinPath + "buttons/b49p.png");
 
 		imageMap = new Hashtable<String, ImageIcon>();
-		imageMap.put(Key.KEY_0.name(), I00);
-		imageMap.put(Key.KEY_1.name(), I01);
-		imageMap.put(Key.KEY_2.name(), I02);
-		imageMap.put(Key.KEY_3.name(), I03);
-		imageMap.put(Key.KEY_4.name(), I04);
-		imageMap.put(Key.KEY_5.name(), I05);
-		imageMap.put(Key.KEY_6.name(), I06);
-		imageMap.put(Key.KEY_7.name(), I07);
-		imageMap.put(Key.KEY_8.name(), I08);
-		imageMap.put(Key.KEY_9.name(), I09);
-		imageMap.put(Key.KEY_DIV.name(), I10);
-		imageMap.put(Key.KEY_N.name(), I11);
-		imageMap.put(Key.KEY_I.name(), I12);
-		imageMap.put(Key.KEY_PV.name(), I13);
-		imageMap.put(Key.KEY_PMT.name(), I14);
-		imageMap.put(Key.KEY_FV.name(), I15);
-		imageMap.put(Key.KEY_CHS.name(), I16);
-		imageMap.put(Key.KEY_MUL.name(), I20);
-		imageMap.put(Key.KEY_POWER.name(), I21);
-		imageMap.put(Key.KEY_RECIPROCAL.name(), I22);
-		imageMap.put(Key.KEY_PERCENT_T.name(), I23);
-		imageMap.put(Key.KEY_DELTA_PERCENT.name(), I24);
-		imageMap.put(Key.KEY_PERCENT.name(), I25);
-		imageMap.put(Key.KEY_EEX.name(), I26);
-		imageMap.put(Key.KEY_SUB.name(), I30);
-		imageMap.put(Key.KEY_RS.name(), I31);
-		imageMap.put(Key.KEY_SST.name(), I32);
-		imageMap.put(Key.KEY_R_DOWN.name(), I33);
-		imageMap.put(Key.KEY_SWAP_XY.name(), I34);
-		imageMap.put(Key.KEY_CLX.name(), I35);
-		imageMap.put(Key.KEY_ENTER.name(), I36);
-		imageMap.put(Key.KEY_ADD.name(), I40);
-		imageMap.put(Key.KEY_ON.name(), I41);
-		imageMap.put(Key.KEY_F.name(), I42);
-		imageMap.put(Key.KEY_G.name(), I43);
-		imageMap.put(Key.KEY_STO.name(), I44);
-		imageMap.put(Key.KEY_RCL.name(), I45);
-		imageMap.put(Key.KEY_DOT.name(), I48);
-		imageMap.put(Key.KEY_SIGMA_PLUS.name(), I49);
+		imageMap.put(Key.KEY_00.name(), I00);
+		imageMap.put(Key.KEY_01.name(), I01);
+		imageMap.put(Key.KEY_02.name(), I02);
+		imageMap.put(Key.KEY_03.name(), I03);
+		imageMap.put(Key.KEY_04.name(), I04);
+		imageMap.put(Key.KEY_05.name(), I05);
+		imageMap.put(Key.KEY_06.name(), I06);
+		imageMap.put(Key.KEY_07.name(), I07);
+		imageMap.put(Key.KEY_08.name(), I08);
+		imageMap.put(Key.KEY_09.name(), I09);
+		imageMap.put(Key.KEY_10.name(), I10);
+		imageMap.put(Key.KEY_11.name(), I11);
+		imageMap.put(Key.KEY_12.name(), I12);
+		imageMap.put(Key.KEY_13.name(), I13);
+		imageMap.put(Key.KEY_14.name(), I14);
+		imageMap.put(Key.KEY_15.name(), I15);
+		imageMap.put(Key.KEY_16.name(), I16);
+		imageMap.put(Key.KEY_20.name(), I20);
+		imageMap.put(Key.KEY_21.name(), I21);
+		imageMap.put(Key.KEY_22.name(), I22);
+		imageMap.put(Key.KEY_23.name(), I23);
+		imageMap.put(Key.KEY_24.name(), I24);
+		imageMap.put(Key.KEY_25.name(), I25);
+		imageMap.put(Key.KEY_26.name(), I26);
+		imageMap.put(Key.KEY_30.name(), I30);
+		imageMap.put(Key.KEY_31.name(), I31);
+		imageMap.put(Key.KEY_32.name(), I32);
+		imageMap.put(Key.KEY_33.name(), I33);
+		imageMap.put(Key.KEY_34.name(), I34);
+		imageMap.put(Key.KEY_35.name(), I35);
+		imageMap.put(Key.KEY_36.name(), I36);
+		imageMap.put(Key.KEY_40.name(), I40);
+		imageMap.put(Key.KEY_41.name(), I41);
+		imageMap.put(Key.KEY_42.name(), I42);
+		imageMap.put(Key.KEY_43.name(), I43);
+		imageMap.put(Key.KEY_44.name(), I44);
+		imageMap.put(Key.KEY_45.name(), I45);
+		imageMap.put(Key.KEY_48.name(), I48);
+		imageMap.put(Key.KEY_49.name(), I49);
 
 		imageMapPressed = new Hashtable<String, ImageIcon>();
-		imageMapPressed.put(Key.KEY_0.name(), I00p);
-		imageMapPressed.put(Key.KEY_1.name(), I01p);
-		imageMapPressed.put(Key.KEY_2.name(), I02p);
-		imageMapPressed.put(Key.KEY_3.name(), I03p);
-		imageMapPressed.put(Key.KEY_4.name(), I04p);
-		imageMapPressed.put(Key.KEY_5.name(), I05p);
-		imageMapPressed.put(Key.KEY_6.name(), I06p);
-		imageMapPressed.put(Key.KEY_7.name(), I07p);
-		imageMapPressed.put(Key.KEY_8.name(), I08p);
-		imageMapPressed.put(Key.KEY_9.name(), I09p);
-		imageMapPressed.put(Key.KEY_DIV.name(), I10p);
-		imageMapPressed.put(Key.KEY_N.name(), I11p);
-		imageMapPressed.put(Key.KEY_I.name(), I12p);
-		imageMapPressed.put(Key.KEY_PV.name(), I13p);
-		imageMapPressed.put(Key.KEY_PMT.name(), I14p);
-		imageMapPressed.put(Key.KEY_FV.name(), I15p);
-		imageMapPressed.put(Key.KEY_CHS.name(), I16p);
-		imageMapPressed.put(Key.KEY_MUL.name(), I20p);
-		imageMapPressed.put(Key.KEY_POWER.name(), I21p);
-		imageMapPressed.put(Key.KEY_RECIPROCAL.name(), I22p);
-		imageMapPressed.put(Key.KEY_PERCENT_T.name(), I23p);
-		imageMapPressed.put(Key.KEY_DELTA_PERCENT.name(), I24p);
-		imageMapPressed.put(Key.KEY_PERCENT.name(), I25p);
-		imageMapPressed.put(Key.KEY_EEX.name(), I26p);
-		imageMapPressed.put(Key.KEY_SUB.name(), I30p);
-		imageMapPressed.put(Key.KEY_RS.name(), I31p);
-		imageMapPressed.put(Key.KEY_SST.name(), I32p);
-		imageMapPressed.put(Key.KEY_R_DOWN.name(), I33p);
-		imageMapPressed.put(Key.KEY_SWAP_XY.name(), I34p);
-		imageMapPressed.put(Key.KEY_CLX.name(), I35p);
-		imageMapPressed.put(Key.KEY_ENTER.name(), I36p);
-		imageMapPressed.put(Key.KEY_ADD.name(), I40p);
-		imageMapPressed.put(Key.KEY_ON.name(), I41p);
-		imageMapPressed.put(Key.KEY_F.name(), I42p);
-		imageMapPressed.put(Key.KEY_G.name(), I43p);
-		imageMapPressed.put(Key.KEY_STO.name(), I44p);
-		imageMapPressed.put(Key.KEY_RCL.name(), I45p);
-		imageMapPressed.put(Key.KEY_DOT.name(), I48p);
-		imageMapPressed.put(Key.KEY_SIGMA_PLUS.name(), I49p);
+		imageMapPressed.put(Key.KEY_00.name(), I00p);
+		imageMapPressed.put(Key.KEY_01.name(), I01p);
+		imageMapPressed.put(Key.KEY_02.name(), I02p);
+		imageMapPressed.put(Key.KEY_03.name(), I03p);
+		imageMapPressed.put(Key.KEY_04.name(), I04p);
+		imageMapPressed.put(Key.KEY_05.name(), I05p);
+		imageMapPressed.put(Key.KEY_06.name(), I06p);
+		imageMapPressed.put(Key.KEY_07.name(), I07p);
+		imageMapPressed.put(Key.KEY_08.name(), I08p);
+		imageMapPressed.put(Key.KEY_09.name(), I09p);
+		imageMapPressed.put(Key.KEY_10.name(), I10p);
+		imageMapPressed.put(Key.KEY_11.name(), I11p);
+		imageMapPressed.put(Key.KEY_12.name(), I12p);
+		imageMapPressed.put(Key.KEY_13.name(), I13p);
+		imageMapPressed.put(Key.KEY_14.name(), I14p);
+		imageMapPressed.put(Key.KEY_15.name(), I15p);
+		imageMapPressed.put(Key.KEY_16.name(), I16p);
+		imageMapPressed.put(Key.KEY_20.name(), I20p);
+		imageMapPressed.put(Key.KEY_21.name(), I21p);
+		imageMapPressed.put(Key.KEY_22.name(), I22p);
+		imageMapPressed.put(Key.KEY_23.name(), I23p);
+		imageMapPressed.put(Key.KEY_24.name(), I24p);
+		imageMapPressed.put(Key.KEY_25.name(), I25p);
+		imageMapPressed.put(Key.KEY_26.name(), I26p);
+		imageMapPressed.put(Key.KEY_30.name(), I30p);
+		imageMapPressed.put(Key.KEY_31.name(), I31p);
+		imageMapPressed.put(Key.KEY_32.name(), I32p);
+		imageMapPressed.put(Key.KEY_33.name(), I33p);
+		imageMapPressed.put(Key.KEY_34.name(), I34p);
+		imageMapPressed.put(Key.KEY_35.name(), I35p);
+		imageMapPressed.put(Key.KEY_36.name(), I36p);
+		imageMapPressed.put(Key.KEY_40.name(), I40p);
+		imageMapPressed.put(Key.KEY_41.name(), I41p);
+		imageMapPressed.put(Key.KEY_42.name(), I42p);
+		imageMapPressed.put(Key.KEY_43.name(), I43p);
+		imageMapPressed.put(Key.KEY_44.name(), I44p);
+		imageMapPressed.put(Key.KEY_45.name(), I45p);
+		imageMapPressed.put(Key.KEY_48.name(), I48p);
+		imageMapPressed.put(Key.KEY_49.name(), I49p);
 
 	}
 
@@ -624,7 +624,7 @@ public class MainWindow {
 
 		// Calculator's buttons
 		B11 = new ImageButton(I11);
-		B11.setKey(Key.KEY_N);
+		B11.setKey(Key.KEY_11);
 		B11.setBorderPainted(false);
 		B11.setPreferredSize(new Dimension(wbot, hbot));
 		B11.setBackground(buttonBgColor);
@@ -640,7 +640,7 @@ public class MainWindow {
 		mainPanel.add(B11, R11);
 
 		B12 = new ImageButton(I12);
-		B12.setKey(Key.KEY_I);
+		B12.setKey(Key.KEY_12);
 		B12.setBorderPainted(false);
 		B12.setPreferredSize(new Dimension(wbot, hbot));
 		B12.setBackground(buttonBgColor);
@@ -656,7 +656,7 @@ public class MainWindow {
 		mainPanel.add(B12, R12);
 
 		B13 = new ImageButton(I13);
-		B13.setKey(Key.KEY_PV);
+		B13.setKey(Key.KEY_13);
 		B13.setBorderPainted(false);
 		B13.setPreferredSize(new Dimension(wbot, hbot));
 		B13.setBackground(buttonBgColor);
@@ -672,7 +672,7 @@ public class MainWindow {
 		mainPanel.add(B13, R13);
 
 		B14 = new ImageButton(I14);
-		B14.setKey(Key.KEY_PMT);
+		B14.setKey(Key.KEY_14);
 		B14.setBorderPainted(false);
 		B14.setPreferredSize(new Dimension(wbot, hbot));
 		B14.setBackground(buttonBgColor);
@@ -688,7 +688,7 @@ public class MainWindow {
 		mainPanel.add(B14, R14);
 
 		B15 = new ImageButton(I15);
-		B15.setKey(Key.KEY_FV);
+		B15.setKey(Key.KEY_15);
 		B15.setBorderPainted(false);
 		B15.setPreferredSize(new Dimension(wbot, hbot));
 		B15.setBackground(buttonBgColor);
@@ -704,7 +704,7 @@ public class MainWindow {
 		mainPanel.add(B15, R15);
 
 		B16 = new ImageButton(I16);
-		B16.setKey(Key.KEY_CHS);
+		B16.setKey(Key.KEY_16);
 		B16.setBorderPainted(false);
 		B16.setPreferredSize(new Dimension(wbot, hbot));
 		B16.setBackground(buttonBgColor);
@@ -720,7 +720,7 @@ public class MainWindow {
 		mainPanel.add(B16, R16);
 
 		B07 = new ImageButton(I07);
-		B07.setKey(Key.KEY_7);
+		B07.setKey(Key.KEY_07);
 		B07.setBorderPainted(false);
 		B07.setPreferredSize(new Dimension(wbot, hbot));
 		B07.setBackground(buttonBgColor);
@@ -736,7 +736,7 @@ public class MainWindow {
 		mainPanel.add(B07, R07);
 
 		B08 = new ImageButton(I08);
-		B08.setKey(Key.KEY_8);
+		B08.setKey(Key.KEY_08);
 		B08.setBorderPainted(false);
 		B08.setPreferredSize(new Dimension(wbot, hbot));
 		B08.setBackground(buttonBgColor);
@@ -752,7 +752,7 @@ public class MainWindow {
 		mainPanel.add(B08, R08);
 
 		B09 = new ImageButton(I09);
-		B09.setKey(Key.KEY_9);
+		B09.setKey(Key.KEY_09);
 		B09.setBorderPainted(false);
 		B09.setPreferredSize(new Dimension(wbot, hbot));
 		B09.setBackground(buttonBgColor);
@@ -768,7 +768,7 @@ public class MainWindow {
 		mainPanel.add(B09, R09);
 
 		B10 = new ImageButton(I10);
-		B10.setKey(Key.KEY_DIV);
+		B10.setKey(Key.KEY_10);
 		B10.setBorderPainted(false);
 		B10.setPreferredSize(new Dimension(wbot, hbot));
 		B10.setBackground(buttonBgColor);
@@ -787,7 +787,7 @@ public class MainWindow {
 		// =================================
 
 		B21 = new ImageButton(I21);
-		B21.setKey(Key.KEY_POWER);
+		B21.setKey(Key.KEY_21);
 		B21.setBorderPainted(false);
 		B21.setPreferredSize(new Dimension(wbot, hbot));
 		B21.setBackground(buttonBgColor);
@@ -804,7 +804,7 @@ public class MainWindow {
 		mainPanel.add(B21, R21);
 
 		B22 = new ImageButton(I22);
-		B22.setKey(Key.KEY_RECIPROCAL);
+		B22.setKey(Key.KEY_22);
 		B22.setBorderPainted(false);
 		B22.setPreferredSize(new Dimension(wbot, hbot));
 		B22.setBackground(buttonBgColor);
@@ -821,7 +821,7 @@ public class MainWindow {
 		mainPanel.add(B22, R22);
 
 		B23 = new ImageButton(I23);
-		B23.setKey(Key.KEY_PERCENT_T);
+		B23.setKey(Key.KEY_23);
 		B23.setBorderPainted(false);
 		B23.setPreferredSize(new Dimension(wbot, hbot));
 		B23.setBackground(buttonBgColor);
@@ -837,7 +837,7 @@ public class MainWindow {
 		mainPanel.add(B23, R23);
 
 		B24 = new ImageButton(I24);
-		B24.setKey(Key.KEY_DELTA_PERCENT);
+		B24.setKey(Key.KEY_24);
 		B24.setBorderPainted(false);
 		B24.setPreferredSize(new Dimension(wbot, hbot));
 		B24.setBackground(buttonBgColor);
@@ -853,7 +853,7 @@ public class MainWindow {
 		mainPanel.add(B24, R24);
 
 		B25 = new ImageButton(I25);
-		B25.setKey(Key.KEY_PERCENT);
+		B25.setKey(Key.KEY_25);
 		B25.setBorderPainted(false);
 		B25.setPreferredSize(new Dimension(wbot, hbot));
 		B25.setBackground(buttonBgColor);
@@ -869,7 +869,7 @@ public class MainWindow {
 		mainPanel.add(B25, R25);
 
 		B26 = new ImageButton(I26);
-		B26.setKey(Key.KEY_EEX);
+		B26.setKey(Key.KEY_26);
 		B26.setBorderPainted(false);
 		B26.setPreferredSize(new Dimension(wbot, hbot));
 		B26.setBackground(buttonBgColor);
@@ -885,7 +885,7 @@ public class MainWindow {
 		mainPanel.add(B26, R26);
 
 		B04 = new ImageButton(I04);
-		B04.setKey(Key.KEY_4);
+		B04.setKey(Key.KEY_04);
 		B04.setBorderPainted(false);
 		B04.setPreferredSize(new Dimension(wbot, hbot));
 		B04.setBackground(buttonBgColor);
@@ -901,7 +901,7 @@ public class MainWindow {
 		mainPanel.add(B04, R04);
 
 		B05 = new ImageButton(I05);
-		B05.setKey(Key.KEY_5);
+		B05.setKey(Key.KEY_05);
 		B05.setBorderPainted(false);
 		B05.setPreferredSize(new Dimension(wbot, hbot));
 		B05.setBackground(buttonBgColor);
@@ -917,7 +917,7 @@ public class MainWindow {
 		mainPanel.add(B05, R05);
 
 		B06 = new ImageButton(I06);
-		B06.setKey(Key.KEY_6);
+		B06.setKey(Key.KEY_06);
 		B06.setBorderPainted(false);
 		B06.setPreferredSize(new Dimension(wbot, hbot));
 		B06.setBackground(buttonBgColor);
@@ -933,7 +933,7 @@ public class MainWindow {
 		mainPanel.add(B06, R06);
 
 		B20 = new ImageButton(I20);
-		B20.setKey(Key.KEY_MUL);
+		B20.setKey(Key.KEY_20);
 		B20.setBorderPainted(false);
 		B20.setPreferredSize(new Dimension(wbot, hbot));
 		B20.setBackground(buttonBgColor);
@@ -951,7 +951,7 @@ public class MainWindow {
 		// ==================================
 
 		B31 = new ImageButton(I31);
-		B31.setKey(Key.KEY_RS);
+		B31.setKey(Key.KEY_31);
 		B31.setBorderPainted(false);
 		B31.setPreferredSize(new Dimension(wbot, hbot));
 		B31.setBackground(buttonBgColor);
@@ -967,7 +967,7 @@ public class MainWindow {
 		mainPanel.add(B31, R31);
 
 		B32 = new ImageButton(I32);
-		B32.setKey(Key.KEY_SST);
+		B32.setKey(Key.KEY_32);
 		B32.setBorderPainted(false);
 		B32.setPreferredSize(new Dimension(wbot, hbot));
 		B32.setBackground(buttonBgColor);
@@ -983,7 +983,7 @@ public class MainWindow {
 		mainPanel.add(B32, R32);
 
 		B33 = new ImageButton(I33);
-		B33.setKey(Key.KEY_R_DOWN);
+		B33.setKey(Key.KEY_33);
 		B33.setBorderPainted(false);
 		B33.setPreferredSize(new Dimension(wbot, hbot));
 		B33.setBackground(buttonBgColor);
@@ -999,7 +999,7 @@ public class MainWindow {
 		mainPanel.add(B33, R33);
 
 		B34 = new ImageButton(I34);
-		B34.setKey(Key.KEY_SWAP_XY);
+		B34.setKey(Key.KEY_34);
 		B34.setBorderPainted(false);
 		B34.setPreferredSize(new Dimension(wbot, hbot));
 		B34.setBackground(buttonBgColor);
@@ -1015,7 +1015,7 @@ public class MainWindow {
 		mainPanel.add(B34, R34);
 
 		B35 = new ImageButton(I35);
-		B35.setKey(Key.KEY_CLX);
+		B35.setKey(Key.KEY_35);
 		B35.setBorderPainted(false);
 		B35.setPreferredSize(new Dimension(wbot, hbot));
 		B35.setBackground(buttonBgColor);
@@ -1031,7 +1031,7 @@ public class MainWindow {
 		mainPanel.add(B35, R35);
 
 		B36 = new ImageButton(I36);
-		B36.setKey(Key.KEY_ENTER);
+		B36.setKey(Key.KEY_36);
 		B36.setBorderPainted(false);
 		B36.setPreferredSize(new Dimension(webot, hebot));
 		B36.setBackground(buttonBgColor);
@@ -1047,7 +1047,7 @@ public class MainWindow {
 		mainPanel.add(B36, R36);
 
 		B01 = new ImageButton(I01);
-		B01.setKey(Key.KEY_1);
+		B01.setKey(Key.KEY_01);
 		B01.setBorderPainted(false);
 		B01.setPreferredSize(new Dimension(wbot, hbot));
 		B01.setBackground(buttonBgColor);
@@ -1063,7 +1063,7 @@ public class MainWindow {
 		mainPanel.add(B01, R01);
 
 		B02 = new ImageButton(I02);
-		B02.setKey(Key.KEY_2);
+		B02.setKey(Key.KEY_02);
 		B02.setBorderPainted(false);
 		B02.setPreferredSize(new Dimension(wbot, hbot));
 		B02.setBackground(buttonBgColor);
@@ -1079,7 +1079,7 @@ public class MainWindow {
 		mainPanel.add(B02, R02);
 
 		B03 = new ImageButton(I03);
-		B03.setKey(Key.KEY_3);
+		B03.setKey(Key.KEY_03);
 		B03.setBorderPainted(false);
 		B03.setPreferredSize(new Dimension(wbot, hbot));
 		B03.setBackground(buttonBgColor);
@@ -1095,7 +1095,7 @@ public class MainWindow {
 		mainPanel.add(B03, R03);
 
 		B30 = new ImageButton(I30);
-		B30.setKey(Key.KEY_SUB);
+		B30.setKey(Key.KEY_30);
 		B30.setBorderPainted(false);
 		B30.setPreferredSize(new Dimension(wbot, hbot));
 		B30.setBackground(buttonBgColor);
@@ -1113,7 +1113,7 @@ public class MainWindow {
 		// ============================================
 
 		B41 = new ImageButton(I41);
-		B41.setKey(Key.KEY_ON);
+		B41.setKey(Key.KEY_41);
 		B41.setBorderPainted(false);
 		B41.setPreferredSize(new Dimension(wbot, hbot));
 		B41.setBackground(buttonBgColor);
@@ -1129,7 +1129,7 @@ public class MainWindow {
 		mainPanel.add(B41, R41);
 
 		B42 = new ImageButton(I42);
-		B42.setKey(Key.KEY_F);
+		B42.setKey(Key.KEY_42);
 		B42.setBorderPainted(false);
 		B42.setPreferredSize(new Dimension(wbot, hbot));
 		B42.setBackground(buttonBgColor);
@@ -1145,7 +1145,7 @@ public class MainWindow {
 		mainPanel.add(B42, R42);
 
 		B43 = new ImageButton(I43);
-		B43.setKey(Key.KEY_G);
+		B43.setKey(Key.KEY_43);
 		B43.setBorderPainted(false);
 		B43.setPreferredSize(new Dimension(wbot, hbot));
 		B43.setBackground(buttonBgColor);
@@ -1161,7 +1161,7 @@ public class MainWindow {
 		mainPanel.add(B43, R43);
 
 		B44 = new ImageButton(I44);
-		B44.setKey(Key.KEY_STO);
+		B44.setKey(Key.KEY_44);
 		B44.setBorderPainted(false);
 		B44.setPreferredSize(new Dimension(wbot, hbot));
 		B44.setBackground(buttonBgColor);
@@ -1177,7 +1177,7 @@ public class MainWindow {
 		mainPanel.add(B44, R44);
 
 		B45 = new ImageButton(I45);
-		B45.setKey(Key.KEY_RCL);
+		B45.setKey(Key.KEY_45);
 		B45.setBorderPainted(false);
 		B45.setPreferredSize(new Dimension(wbot, hbot));
 		B45.setBackground(buttonBgColor);
@@ -1193,7 +1193,7 @@ public class MainWindow {
 		mainPanel.add(B45, R45);
 
 		B00 = new ImageButton(I00);
-		B00.setKey(Key.KEY_0);
+		B00.setKey(Key.KEY_00);
 		B00.setBorderPainted(false);
 		B00.setPreferredSize(new Dimension(wbot, hbot));
 		B00.setBackground(buttonBgColor);
@@ -1209,7 +1209,7 @@ public class MainWindow {
 		mainPanel.add(B00, R00);
 
 		B48 = new ImageButton(I48);
-		B48.setKey(Key.KEY_DOT);
+		B48.setKey(Key.KEY_48);
 		B48.setBorderPainted(false);
 		B48.setPreferredSize(new Dimension(wbot, hbot));
 		B48.setBackground(buttonBgColor);
@@ -1225,7 +1225,7 @@ public class MainWindow {
 		mainPanel.add(B48, R48);
 
 		B49 = new ImageButton(I49);
-		B49.setKey(Key.KEY_SIGMA_PLUS);
+		B49.setKey(Key.KEY_49);
 		B49.setBorderPainted(false);
 		B49.setPreferredSize(new Dimension(wbot, hbot));
 		B49.setBackground(buttonBgColor);
@@ -1241,7 +1241,7 @@ public class MainWindow {
 		mainPanel.add(B49, R49);
 
 		B40 = new ImageButton(I40);
-		B40.setKey(Key.KEY_ADD);
+		B40.setKey(Key.KEY_40);
 		B40.setBorderPainted(false);
 		B40.setPreferredSize(new Dimension(wbot, hbot));
 		B40.setBackground(buttonBgColor);
@@ -1257,45 +1257,45 @@ public class MainWindow {
 		mainPanel.add(B40, R40);
 
 		bot = new Hashtable<String, ImageButton>();
-		bot.put(Key.KEY_0.name(), B00);
-		bot.put(Key.KEY_1.name(), B01);
-		bot.put(Key.KEY_2.name(), B02);
-		bot.put(Key.KEY_3.name(), B03);
-		bot.put(Key.KEY_4.name(), B04);
-		bot.put(Key.KEY_5.name(), B05);
-		bot.put(Key.KEY_6.name(), B06);
-		bot.put(Key.KEY_7.name(), B07);
-		bot.put(Key.KEY_8.name(), B08);
-		bot.put(Key.KEY_9.name(), B09);
-		bot.put(Key.KEY_DIV.name(), B10);
-		bot.put(Key.KEY_N.name(), B11);
-		bot.put(Key.KEY_I.name(), B12);
-		bot.put(Key.KEY_PV.name(), B13);
-		bot.put(Key.KEY_PMT.name(), B14);
-		bot.put(Key.KEY_FV.name(), B15);
-		bot.put(Key.KEY_CHS.name(), B16);
-		bot.put(Key.KEY_MUL.name(), B20);
-		bot.put(Key.KEY_POWER.name(), B21);
-		bot.put(Key.KEY_RECIPROCAL.name(), B22);
-		bot.put(Key.KEY_PERCENT_T.name(), B23);
-		bot.put(Key.KEY_DELTA_PERCENT.name(), B24);
-		bot.put(Key.KEY_PERCENT.name(), B25);
-		bot.put(Key.KEY_EEX.name(), B26);
-		bot.put(Key.KEY_SUB.name(), B30);
-		bot.put(Key.KEY_RS.name(), B31);
-		bot.put(Key.KEY_SST.name(), B32);
-		bot.put(Key.KEY_R_DOWN.name(), B33);
-		bot.put(Key.KEY_SWAP_XY.name(), B34);
-		bot.put(Key.KEY_CLX.name(), B35);
-		bot.put(Key.KEY_ENTER.name(), B36);
-		bot.put(Key.KEY_ADD.name(), B40);
-		bot.put(Key.KEY_ON.name(), B41);
-		bot.put(Key.KEY_F.name(), B42);
-		bot.put(Key.KEY_G.name(), B43);
-		bot.put(Key.KEY_STO.name(), B44);
-		bot.put(Key.KEY_RCL.name(), B45);
-		bot.put(Key.KEY_DOT.name(), B48);
-		bot.put(Key.KEY_SIGMA_PLUS.name(), B49);
+		bot.put(Key.KEY_00.name(), B00);
+		bot.put(Key.KEY_01.name(), B01);
+		bot.put(Key.KEY_02.name(), B02);
+		bot.put(Key.KEY_03.name(), B03);
+		bot.put(Key.KEY_04.name(), B04);
+		bot.put(Key.KEY_05.name(), B05);
+		bot.put(Key.KEY_06.name(), B06);
+		bot.put(Key.KEY_07.name(), B07);
+		bot.put(Key.KEY_08.name(), B08);
+		bot.put(Key.KEY_09.name(), B09);
+		bot.put(Key.KEY_10.name(), B10);
+		bot.put(Key.KEY_11.name(), B11);
+		bot.put(Key.KEY_12.name(), B12);
+		bot.put(Key.KEY_13.name(), B13);
+		bot.put(Key.KEY_14.name(), B14);
+		bot.put(Key.KEY_15.name(), B15);
+		bot.put(Key.KEY_16.name(), B16);
+		bot.put(Key.KEY_20.name(), B20);
+		bot.put(Key.KEY_21.name(), B21);
+		bot.put(Key.KEY_22.name(), B22);
+		bot.put(Key.KEY_23.name(), B23);
+		bot.put(Key.KEY_24.name(), B24);
+		bot.put(Key.KEY_25.name(), B25);
+		bot.put(Key.KEY_26.name(), B26);
+		bot.put(Key.KEY_30.name(), B30);
+		bot.put(Key.KEY_31.name(), B31);
+		bot.put(Key.KEY_32.name(), B32);
+		bot.put(Key.KEY_33.name(), B33);
+		bot.put(Key.KEY_34.name(), B34);
+		bot.put(Key.KEY_35.name(), B35);
+		bot.put(Key.KEY_36.name(), B36);
+		bot.put(Key.KEY_40.name(), B40);
+		bot.put(Key.KEY_41.name(), B41);
+		bot.put(Key.KEY_42.name(), B42);
+		bot.put(Key.KEY_43.name(), B43);
+		bot.put(Key.KEY_44.name(), B44);
+		bot.put(Key.KEY_45.name(), B45);
+		bot.put(Key.KEY_48.name(), B48);
+		bot.put(Key.KEY_49.name(), B49);
 
 		mainPanel.setFocusCycleRoot(true);
 

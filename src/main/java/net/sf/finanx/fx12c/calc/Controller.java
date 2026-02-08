@@ -154,84 +154,84 @@ public class Controller {
 
 	private Key getKey(char chr) {
 
-		if (this.cfg.getCode(chr) == Key.KEY_0.getCode())
-			return Key.KEY_0;
-		else if (this.cfg.getCode(chr) == Key.KEY_1.getCode())
-			return Key.KEY_1;
-		else if (this.cfg.getCode(chr) == Key.KEY_2.getCode())
-			return Key.KEY_2;
-		else if (this.cfg.getCode(chr) == Key.KEY_3.getCode())
-			return Key.KEY_3;
-		else if (this.cfg.getCode(chr) == Key.KEY_4.getCode())
-			return Key.KEY_4;
-		else if (this.cfg.getCode(chr) == Key.KEY_5.getCode())
-			return Key.KEY_5;
-		else if (this.cfg.getCode(chr) == Key.KEY_6.getCode())
-			return Key.KEY_6;
-		else if (this.cfg.getCode(chr) == Key.KEY_7.getCode())
-			return Key.KEY_7;
-		else if (this.cfg.getCode(chr) == Key.KEY_8.getCode())
-			return Key.KEY_8;
-		else if (this.cfg.getCode(chr) == Key.KEY_9.getCode())
-			return Key.KEY_9;
-		else if (this.cfg.getCode(chr) == Key.KEY_DIV.getCode())
-			return Key.KEY_DIV;
-		else if (this.cfg.getCode(chr) == Key.KEY_N.getCode())
-			return Key.KEY_N;
-		else if (this.cfg.getCode(chr) == Key.KEY_I.getCode())
-			return Key.KEY_I;
-		else if (this.cfg.getCode(chr) == Key.KEY_PV.getCode())
-			return Key.KEY_PV;
-		else if (this.cfg.getCode(chr) == Key.KEY_PMT.getCode())
-			return Key.KEY_PMT;
-		else if (this.cfg.getCode(chr) == Key.KEY_FV.getCode())
-			return Key.KEY_FV;
-		else if (this.cfg.getCode(chr) == Key.KEY_CHS.getCode())
-			return Key.KEY_CHS;
-		else if (this.cfg.getCode(chr) == Key.KEY_POWER.getCode())
-			return Key.KEY_POWER;
-		else if (this.cfg.getCode(chr) == Key.KEY_RECIPROCAL.getCode())
-			return Key.KEY_RECIPROCAL;
-		else if (this.cfg.getCode(chr) == Key.KEY_PERCENT_T.getCode())
-			return Key.KEY_PERCENT_T;
-		else if (this.cfg.getCode(chr) == Key.KEY_DELTA_PERCENT.getCode())
-			return Key.KEY_DELTA_PERCENT;
-		else if (this.cfg.getCode(chr) == Key.KEY_PERCENT.getCode())
-			return Key.KEY_PERCENT;
-		else if (this.cfg.getCode(chr) == Key.KEY_EEX.getCode())
-			return Key.KEY_EEX;
-		else if (this.cfg.getCode(chr) == Key.KEY_RS.getCode())
-			return Key.KEY_RS;
-		else if (this.cfg.getCode(chr) == Key.KEY_SST.getCode())
-			return Key.KEY_SST;
-		else if (this.cfg.getCode(chr) == Key.KEY_R_DOWN.getCode())
-			return Key.KEY_R_DOWN;
-		else if (this.cfg.getCode(chr) == Key.KEY_SWAP_XY.getCode())
-			return Key.KEY_SWAP_XY;
-		else if (this.cfg.getCode(chr) == Key.KEY_CLX.getCode())
-			return Key.KEY_CLX;
-		else if (this.cfg.getCode(chr) == Key.KEY_ENTER.getCode())
-			return Key.KEY_ENTER;
-		else if (this.cfg.getCode(chr) == Key.KEY_ON.getCode())
-			return Key.KEY_ON;
-		else if (this.cfg.getCode(chr) == Key.KEY_F.getCode())
-			return Key.KEY_F;
-		else if (this.cfg.getCode(chr) == Key.KEY_G.getCode())
-			return Key.KEY_G;
-		else if (this.cfg.getCode(chr) == Key.KEY_STO.getCode())
-			return Key.KEY_STO;
-		else if (this.cfg.getCode(chr) == Key.KEY_RCL.getCode())
-			return Key.KEY_RCL;
-		else if (this.cfg.getCode(chr) == Key.KEY_DOT.getCode())
-			return Key.KEY_DOT;
-		else if (this.cfg.getCode(chr) == Key.KEY_SIGMA_PLUS.getCode())
-			return Key.KEY_SIGMA_PLUS;
-		else if (this.cfg.getCode(chr) == Key.KEY_MUL.getCode())
-			return Key.KEY_MUL;
-		else if (this.cfg.getCode(chr) == Key.KEY_SUB.getCode())
-			return Key.KEY_SUB;
-		else if (this.cfg.getCode(chr) == Key.KEY_ADD.getCode())
-			return Key.KEY_ADD;
+		if (this.cfg.getCode(chr) == Key.KEY_00.getCode())
+			return Key.KEY_00;
+		else if (this.cfg.getCode(chr) == Key.KEY_01.getCode())
+			return Key.KEY_01;
+		else if (this.cfg.getCode(chr) == Key.KEY_02.getCode())
+			return Key.KEY_02;
+		else if (this.cfg.getCode(chr) == Key.KEY_03.getCode())
+			return Key.KEY_03;
+		else if (this.cfg.getCode(chr) == Key.KEY_04.getCode())
+			return Key.KEY_04;
+		else if (this.cfg.getCode(chr) == Key.KEY_05.getCode())
+			return Key.KEY_05;
+		else if (this.cfg.getCode(chr) == Key.KEY_06.getCode())
+			return Key.KEY_06;
+		else if (this.cfg.getCode(chr) == Key.KEY_07.getCode())
+			return Key.KEY_07;
+		else if (this.cfg.getCode(chr) == Key.KEY_08.getCode())
+			return Key.KEY_08;
+		else if (this.cfg.getCode(chr) == Key.KEY_09.getCode())
+			return Key.KEY_09;
+		else if (this.cfg.getCode(chr) == Key.KEY_10.getCode())
+			return Key.KEY_10;
+		else if (this.cfg.getCode(chr) == Key.KEY_11.getCode())
+			return Key.KEY_11;
+		else if (this.cfg.getCode(chr) == Key.KEY_12.getCode())
+			return Key.KEY_12;
+		else if (this.cfg.getCode(chr) == Key.KEY_13.getCode())
+			return Key.KEY_13;
+		else if (this.cfg.getCode(chr) == Key.KEY_14.getCode())
+			return Key.KEY_14;
+		else if (this.cfg.getCode(chr) == Key.KEY_15.getCode())
+			return Key.KEY_15;
+		else if (this.cfg.getCode(chr) == Key.KEY_16.getCode())
+			return Key.KEY_16;
+		else if (this.cfg.getCode(chr) == Key.KEY_21.getCode())
+			return Key.KEY_21;
+		else if (this.cfg.getCode(chr) == Key.KEY_22.getCode())
+			return Key.KEY_22;
+		else if (this.cfg.getCode(chr) == Key.KEY_23.getCode())
+			return Key.KEY_23;
+		else if (this.cfg.getCode(chr) == Key.KEY_24.getCode())
+			return Key.KEY_24;
+		else if (this.cfg.getCode(chr) == Key.KEY_25.getCode())
+			return Key.KEY_25;
+		else if (this.cfg.getCode(chr) == Key.KEY_26.getCode())
+			return Key.KEY_26;
+		else if (this.cfg.getCode(chr) == Key.KEY_31.getCode())
+			return Key.KEY_31;
+		else if (this.cfg.getCode(chr) == Key.KEY_32.getCode())
+			return Key.KEY_32;
+		else if (this.cfg.getCode(chr) == Key.KEY_33.getCode())
+			return Key.KEY_33;
+		else if (this.cfg.getCode(chr) == Key.KEY_34.getCode())
+			return Key.KEY_34;
+		else if (this.cfg.getCode(chr) == Key.KEY_35.getCode())
+			return Key.KEY_35;
+		else if (this.cfg.getCode(chr) == Key.KEY_36.getCode())
+			return Key.KEY_36;
+		else if (this.cfg.getCode(chr) == Key.KEY_41.getCode())
+			return Key.KEY_41;
+		else if (this.cfg.getCode(chr) == Key.KEY_42.getCode())
+			return Key.KEY_42;
+		else if (this.cfg.getCode(chr) == Key.KEY_43.getCode())
+			return Key.KEY_43;
+		else if (this.cfg.getCode(chr) == Key.KEY_44.getCode())
+			return Key.KEY_44;
+		else if (this.cfg.getCode(chr) == Key.KEY_45.getCode())
+			return Key.KEY_45;
+		else if (this.cfg.getCode(chr) == Key.KEY_48.getCode())
+			return Key.KEY_48;
+		else if (this.cfg.getCode(chr) == Key.KEY_49.getCode())
+			return Key.KEY_49;
+		else if (this.cfg.getCode(chr) == Key.KEY_20.getCode())
+			return Key.KEY_20;
+		else if (this.cfg.getCode(chr) == Key.KEY_30.getCode())
+			return Key.KEY_30;
+		else if (this.cfg.getCode(chr) == Key.KEY_40.getCode())
+			return Key.KEY_40;
 		else
 			return null;
 	}
@@ -240,45 +240,45 @@ public class Controller {
 
 		CustomMouseListener listener = new CustomMouseListener(this);
 
-		window.setMouseListener(Key.KEY_0, listener);
-		window.setMouseListener(Key.KEY_1, listener);
-		window.setMouseListener(Key.KEY_2, listener);
-		window.setMouseListener(Key.KEY_3, listener);
-		window.setMouseListener(Key.KEY_4, listener);
-		window.setMouseListener(Key.KEY_5, listener);
-		window.setMouseListener(Key.KEY_6, listener);
-		window.setMouseListener(Key.KEY_7, listener);
-		window.setMouseListener(Key.KEY_8, listener);
-		window.setMouseListener(Key.KEY_9, listener);
-		window.setMouseListener(Key.KEY_DIV, listener);
-		window.setMouseListener(Key.KEY_N, listener);
-		window.setMouseListener(Key.KEY_I, listener);
-		window.setMouseListener(Key.KEY_PV, listener);
-		window.setMouseListener(Key.KEY_PMT, listener);
-		window.setMouseListener(Key.KEY_FV, listener);
-		window.setMouseListener(Key.KEY_CHS, listener);
-		window.setMouseListener(Key.KEY_POWER, listener);
-		window.setMouseListener(Key.KEY_RECIPROCAL, listener);
-		window.setMouseListener(Key.KEY_PERCENT_T, listener);
-		window.setMouseListener(Key.KEY_DELTA_PERCENT, listener);
-		window.setMouseListener(Key.KEY_PERCENT, listener);
-		window.setMouseListener(Key.KEY_EEX, listener);
-		window.setMouseListener(Key.KEY_RS, listener);
-		window.setMouseListener(Key.KEY_SST, listener);
-		window.setMouseListener(Key.KEY_R_DOWN, listener);
-		window.setMouseListener(Key.KEY_SWAP_XY, listener);
-		window.setMouseListener(Key.KEY_CLX, listener);
-		window.setMouseListener(Key.KEY_ENTER, listener);
-		window.setMouseListener(Key.KEY_ON, listener);
-		window.setMouseListener(Key.KEY_F, listener);
-		window.setMouseListener(Key.KEY_G, listener);
-		window.setMouseListener(Key.KEY_STO, listener);
-		window.setMouseListener(Key.KEY_RCL, listener);
-		window.setMouseListener(Key.KEY_DOT, listener);
-		window.setMouseListener(Key.KEY_SIGMA_PLUS, listener);
-		window.setMouseListener(Key.KEY_MUL, listener);
-		window.setMouseListener(Key.KEY_SUB, listener);
-		window.setMouseListener(Key.KEY_ADD, listener);
+		window.setMouseListener(Key.KEY_00, listener);
+		window.setMouseListener(Key.KEY_01, listener);
+		window.setMouseListener(Key.KEY_02, listener);
+		window.setMouseListener(Key.KEY_03, listener);
+		window.setMouseListener(Key.KEY_04, listener);
+		window.setMouseListener(Key.KEY_05, listener);
+		window.setMouseListener(Key.KEY_06, listener);
+		window.setMouseListener(Key.KEY_07, listener);
+		window.setMouseListener(Key.KEY_08, listener);
+		window.setMouseListener(Key.KEY_09, listener);
+		window.setMouseListener(Key.KEY_10, listener);
+		window.setMouseListener(Key.KEY_11, listener);
+		window.setMouseListener(Key.KEY_12, listener);
+		window.setMouseListener(Key.KEY_13, listener);
+		window.setMouseListener(Key.KEY_14, listener);
+		window.setMouseListener(Key.KEY_15, listener);
+		window.setMouseListener(Key.KEY_16, listener);
+		window.setMouseListener(Key.KEY_21, listener);
+		window.setMouseListener(Key.KEY_22, listener);
+		window.setMouseListener(Key.KEY_23, listener);
+		window.setMouseListener(Key.KEY_24, listener);
+		window.setMouseListener(Key.KEY_25, listener);
+		window.setMouseListener(Key.KEY_26, listener);
+		window.setMouseListener(Key.KEY_31, listener);
+		window.setMouseListener(Key.KEY_32, listener);
+		window.setMouseListener(Key.KEY_33, listener);
+		window.setMouseListener(Key.KEY_34, listener);
+		window.setMouseListener(Key.KEY_35, listener);
+		window.setMouseListener(Key.KEY_36, listener);
+		window.setMouseListener(Key.KEY_41, listener);
+		window.setMouseListener(Key.KEY_42, listener);
+		window.setMouseListener(Key.KEY_43, listener);
+		window.setMouseListener(Key.KEY_44, listener);
+		window.setMouseListener(Key.KEY_45, listener);
+		window.setMouseListener(Key.KEY_48, listener);
+		window.setMouseListener(Key.KEY_49, listener);
+		window.setMouseListener(Key.KEY_20, listener);
+		window.setMouseListener(Key.KEY_30, listener);
+		window.setMouseListener(Key.KEY_40, listener);
 
 	}
 
