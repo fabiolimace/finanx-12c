@@ -34,7 +34,6 @@ public class Controller {
 
 	protected SkinLoader sknd;
 	protected MenuList sknl;
-	protected Skin skin;
 	protected MenuItem skinItems[];
 
 	protected LanguageLoader lngd;

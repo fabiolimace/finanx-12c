@@ -4,9 +4,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import net.sf.finanx.fx12c.calc.Skin;
 import net.sf.finanx.fx12c.resource.xml.DOMManager;
 import net.sf.finanx.fx12c.resource.xml.XMLLoader;
+import net.sf.finanx.fx12c.view.Skin;
 
 public class SkinLoader extends XMLLoader{
 	

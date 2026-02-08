@@ -33,7 +33,6 @@ import javax.swing.JRadioButtonMenuItem;
 import net.sf.finanx.fx12c.calc.Configuration;
 import net.sf.finanx.fx12c.calc.Controller;
 import net.sf.finanx.fx12c.calc.Key;
-import net.sf.finanx.fx12c.calc.Skin;
 import net.sf.finanx.fx12c.resource.lang.StringList;
 import net.sf.finanx.fx12c.resource.loader.SkinLoader;
 import net.sf.finanx.fx12c.resource.menu.MenuItem;
