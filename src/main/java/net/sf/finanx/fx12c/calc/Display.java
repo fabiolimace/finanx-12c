@@ -261,8 +261,8 @@ public class Display {
 		this.stp = new int[4];
 
 		this.stp[0] = idx;
-		this.stp[1] = stp.getModifier();
-		this.stp[2] = stp.getKey();
+		this.stp[1] = stp.getOp().getModifier().getCode();
+		this.stp[2] = stp.getOp().getKey().getCode();
 		this.stp[3] = stp.getComplement();
 
 	}
@@ -347,8 +347,7 @@ public class Display {
 			dot = true;
 			bf = str.split("E");
 
-			buf = String.format(Locale.ENGLISH, "%1." + prec + "f",
-					Double.parseDouble(bf[0]));
+			buf = String.format(Locale.ENGLISH, "%1." + prec + "f", Double.parseDouble(bf[0]));
 			expo = (bf.length == 2) ? Integer.parseInt(bf[1]) : 0;
 
 		}
@@ -394,13 +393,11 @@ public class Display {
 	private void getNormalString() {
 		if (!(status == STATUS_INPUT)) {
 
-			str = String.format(Locale.ENGLISH, "%1." + prec + "f",
-					Double.parseDouble(buf + "E" + expo));
+			str = String.format(Locale.ENGLISH, "%1." + prec + "f", Double.parseDouble(buf + "E" + expo));
 
 			if (str.length() > 11) {
 				bf = str.split("\\.");
-				str = String.format(Locale.ENGLISH,
-						"%1." + (10 - bf[0].length()) + "f",
+				str = String.format(Locale.ENGLISH, "%1." + (10 - bf[0].length()) + "f",
 						Double.parseDouble(buf + "E" + expo));
 			}
 
@@ -431,18 +428,15 @@ public class Display {
 
 		if (m > (-1) && k > (-1) && c > (-1)) {
 			if (k == 33)
-				str = "" + zeroPad(i, 3) + "-" + spacePad(m, 2) + ","
-						+ spacePad(k, 2) + "," + zeroPad(c, 3);
+				str = "" + zeroPad(i, 3) + "-" + spacePad(m, 2) + "," + spacePad(k, 2) + "," + zeroPad(c, 3);
 			else
-				str = "" + zeroPad(i, 3) + "-" + spacePad(m, 2) + ","
-						+ spacePad(k, 2) + ","
+				str = "" + zeroPad(i, 3) + "-" + spacePad(m, 2) + "," + spacePad(k, 2) + ","
 						+ (c > 99 ? zeroPad(c, 3) : "r" + zeroPad(c, 2));
 		} else if (k > (-1) && c > (-1)) {
 			str = "" + zeroPad(i, 3) + "-" + "  " + spacePad(k, 2) + ","
 					+ (c > 99 ? zeroPad(c, 3) : "r" + zeroPad(c, 2));
 		} else if (m > (-1) && k > (-1)) {
-			str = "" + zeroPad(i, 3) + "-" + "  " + spacePad(m, 2) + ","
-					+ spacePad(k, 3);
+			str = "" + zeroPad(i, 3) + "-" + "  " + spacePad(m, 2) + "," + spacePad(k, 3);
 		} else if (k > (-1)) {
 			str = "" + zeroPad(i, 3) + "-" + "  " + "  " + spacePad(k, 3);
 		} else {
@@ -480,7 +474,7 @@ public class Display {
 
 	public Number getValue() throws CalculatorException {
 		updateValue();
-		//return fitToHP12C(val);
+		// return fitToHP12C(val);
 		return Number.getInstance(val);
 	}
 

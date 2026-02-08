@@ -10,8 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import net.sf.finanx.fx12c.calc.Calculator;
+import net.sf.finanx.fx12c.calc.Op;
 import net.sf.finanx.fx12c.calc.Flags;
-import net.sf.finanx.fx12c.calc.Step;
 
 /**
  *
@@ -58,6 +58,35 @@ public class ProgramMemoryTest {
 	}
 
 	@Test
+	public void testSquareProgram() throws Exception {
+		testSquareProgram(1);
+		testSquareProgram(2);
+	}
+
+	private void testSquareProgram(double x) throws Exception {
+		setUp();
+		assertEquals(Math.pow(x, 2), squareProgram(x), 0);
+	}
+
+	private double squareProgram(double x) {
+
+//		X
+//		ENTER
+//		2	POWER
+
+		cal.getStack().put(n(x));
+		cal.getDisplay().setValue(n(x));
+
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_2);
+		cal.getProgramMemory().put(Op.OP_POWER);
+
+		executeProgram();
+
+		return stk(0);
+	}
+
+	@Test
 	public void testMinProgram() throws Exception {
 		testMinProgram(1, 1);
 		testMinProgram(1, 2);
@@ -82,10 +111,10 @@ public class ProgramMemoryTest {
 		cal.getStack().put(n(y));
 		cal.getStack().put(n(x));
 
-		cal.getProgramMemory().put(Step.STP_G_XLEY);
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_CLX);
-		cal.getProgramMemory().put(Step.STP_ADD);
+		cal.getProgramMemory().put(Op.OP_XLEY);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_CLX);
+		cal.getProgramMemory().put(Op.OP_ADD);
 
 		executeProgram();
 
@@ -118,11 +147,11 @@ public class ProgramMemoryTest {
 		cal.getStack().put(n(y));
 		cal.getStack().put(n(x));
 
-		cal.getProgramMemory().put(Step.STP_G_XLEY);
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_CLX);
-		cal.getProgramMemory().put(Step.STP_ADD);
+		cal.getProgramMemory().put(Op.OP_XLEY);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_CLX);
+		cal.getProgramMemory().put(Op.OP_ADD);
 
 		executeProgram();
 
@@ -155,10 +184,10 @@ public class ProgramMemoryTest {
 		cal.getStack().put(n(x));
 		cal.getStack().put(n(0));
 
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_G_XLEY);
-		cal.getProgramMemory().put(Step.STP_CHS);
-		cal.getProgramMemory().put(Step.STP_ADD);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_XLEY);
+		cal.getProgramMemory().put(Op.OP_CHS);
+		cal.getProgramMemory().put(Op.OP_ADD);
 
 		executeProgram();
 
@@ -187,11 +216,11 @@ public class ProgramMemoryTest {
 
 		cal.getStack().put(n(x));
 
-		cal.getProgramMemory().put(Step.STP_G_LN);
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_0);
-		cal.getProgramMemory().put(Step.STP_G_LN);
-		cal.getProgramMemory().put(Step.STP_DIV);
+		cal.getProgramMemory().put(Op.OP_LN);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_0);
+		cal.getProgramMemory().put(Op.OP_LN);
+		cal.getProgramMemory().put(Op.OP_DIV);
 
 		executeProgram();
 
@@ -232,19 +261,19 @@ public class ProgramMemoryTest {
 		cal.getStack().put(n(x));
 		cal.getDisplay().setValue(n(x));
 
-		cal.getProgramMemory().put(Step.STP_ENTER);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_ENTER);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_DIV);
-		cal.getProgramMemory().put(Step.STP_G_LASTX);
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_G_INTG);
-		cal.getProgramMemory().put(Step.STP_MUL);
-		cal.getProgramMemory().put(Step.STP_SUB);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_DIV);
+		cal.getProgramMemory().put(Op.OP_LASTX);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_INTG);
+		cal.getProgramMemory().put(Op.OP_MUL);
+		cal.getProgramMemory().put(Op.OP_SUB);
 
 		executeProgram();
 
@@ -299,48 +328,48 @@ public class ProgramMemoryTest {
 
 		cal.getStack().put(n(x));
 		cal.getDisplay().setValue(n(x));
-		cal.getProgramMemory().put(Step.STP_G_XEQO);
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_ENTER);
+		cal.getProgramMemory().put(Op.OP_XEQO);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_ENTER);
 
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_0);
-		cal.getProgramMemory().put(Step.STP_3);
-		cal.getProgramMemory().put(Step.STP_5);
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_5);
-		cal.getProgramMemory().put(Step.STP_2);
-		cal.getProgramMemory().put(Step.STP_4);
-		cal.getProgramMemory().put(Step.STP_5);
-		cal.getProgramMemory().put(Step.STP_MUL);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_0);
+		cal.getProgramMemory().put(Op.OP_3);
+		cal.getProgramMemory().put(Op.OP_5);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_5);
+		cal.getProgramMemory().put(Op.OP_2);
+		cal.getProgramMemory().put(Op.OP_4);
+		cal.getProgramMemory().put(Op.OP_5);
+		cal.getProgramMemory().put(Op.OP_MUL);
 
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_2);
-		cal.getProgramMemory().put(Step.STP_3);
-		cal.getProgramMemory().put(Step.STP_4);
-		cal.getProgramMemory().put(Step.STP_5);
-		cal.getProgramMemory().put(Step.STP_ADD);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_2);
+		cal.getProgramMemory().put(Op.OP_3);
+		cal.getProgramMemory().put(Op.OP_4);
+		cal.getProgramMemory().put(Op.OP_5);
+		cal.getProgramMemory().put(Op.OP_ADD);
 
-		cal.getProgramMemory().put(Step.STP_2);
-		cal.getProgramMemory().put(Step.STP_ENTER);
-		cal.getProgramMemory().put(Step.STP_3);
-		cal.getProgramMemory().put(Step.STP_1);
-		cal.getProgramMemory().put(Step.STP_POWER);
+		cal.getProgramMemory().put(Op.OP_2);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_3);
+		cal.getProgramMemory().put(Op.OP_1);
+		cal.getProgramMemory().put(Op.OP_POWER);
 
-		cal.getProgramMemory().put(Step.STP_ENTER);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_ENTER);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_RDOWN);
-		cal.getProgramMemory().put(Step.STP_DIV);
-		cal.getProgramMemory().put(Step.STP_G_LASTX);
-		cal.getProgramMemory().put(Step.STP_SWAPXY);
-		cal.getProgramMemory().put(Step.STP_G_INTG);
-		cal.getProgramMemory().put(Step.STP_MUL);
-		cal.getProgramMemory().put(Step.STP_SUB);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_ENTER);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_R_DOWN);
+		cal.getProgramMemory().put(Op.OP_DIV);
+		cal.getProgramMemory().put(Op.OP_LASTX);
+		cal.getProgramMemory().put(Op.OP_SWAP_XY);
+		cal.getProgramMemory().put(Op.OP_INTG);
+		cal.getProgramMemory().put(Op.OP_MUL);
+		cal.getProgramMemory().put(Op.OP_SUB);
 
 		executeProgram();
 

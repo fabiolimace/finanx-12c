@@ -26,14 +26,14 @@ public enum Key {
 	KEY_CHS(16),
 	KEY_POWER(21),
 	KEY_RECIPROCAL(22),
-	KEY_PERCENTT(23),
-	KEY_DELTAPERCENT(24),
+	KEY_PERCENT_T(23),
+	KEY_DELTA_PERCENT(24),
 	KEY_PERCENT(25),
 	KEY_EEX(26),
 	KEY_RS(31),
 	KEY_SST(32),
-	KEY_RDOWN(33),
-	KEY_SWAPXY(34),
+	KEY_R_DOWN(33),
+	KEY_SWAP_XY(34),
 	KEY_CLX(35),
 	KEY_ENTER(36),
 	KEY_ON(41),
@@ -42,7 +42,7 @@ public enum Key {
 	KEY_STO(44),
 	KEY_RCL(45),
 	KEY_DOT(48),
-	KEY_SIGMAPLUS(49);
+	KEY_SIGMA_PLUS(49);
 	// @formatter:on
 
 	private int code;

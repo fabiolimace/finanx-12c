@@ -192,10 +192,10 @@ public class Controller {
 			return Key.KEY_POWER;
 		else if (this.cfg.getCode(chr) == Key.KEY_RECIPROCAL.getCode())
 			return Key.KEY_RECIPROCAL;
-		else if (this.cfg.getCode(chr) == Key.KEY_PERCENTT.getCode())
-			return Key.KEY_PERCENTT;
-		else if (this.cfg.getCode(chr) == Key.KEY_DELTAPERCENT.getCode())
-			return Key.KEY_DELTAPERCENT;
+		else if (this.cfg.getCode(chr) == Key.KEY_PERCENT_T.getCode())
+			return Key.KEY_PERCENT_T;
+		else if (this.cfg.getCode(chr) == Key.KEY_DELTA_PERCENT.getCode())
+			return Key.KEY_DELTA_PERCENT;
 		else if (this.cfg.getCode(chr) == Key.KEY_PERCENT.getCode())
 			return Key.KEY_PERCENT;
 		else if (this.cfg.getCode(chr) == Key.KEY_EEX.getCode())
@@ -204,10 +204,10 @@ public class Controller {
 			return Key.KEY_RS;
 		else if (this.cfg.getCode(chr) == Key.KEY_SST.getCode())
 			return Key.KEY_SST;
-		else if (this.cfg.getCode(chr) == Key.KEY_RDOWN.getCode())
-			return Key.KEY_RDOWN;
-		else if (this.cfg.getCode(chr) == Key.KEY_SWAPXY.getCode())
-			return Key.KEY_SWAPXY;
+		else if (this.cfg.getCode(chr) == Key.KEY_R_DOWN.getCode())
+			return Key.KEY_R_DOWN;
+		else if (this.cfg.getCode(chr) == Key.KEY_SWAP_XY.getCode())
+			return Key.KEY_SWAP_XY;
 		else if (this.cfg.getCode(chr) == Key.KEY_CLX.getCode())
 			return Key.KEY_CLX;
 		else if (this.cfg.getCode(chr) == Key.KEY_ENTER.getCode())
@@ -224,8 +224,8 @@ public class Controller {
 			return Key.KEY_RCL;
 		else if (this.cfg.getCode(chr) == Key.KEY_DOT.getCode())
 			return Key.KEY_DOT;
-		else if (this.cfg.getCode(chr) == Key.KEY_SIGMAPLUS.getCode())
-			return Key.KEY_SIGMAPLUS;
+		else if (this.cfg.getCode(chr) == Key.KEY_SIGMA_PLUS.getCode())
+			return Key.KEY_SIGMA_PLUS;
 		else if (this.cfg.getCode(chr) == Key.KEY_MUL.getCode())
 			return Key.KEY_MUL;
 		else if (this.cfg.getCode(chr) == Key.KEY_SUB.getCode())
@@ -259,14 +259,14 @@ public class Controller {
 		window.setMouseListener(Key.KEY_CHS, listener);
 		window.setMouseListener(Key.KEY_POWER, listener);
 		window.setMouseListener(Key.KEY_RECIPROCAL, listener);
-		window.setMouseListener(Key.KEY_PERCENTT, listener);
-		window.setMouseListener(Key.KEY_DELTAPERCENT, listener);
+		window.setMouseListener(Key.KEY_PERCENT_T, listener);
+		window.setMouseListener(Key.KEY_DELTA_PERCENT, listener);
 		window.setMouseListener(Key.KEY_PERCENT, listener);
 		window.setMouseListener(Key.KEY_EEX, listener);
 		window.setMouseListener(Key.KEY_RS, listener);
 		window.setMouseListener(Key.KEY_SST, listener);
-		window.setMouseListener(Key.KEY_RDOWN, listener);
-		window.setMouseListener(Key.KEY_SWAPXY, listener);
+		window.setMouseListener(Key.KEY_R_DOWN, listener);
+		window.setMouseListener(Key.KEY_SWAP_XY, listener);
 		window.setMouseListener(Key.KEY_CLX, listener);
 		window.setMouseListener(Key.KEY_ENTER, listener);
 		window.setMouseListener(Key.KEY_ON, listener);
@@ -275,7 +275,7 @@ public class Controller {
 		window.setMouseListener(Key.KEY_STO, listener);
 		window.setMouseListener(Key.KEY_RCL, listener);
 		window.setMouseListener(Key.KEY_DOT, listener);
-		window.setMouseListener(Key.KEY_SIGMAPLUS, listener);
+		window.setMouseListener(Key.KEY_SIGMA_PLUS, listener);
 		window.setMouseListener(Key.KEY_MUL, listener);
 		window.setMouseListener(Key.KEY_SUB, listener);
 		window.setMouseListener(Key.KEY_ADD, listener);
