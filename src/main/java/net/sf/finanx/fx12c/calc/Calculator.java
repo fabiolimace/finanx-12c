@@ -619,7 +619,8 @@ public class Calculator {
 		if (flg.getSto() == 1) {
 			tmp = new Number[3];
 
-			if (mem.getSize() <= 20) {
+			// TODO: refactor
+			if (GeneralMemory.SIZE <= 20) {
 				if (i == -1) {
 					tmp[0] = ZERO;
 					tmp[1] = ONE;
@@ -630,7 +631,7 @@ public class Calculator {
 					tmp[2] = n(i);
 					flg.setSto(4);
 				}
-			} else if (mem.getSize() <= 100) {
+			} else if (GeneralMemory.SIZE <= 100) {
 				if (i == -1)
 					return;
 				tmp[0] = ZERO;
@@ -691,7 +692,8 @@ public class Calculator {
 		if (flg.getRcl() == 1) {
 			tmp = new Number[3];
 
-			if (mem.getSize() <= 20) {
+			// TODO: refactor
+			if (GeneralMemory.SIZE <= 20) {
 				if (i == -1) {
 					tmp[0] = ZERO;
 					tmp[1] = ONE;
@@ -702,7 +704,7 @@ public class Calculator {
 					tmp[2] = n(i);
 					flg.setRcl(4);
 				}
-			} else if (mem.getSize() <= 100) {
+			} else if (GeneralMemory.SIZE <= 100) {
 				if (i == -1)
 					return;
 				tmp[0] = ZERO;

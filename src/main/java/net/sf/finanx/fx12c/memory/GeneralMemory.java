@@ -9,134 +9,88 @@ import net.sf.finanx.fx12c.math.Number;
 public class GeneralMemory {
 
 	// IMPORTANT NOTE:
-	// The registers from R0 to R6 are reserved
-	// to store statistic data
-	
-	protected Number mem[][];
-	protected int cur;
-	
-	public GeneralMemory(int size){
-		mem = new Number[size][2];
+	// The registers from R0 to R6 are reserved to store statistic data
 
-		for(int i=0; i<mem.length; i++){
-			this.mem[i][0]=Number.ZERO;
-			this.mem[i][1]=Number.ONE;
-		}
-		
-		this.cur=0;
-		
-		this.init();
-	}
-	
-	public GeneralMemory(Number[][] mem) {
-		this.mem = mem;
-		this.init();
-	}
-	
-	
-	public GeneralMemory(){
-		this(20);
+	public static final int SIZE = 20;
+
+	protected int idx;
+	protected Number mem[][] = new Number[SIZE][2];
+
+	public GeneralMemory() {
+		this.clear();
 	}
 
-	public void init() { /* Does nothing */ }
-	
-	public int getSize(){
-		return mem.length;
+	public void set(int idx, Number value) {
+		this.mem[idx][0] = value;
 	}
-	
-	public int getUsedRegisters(){
-		int cnt = 0;
-		for(int i=0; i<mem.length; i++){
-			if(!mem[i][0].equalTo(Number.ZERO)){
-				cnt++;
-			}
-		}
-		return cnt;
+
+	public Number get(int idx) {
+		return this.mem[idx][0];
 	}
-	
-	public int getAvailableRegisters(){
-		return getSize() - getUsedRegisters();
+
+	public Number[] getWithTimes(int idx) {
+		return new Number[] { this.mem[idx][0], this.mem[idx][1] };
 	}
-	
-	public void set(int idx, Number value){
-		if(idx<mem.length){ this.mem[idx][0] = value; }
-	}
-	
-	public Number get(int idx){
-		Number rtn=Number.ZERO;
-		if(idx<mem.length){
-		rtn = this.mem[idx][0];
-		}
-		return rtn;
-	}
-	
-	public Number[] getWithTimes(int idx){
-		Number rtn[]={Number.ZERO,Number.ZERO};
-		if(idx<mem.length){
-			rtn[0] = this.mem[idx][0];
-			rtn[1] = this.mem[idx][1];
-			}
-			return rtn;
-	}
-	
-	public void setTimes(int idx, Number times){
-		if(idx<mem.length){
+
+	public void setTimes(int idx, Number times) {
 		this.mem[idx][1] = times;
-		}
-	}	
-	
-	public Number getTimes(int idx){
-		if(idx<mem.length){	return this.mem[idx][1]; }
-		else{ return Number.ONE; }
 	}
-	
-	public void setWithTimes(int idx, Number value, Number times){
-		if((idx<mem.length)&&(times.greaterThan(Number.ZERO))&&(times.lessThan(Number.HUNDRED))){
+
+	public Number getTimes(int idx) {
+		return this.mem[idx][1];
+	}
+
+	public void setWithTimes(int idx, Number value, Number times) {
+		if ((idx < mem.length) && (times.greaterThan(Number.ZERO)) && (times.lessThan(Number.HUNDRED))) {
 			this.mem[idx][0] = value;
 			this.mem[idx][1] = times;
 		}
 	}
-	
-	public void setWithTimes(int idx, Number[] a){
+
+	public void setWithTimes(int idx, Number[] a) {
 		this.setWithTimes(idx, a[0], a[1]);
 	}
-	
-	public int getCurrentIndex(){ return this.cur; }	
-	
-	public Number[][] getArray(){ return mem; }	
-	public void setArray(Number[][] mem){ this.mem=mem; }
-	
-	// Inserts a new value in the memory
-	public void put(Number value, Number times){
-		this.setWithTimes(++this.cur, value, times);
+
+	public int getCurrentIndex() {
+		return this.idx;
 	}
-	
+
+	public Number[][] getArray() {
+		return mem;
+	}
+
+	// Inserts a new value in the memory
+	public void put(Number value, Number times) {
+		this.setWithTimes(++this.idx, value, times);
+	}
+
 	// Inserts a new value in the memory
 	// a[0]: value
 	// a[1]: times
-	public void put(Number[] a){
-		this.setWithTimes(++this.cur, a);
+	public void put(Number[] a) {
+		this.setWithTimes(++this.idx, a);
 	}
-	
-	public void clear(){
-		for(int i=0; i<mem.length; i++){
-			mem[i][0]=Number.ZERO;
-			mem[i][1]=Number.ONE;
+
+	public void clear() {
+		for (int i = 0; i < mem.length; i++) {
+			mem[i][0] = Number.ZERO;
+			mem[i][1] = Number.ONE;
 		}
-		this.cur=0;
+		this.idx = 0;
 	}
-	
-	public void print(){
-		System.out.println(this);
+
+	public int getAvailableRegisters() {
+		return SIZE - getUsedRegisters();
 	}
-	
-	public String toString(){
-		
-		String str = "==[GENERAL MEMORY]==\n";
-		for(int i=0; i<mem.length; i++){
-			str += " - M"+i+": "+mem[i][0]+" x "+mem[i][1]+"\n";
+
+	public int getUsedRegisters() {
+		int cnt = 0;
+		for (int i = 0; i < mem.length; i++) {
+			if (!mem[i][0].equalTo(Number.ZERO)) {
+				cnt++;
+			}
 		}
-		return str;
+		return cnt;
 	}
 	
 	// Increase statistical registers

@@ -33,7 +33,7 @@ public class MemoryLoader extends XMLLoader {
 
 		this.stk = Configuration.createStack(cfg.getStackSize());
 		this.fin = Configuration.createFinanceMemory();
-		this.mem = Configuration.createGeneralMemory(cfg.getMemorySize());
+		this.mem = Configuration.createGeneralMemory();
 		this.prg = Configuration.createProgramMemory();
 
 		de = dom.getDocumentElement();
@@ -120,7 +120,7 @@ public class MemoryLoader extends XMLLoader {
 				}
 			}
 
-			for (int i = 0; i < this.mem.getSize(); i++) {
+			for (int i = 0; i < GeneralMemory.SIZE; i++) {
 				nl = e.getElementsByTagName("mem" + i);
 
 				if ((nl.getLength() > 0) && (nl != null)) {
@@ -205,7 +205,7 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.mem.getSize(); i++) {
+		for (int i = 0; i < GeneralMemory.SIZE; i++) {
 			lisRm = de.getElementsByTagName("mem" + i);
 			eRm = (Element) lisRm.item(0);
 			if (eRm != null) {
@@ -237,7 +237,7 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.mem.getSize(); i++) {
+		for (int i = 0; i < GeneralMemory.SIZE; i++) {
 			eAdd = dom.createElement("mem" + i);
 			eAdd.setAttribute("p0", mem.get(i) + "");
 			eAdd.setAttribute("p1", mem.getTimes(i) + "");

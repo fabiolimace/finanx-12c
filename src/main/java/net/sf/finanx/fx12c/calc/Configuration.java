@@ -289,12 +289,8 @@ public class Configuration {
 		return Configuration.createStack(this.getStackSize());
 	}
 	
-	public static GeneralMemory createGeneralMemory(int size){
-		return new GeneralMemory(size);
-	}
-	
-	public GeneralMemory createGeneralMemory(){
-		return Configuration.createGeneralMemory(this.getMemorySize());
+	public static GeneralMemory createGeneralMemory(){
+		return new GeneralMemory();
 	}
 	
 	public static ProgramMemory createProgramMemory() {
