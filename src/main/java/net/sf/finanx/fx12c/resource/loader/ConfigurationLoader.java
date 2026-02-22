@@ -15,8 +15,7 @@ public class ConfigurationLoader extends XMLLoader {
 
 	private Configuration cfg;
 	private Element de;
-	
-	
+
 	public ConfigurationLoader() {
 		this.cfg = Configuration.createConfiguration();
 		super.manager = DOMManager.getManager();
@@ -26,14 +25,14 @@ public class ConfigurationLoader extends XMLLoader {
 		this.de = dom.getDocumentElement();
 		loadConfiguration(de);
 	}
-	
+
 	public Configuration getConfiguration() {
-		if(de!=null){
+		if (de != null) {
 			return cfg;
 		}
 		return null;
 	}
-	
+
 	private void loadConfiguration(Element e) {
 
 		NodeList lis = null;
@@ -41,19 +40,19 @@ public class ConfigurationLoader extends XMLLoader {
 		String v = "";
 
 		try {
-			
+
 			lis = e.getElementsByTagName("version");
 			if (lis.getLength() > 0) {
 				tag = (Element) lis.item(0);
 				v = tag.getTextContent();
 			}
 
-			// Check if the XML's version is the current one. 
+			// Check if the XML's version is the current one.
 			// The version "ALL" is used only in the embedded XML.
 			if (!v.equals(Configuration.VERSION) && (!v.equals("ALL"))) {
 				throw new IOException("[Version] Incompatible version");
 			}
-			
+
 			lis = e.getElementsByTagName("size");
 			if (lis.getLength() > 0) {
 				tag = (Element) lis.item(0);
@@ -169,7 +168,7 @@ public class ConfigurationLoader extends XMLLoader {
 							StringEscape.unescape(tag.getAttribute("char")).charAt(0));
 				}
 			}
-			
+
 		} catch (Exception except) {
 			System.out.println("[ParseError] An error ocurred while loading configurations. ");
 			System.out.println("[ParseError] The default configurations will be assumed.");
@@ -177,7 +176,7 @@ public class ConfigurationLoader extends XMLLoader {
 		}
 
 	}
-	
+
 	public void save(Configuration conf) {
 
 		Element raiz = dom.getDocumentElement();
@@ -198,7 +197,7 @@ public class ConfigurationLoader extends XMLLoader {
 		if (eRm != null) {
 			raiz.removeChild(eRm);
 		}
-		
+
 		lisRm = raiz.getElementsByTagName("size");
 		eRm = (Element) lisRm.item(0);
 		if (eRm != null) {
@@ -303,7 +302,7 @@ public class ConfigurationLoader extends XMLLoader {
 		if (eAdd != null) {
 			raiz.appendChild(eAdd);
 		}
-		
+
 		eAdd = dom.createElement("size");
 		eAdd.setTextContent("" + conf.getSize());
 		if (eAdd != null) {
@@ -404,9 +403,7 @@ public class ConfigurationLoader extends XMLLoader {
 				}
 			}
 		}
-		
+
 		manager.saveDOM(path);
-
 	}
-
 }

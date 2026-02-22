@@ -26,6 +26,7 @@ public class MemoryLoader extends XMLLoader {
 	private Element de;
 
 	public MemoryLoader(Configuration cfg) {
+
 		super.manager = DOMManager.getManager();
 		super.eName = XMLLoader.MEMORY;
 		super.path = "data/" + eName + ".xml";

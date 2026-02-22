@@ -7,12 +7,6 @@ import java.math.RoundingMode;
 import net.sf.finanx.fx12c.calc.CalculatorException;
 import net.sf.finanx.fx12c.calc.Error;
 
-/**
- * 
- * This class follows a simple strategy for immutable objects provided by The Java Tutorials.
- * @see <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html">A Strategy for Defining Immutable Objects</a>
- * 
- */
 final public class Number {
 
 	final private BigDecimal value;
@@ -39,15 +33,15 @@ final public class Number {
 	public static final Number TENTH = TEN.reciprocal();
 	public static final Number CENT = HUNDRED.reciprocal();
 	public static final Number THOUSANDTH = THOUSAND.reciprocal();
-	
+
 	public static final Number PI = getInstance(Math.PI);
 	public static final Number E = getInstance(Math.E);
-	
+
 	public static final int scale = 10;
-	
+
 	// Precision: 34 digits, Rounding mode: HALF_EVEN
 	private final MathContext context = MathContext.DECIMAL128;
-	
+
 	public Number() {
 		this.value = new BigDecimal(0.0, context);
 	}
@@ -83,32 +77,31 @@ final public class Number {
 		// problems related to double primitive type
 		this.value = new Number(Double.toString(value)).copyValue();
 	}
-	
+
 	public BigDecimal copyValue() {
 		return value.plus(context);
 	}
-	
+
 	public Number copy() {
 		return Number.getInstance(copyValue());
 	}
-	
+
 	public static Number getInstance(double value) {
 		return new Number(value);
 	}
-	
+
 	public static Number getInstance(String value) {
 		return new Number(value);
 	}
-	
+
 	public static Number getInstance(BigDecimal value) {
 		return new Number(value);
 	}
-	
+
 	public static Number random() {
-		// TODO: replace java.math
 		return getInstance(Math.random());
 	}
-	
+
 	public boolean isZero() {
 		return value.signum() == 0;
 	}
@@ -120,38 +113,40 @@ final public class Number {
 	public boolean isNegative() {
 		return value.signum() < 0;
 	}
-	
+
 	public boolean isDecimal() {
 		return !this.fractionalPart().equalTo(ZERO);
 	}
-	
+
 	public boolean isInteger() {
 		return this.fractionalPart().equalTo(ZERO);
 	}
-	
+
 	public boolean isNatural() {
 		return this.isInteger() && (this.isPositive() || this.isZero());
 	}
 
 	@Override
-	public boolean equals(Object other){
-	    if (other == null) return false;
-	    if (other == this) return true;
-	    if (!(other instanceof Number)) return false;
-	    final Number otherNumber = (Number) other;
-	    return value.compareTo(otherNumber.copyValue()) == 0;
+	public boolean equals(Object other) {
+		if (other == null)
+			return false;
+		if (other == this)
+			return true;
+		if (!(other instanceof Number))
+			return false;
+		final Number otherNumber = (Number) other;
+		return value.compareTo(otherNumber.copyValue()) == 0;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.value.toPlainString();
-		//return this.value.toString();
 	}
 
 	public boolean equalTo(Number number) {
 		return equals(number);
 	}
-	
+
 	public boolean notEqualTo(Number number) {
 		return !equals(number);
 	}
@@ -171,7 +166,7 @@ final public class Number {
 	public boolean lessThanOrEqualTo(Number number) {
 		return value.compareTo(number.copyValue()) <= 0;
 	}
-	
+
 	public boolean eq(Number number) {
 		return this.equalTo(number);
 	}
@@ -179,7 +174,7 @@ final public class Number {
 	public boolean ne(Number number) {
 		return !this.equalTo(number);
 	}
-	
+
 	public boolean gt(Number number) {
 		return this.greaterThan(number);
 	}
@@ -195,11 +190,11 @@ final public class Number {
 	public boolean lte(Number number) {
 		return this.lessThanOrEqualTo(number);
 	}
-	
+
 	public int intValue() {
 		return value.intValueExact();
 	}
-	
+
 	public long longValue() {
 		return value.longValueExact();
 	}
@@ -207,7 +202,7 @@ final public class Number {
 	public float floatValue() {
 		return value.floatValue();
 	}
-	
+
 	public double doubleValue() {
 		return value.doubleValue();
 	}
@@ -215,53 +210,53 @@ final public class Number {
 	public static Number n(double value) {
 		return getInstance(value);
 	}
-	
+
 	public static Number n(String value) {
 		return getInstance(value);
 	}
-	
+
 	public static Number n(BigDecimal value) {
 		return getInstance(value);
 	}
-	
+
 	public static int i(Number number) {
 		return number.intValue();
 	}
-	
+
 	public static long l(Number number) {
 		return number.longValue();
 	}
-	
+
 	public static float f(Number number) {
 		return number.floatValue();
 	}
-	
+
 	public static double d(Number number) {
 		return number.doubleValue();
 	}
-	
+
 	public int i() {
 		return this.intValue();
 	}
-	
+
 	public long l() {
 		return this.longValue();
 	}
-	
+
 	public float f() {
 		return this.floatValue();
 	}
-	
+
 	public double d() {
 		return this.doubleValue();
 	}
-	
+
 	public Number abs() {
 		return getInstance(this.value.abs(context));
 	}
 
 	public Number negate() {
-		if(this.isZero())
+		if (this.isZero())
 			return this.abs();
 		else
 			return getInstance(this.value.negate(context));
@@ -294,7 +289,7 @@ final public class Number {
 	public Number remainder(Number number) {
 		return getInstance(value.remainder(number.copyValue(), context));
 	}
-	
+
 	public Number reciprocal() {
 		return ONE.divide(this);
 	}
@@ -302,9 +297,8 @@ final public class Number {
 	public Number signum() {
 		return getInstance(value.signum());
 	}
-	
+
 	public Number pow(Number exponent) {
-		// TODO: replace java.math
 		return getInstance(Math.pow(this.value.doubleValue(), exponent.copyValue().doubleValue()));
 	}
 
@@ -325,7 +319,6 @@ final public class Number {
 	}
 
 	public Number log() {
-		// TODO: replace java.math
 		return getInstance(Math.log(value.doubleValue()));
 	}
 
@@ -348,15 +341,15 @@ final public class Number {
 	public Number ceil() {
 		return this.integralPart().add(this.isNegative() ? ZERO : ONE);
 	}
-	
+
 	public Number round() {
 		return this.round(scale);
 	}
-	
+
 	public Number round(int scale) {
 		return getInstance(this.copyValue().setScale(scale, RoundingMode.HALF_UP));
 	}
-	
+
 	public Number factorial() {
 		Number ans = ONE;
 		Number n = this.copy();
@@ -368,7 +361,7 @@ final public class Number {
 
 		return ans;
 	}
-	
+
 	public Number toDegrees() {
 		Number k = PI.divide(getInstance(180));
 		return this.divide(k);
@@ -378,9 +371,8 @@ final public class Number {
 		Number k = PI.divide(getInstance(180));
 		return this.multiply(k);
 	}
-	
+
 	public Number sin() {
-		// TODO: replace java.math
 		return getInstance(Math.sin(value.doubleValue()));
 	}
 

@@ -1,7 +1,8 @@
 package net.sf.finanx.fx12c.calc;
 
 public enum Error {
-	
+
+	// @formatter:off
 	ERROR_MATH ( 0, "Math Error"),
 	ERROR_SRO  ( 1, "Storage Register Overflow Error"), 
 	ERROR_STAT ( 2, "Statistic Error"),
@@ -13,16 +14,17 @@ public enum Error {
 	ERROR_CAL  ( 8, "Calendar Error"),
 	ERROR_SERV ( 9, "Service Error"),
 	ERROR_PR   (10, "Post Reset Error"),
-	ERROR_MAG   (99, "Register overflow");
-	
+	ERROR_MAG  (99, "Register overflow");
+	// @formatter:on
+
 	private int code;
 	private String message;
-	
+
 	private Error(int code, String message) {
 		this.code = code;
 		this.message = message;
 	}
-	
+
 	public String getName() {
 		return this.name();
 	}
@@ -31,16 +33,7 @@ public enum Error {
 		return this.code;
 	}
 
-	public String getMessage(){
+	public String getMessage() {
 		return this.message;
-	}
-	
-	public void print() {
-		System.out.println(this);
-	}
-	
-	@Override
-	public String toString() {
-		return "[ERROR " + this.code + "] " + this.message;
 	}
 }
