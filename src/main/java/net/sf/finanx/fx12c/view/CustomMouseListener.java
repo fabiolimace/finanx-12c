@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 
 import net.sf.finanx.fx12c.calc.Controller;
 import net.sf.finanx.fx12c.calc.Key;
-import net.sf.finanx.fx12c.view.ImageButton;
 
 public class CustomMouseListener extends MouseAdapter {
 
