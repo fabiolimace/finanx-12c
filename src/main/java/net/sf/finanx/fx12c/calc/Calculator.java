@@ -315,9 +315,9 @@ public class Calculator {
 
 				if (flg.getG() == 1) {
 					if (prg.getCurrentIndex() == 0)
-						prg.setCurrentIndex(prg.getSize() - 1);
+						prg.setCurrentIndex(ProgramMemory.SIZE - 1);
 				} else {
-					if (prg.getCurrentIndex() == prg.getSize() - 1)
+					if (prg.getCurrentIndex() == ProgramMemory.SIZE - 1)
 						prg.setCurrentIndex(0);
 					else if (prg.getCurrentIndex() == 0)
 						prg.next();
@@ -748,7 +748,8 @@ public class Calculator {
 		if (flg.getGto() == 1) {
 			tmp = new Number[3];
 
-			if (prg.getSize() <= 20) {
+			// TODO: refactor
+			if (ProgramMemory.SIZE <= 20) {
 				if (i == -1) {
 					tmp[0] = ZERO;
 					tmp[1] = ONE;
@@ -759,7 +760,7 @@ public class Calculator {
 					tmp[2] = n(i);
 					flg.setGto(4);
 				}
-			} else if (prg.getSize() <= 100) {
+			} else if (ProgramMemory.SIZE <= 100) {
 				if (i == -1)
 					return;
 				tmp[0] = ZERO;
@@ -934,7 +935,7 @@ public class Calculator {
 					dsp.setStatus(Display.STATUS_READY);
 				} else if (flg.getG() == 1) {
 					if (!prg.back())
-						prg.setCurrentIndex(prg.getSize() - 1);
+						prg.setCurrentIndex(ProgramMemory.SIZE - 1);
 					dsp.setStatus(Display.STATUS_READY);
 					flg.toggleG();
 				} else {
@@ -1135,7 +1136,7 @@ public class Calculator {
 
 		this.executeStep((Step) this.prg.get());
 
-		if (prg.getCurrentIndex() == prg.getSize() - 1) {
+		if (prg.getCurrentIndex() == ProgramMemory.SIZE - 1) {
 			this.stopProgram();
 		}
 	}

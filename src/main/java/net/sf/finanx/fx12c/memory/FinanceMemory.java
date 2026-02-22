@@ -8,80 +8,75 @@ import net.sf.finanx.fx12c.math.Number;
 import net.sf.finanx.fx12c.utils.Date;
 
 public class FinanceMemory {
-	
-	protected Number[] fin;
-	
+
+	public static final int N = 0;
+	public static final int I = 1;
+	public static final int PV = 2;
+	public static final int PMT = 3;
+	public static final int FV = 4;
+
+	public static final int SIZE = 5;
+
+	protected Number[] fin = new Number[SIZE];
+
 	public static final Number YEAR_360 = n(360);
 	public static final Number YEAR_365 = n(365);
-	
+
 	private boolean begin = false;
 	private boolean c = false;
-	
-	public FinanceMemory(int size) {
-		this.fin = new Number[size];
-		clear();
-		this.init();
-	}
-	
-	public FinanceMemory(Number[] fin) {
-		this.fin = fin;
-		this.init();
-	}
-	
-	public FinanceMemory(){
-		this(5);		
-	}
-	
-	public FinanceMemory(Number n, Number i, Number pv, Number pmt, Number fv){
-		this(5);
 
-		this.fin[0] = n;
-		this.fin[1] = i;
-		this.fin[2] = pv;
-		this.fin[3] = pmt;
-		this.fin[4] = fv;
+	public FinanceMemory() {
+		this.clear();
 	}
 
-	public void init(){ /* Do Nothing */ }
-	
-	public Number get(int idx){ return this.fin[idx]; }
-	public void set(int idx, Number val){ this.fin[idx] = val;}
-	
-	
-	public int getSize(){
-		return fin.length;
+	public Number get(int idx) {
+		return this.fin[idx];
 	}
-	
-	public void setArray(Number fin[]){
-		this.fin = fin;
+
+	public void set(int idx, Number val) {
+		this.fin[idx] = val;
 	}
-	
-	public Number [] getArray(){		
-		return this.fin;
+
+	public void setN(Number val) {
+		this.fin[N] = val;
 	}
-	
-	public void clear(){
-		for(int i = 0; i < fin.length; i++){
-			fin[i] = Number.ZERO;
-		}
+
+	public void setI(Number val) {
+		this.fin[I] = val;
 	}
-	
-	public void print() {
-		System.out.println(this);
-	}	
-	
-	public void setN(Number n){	this.fin[0] = n;}
-	public void setI(Number i){	this.fin[1] = i;}
-	public void setPv(Number pv){ this.fin[2] = pv;}
-	public void setPmt(Number pmt){	this.fin[3] = pmt;}
-	public void setFv(Number fv){ this.fin[4] = fv;}
-	
-	public Number getN(){ return this.fin[0]; }
-	public Number getI(){ return this.fin[1]; }
-	public Number getPv(){ return this.fin[2]; }
-	public Number getPmt(){ return this.fin[3]; }
-	public Number getFv(){ return this.fin[4]; }
-	
+
+	public void setPv(Number val) {
+		this.fin[PV] = val;
+	}
+
+	public void setPmt(Number val) {
+		this.fin[PMT] = val;
+	}
+
+	public void setFv(Number val) {
+		this.fin[FV] = val;
+	}
+
+	public Number getN() {
+		return this.fin[N];
+	}
+
+	public Number getI() {
+		return this.fin[I];
+	}
+
+	public Number getPv() {
+		return this.fin[PV];
+	}
+
+	public Number getPmt() {
+		return this.fin[PMT];
+	}
+
+	public Number getFv() {
+		return this.fin[FV];
+	}
+
 	public boolean isBegin() {
 		return begin;
 	}
@@ -98,19 +93,25 @@ public class FinanceMemory {
 		this.c = c;
 	}
 
+	public void clear() {
+		for (int i = 0; i < SIZE; i++) {
+			fin[i] = Number.ZERO;
+		}
+	}
+
 	public String toString() {
-		
+
 		String str = "==[FINANCE MEMORY]==\n";
-		
-		str += " - n  : "+this.fin[0] +"\n";
-		str += " - i  : "+this.fin[1] +"\n";
-		str += " - PV : "+this.fin[2] +"\n";
-		str += " - PMT: "+this.fin[3] +"\n";
-		str += " - FV : "+this.fin[4] +"\n";
-		
+
+		str += " - n  : " + this.fin[N] + "\n";
+		str += " - i  : " + this.fin[I] + "\n";
+		str += " - PV : " + this.fin[PV] + "\n";
+		str += " - PMT: " + this.fin[PMT] + "\n";
+		str += " - FV : " + this.fin[FV] + "\n";
+
 		return str;
 	}
-	
+
 	/**
 	 * Simple interest
 	 * 

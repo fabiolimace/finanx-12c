@@ -297,12 +297,8 @@ public class Configuration {
 		return Configuration.createGeneralMemory(this.getMemorySize());
 	}
 	
-	public static ProgramMemory createProgramMemory(int size) {
-		return new ProgramMemory(size);
-	}
-	
-	public ProgramMemory createProgramMemory() {
-		return Configuration.createProgramMemory(this.getProgramSize());
+	public static ProgramMemory createProgramMemory() {
+		return new ProgramMemory();
 	}
 	
 	public static FinanceMemory createFinanceMemory() {

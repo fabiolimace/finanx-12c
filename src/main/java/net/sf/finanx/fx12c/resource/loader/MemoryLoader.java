@@ -34,7 +34,7 @@ public class MemoryLoader extends XMLLoader {
 		this.stk = Configuration.createStack(cfg.getStackSize());
 		this.fin = Configuration.createFinanceMemory();
 		this.mem = Configuration.createGeneralMemory(cfg.getMemorySize());
-		this.prg = Configuration.createProgramMemory(cfg.getProgramSize());
+		this.prg = Configuration.createProgramMemory();
 
 		de = dom.getDocumentElement();
 		createMemory(de);
@@ -107,7 +107,7 @@ public class MemoryLoader extends XMLLoader {
 				}
 			}
 
-			for (int i = 0; i < this.fin.getSize(); i++) {
+			for (int i = 0; i < FinanceMemory.SIZE; i++) {
 				nl = e.getElementsByTagName("fin" + i);
 
 				if ((nl.getLength() > 0) && (nl != null)) {
@@ -137,7 +137,7 @@ public class MemoryLoader extends XMLLoader {
 				}
 			}
 
-			for (int i = 0; i < this.prg.getSize(); i++) {
+			for (int i = 0; i < ProgramMemory.SIZE; i++) {
 				nl = e.getElementsByTagName("prg" + i);
 
 				if ((nl.getLength() > 0) && (nl != null)) {
@@ -197,7 +197,7 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.fin.getSize(); i++) {
+		for (int i = 0; i < FinanceMemory.SIZE; i++) {
 			lisRm = de.getElementsByTagName("fin" + i);
 			eRm = (Element) lisRm.item(0);
 			if (eRm != null) {
@@ -213,7 +213,7 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.prg.getSize(); i++) {
+		for (int i = 0; i < ProgramMemory.SIZE; i++) {
 			lisRm = de.getElementsByTagName("prg" + i);
 			eRm = (Element) lisRm.item(0);
 			if (eRm != null) {
@@ -229,7 +229,7 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.fin.getSize(); i++) {
+		for (int i = 0; i < FinanceMemory.SIZE; i++) {
 			eAdd = dom.createElement("fin" + i);
 			eAdd.setAttribute("p0", fin.get(i) + "");
 			if (eAdd != null) {
@@ -246,11 +246,12 @@ public class MemoryLoader extends XMLLoader {
 			}
 		}
 
-		for (int i = 0; i < this.prg.getSize(); i++) {
+		for (int i = 0; i < ProgramMemory.SIZE; i++) {
+			Step step = prg.get(i);
 			eAdd = dom.createElement("prg" + i);
-			eAdd.setAttribute("p0", prg.getModifier(i).getCode() + "");
-			eAdd.setAttribute("p1", prg.getKey(i).getCode() + "");
-			eAdd.setAttribute("p2", prg.getComplement(i) + "");
+			eAdd.setAttribute("p0", step.getOp().getModifier().getCode() + "");
+			eAdd.setAttribute("p1", step.getOp().getKey().getCode() + "");
+			eAdd.setAttribute("p2", step.getComplement() + "");
 			if (eAdd != null) {
 				de.appendChild(eAdd);
 			}
