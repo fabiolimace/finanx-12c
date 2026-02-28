@@ -1155,11 +1155,13 @@ public class Calculator {
 	protected void executeProgramLoop() {
 		while (this.getFlags().getRun() == 1) {
 			this.executeSingleStep();
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				this.getFlags().setRun(0);
-				Thread.currentThread().interrupt();
+			if (!testing) {
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					this.getFlags().setRun(0);
+					Thread.currentThread().interrupt();
+				}
 			}
 		}
 	}
@@ -1858,7 +1860,7 @@ public class Calculator {
 			flg.toggleRcl();
 		} else {
 			stk.percentOfTotal();
-			stp.setOp(Op.OP_PERCENT_T);
+			stp.setOp(Op.OP_PERCENT_TOTAL);
 			dsp.setStatus(Display.STATUS_OUTPUT);
 		}
 	}

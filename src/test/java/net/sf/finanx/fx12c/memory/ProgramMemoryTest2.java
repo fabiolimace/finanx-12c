@@ -3,71 +3,20 @@ package net.sf.finanx.fx12c.memory;
 import static net.sf.finanx.fx12c.math.Number.*;
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import net.sf.finanx.fx12c.calc.Calculator;
 import net.sf.finanx.fx12c.calc.Op;
-import net.sf.finanx.fx12c.calc.Flags;
 
 /**
  * These tests are based on the video "Extending the HP-12C: Programming for
  * Scientific Applications ", by Edward Shore.
  * 
- * URL: https://www.youtube.com/watch?v=Q54UbDzpAIw
+ * Video URL: https://www.youtube.com/watch?v=Q54UbDzpAIw
  * 
  * Paper:
  * https://hhuc.us/2017/files/speakers/Eddie_Shore/Expanding_the_HP_12C-Notes.pdf
  */
-public class ProgramMemoryTest2 {
-
-	private Calculator cal;
-
-	@Before
-	public void setUp() throws Exception {
-
-		Flags flg = new Flags();
-		Stack stk = new Stack();
-		ProgramMemory prg = new ProgramMemory();
-
-		cal = new Calculator(/* testing = */ true);
-		cal.setFlags(flg);
-		cal.setStack(stk);
-		cal.setProgramMemory(prg);
-	}
-
-	private void executeProgram() {
-		cal.getProgramMemory().setCurrentIndex(0);
-		cal.getFlags().toggleRun();
-		cal.executeProgram();
-	}
-
-	private double stk(int i) {
-		return cal.getStack().get(i).d();
-	}
-
-	@Test
-	public void testTemplateProgram() throws Exception {
-		for (double x : new double[] { 1, 2, 3 }) {
-			setUp();
-			assertEquals(x, templateProgram(x), 1e-9);
-		}
-	}
-
-	private double templateProgram(double x) {
-
-//		X
-//		ENTER
-
-		cal.getStack().put(n(x));
-		cal.getDisplay().setValue(n(x));
-
-		cal.getProgramMemory().put(Op.OP_ENTER);
-
-		executeProgram();
-
-		return stk(0);
-	}
+public class ProgramMemoryTest2 extends ProgramMemoryTest {
 
 	@Test
 	public void testMultiplyBy100Program() throws Exception {
